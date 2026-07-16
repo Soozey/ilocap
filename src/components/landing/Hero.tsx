@@ -50,7 +50,7 @@ export default function Hero() {
             </motion.div>
             
             <motion.p variants={fadeFrom("bottom")} className="font-manrope text-base md:text-xl max-w-xl text-black/70 font-light leading-relaxed">
-              Construire ce qui dure. Transformer ce qui compte.
+              Construire ce qui dure et transformer ce qui compte.
             </motion.p>
             
             {/* CTAs avec ombre */}

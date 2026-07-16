@@ -22,7 +22,7 @@ const isDev = process.env.NODE_ENV === "development";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ilocap.com"),
   title: "ILOCAP | Le sens au centre de votre transformation",
-  description: "Conseil en stratégie et transformation digitale. Construire ce qui dure. Transformer ce qui compte.",
+  description: "Conseil en stratégie et transformation digitale. Construire ce qui dure et transformer ce qui compte.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
