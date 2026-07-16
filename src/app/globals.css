@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F3F1EC;
+  --color-petrol: #073642;
+  --color-gold: #B89A5A;
+  --color-muted: #6B6B6B;
+  --color-ink: #0B0C0A;
+  --color-ivory-muted: #A09B8C;
+  --color-alert: #C0392B;
+  --color-surface-dark: #141414;
+  --color-surface-dim: #1A1A1A;
+  --font-sora: "Sora", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+}
+
+* {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body {
+  background-color: #F3F1EC;
+  color: #073642;
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+}
+
+.transition-standard {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-shell {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-pad {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.surface-soft {
+  border: 1px solid rgba(7, 54, 66, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 18px 60px rgba(7, 54, 66, 0.07);
+}
+
+.surface-hover {
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.surface-hover:hover {
+  box-shadow: 0 22px 70px rgba(7, 54, 66, 0.1);
+  transform: translateY(-3px);
+}
+
+.button-elegant {
+  min-height: 48px;
+  border-radius: 8px;
+  letter-spacing: 0.2em;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.button-elegant:hover {
+  box-shadow: 0 14px 36px rgba(184, 154, 90, 0.18);
+  transform: translateY(-2px);
+}
+
+.eyebrow-line {
+  width: 48px;
+  height: 1px;
+  background-color: #B89A5A;
+  flex: 0 0 auto;
+}
+
+.px-gutter {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .px-gutter {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .section-pad {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-pad {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .button-elegant {
+    min-height: 46px;
+    letter-spacing: 0.14em;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* ============================================
+   CLASSES WIDGET DIAGNOSTIC - Mode elegant
+   ============================================ */
+
+.widget-elegant {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+}
+
+.widget-elegant-hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+}
+
+.widget-panel {
+  border-radius: 0 !important;
+  box-shadow: -4px 0 30px rgba(0,0,0,0.1) !important;
+}
+
+.widget-option {
+  border-radius: 6px !important;
+}
+
+.widget-progress {
+  border-radius: 999px !important;
+}
+
+.widget-badge {
+  border-radius: 4px !important;
+}
+
+.widget-input {
+  border-radius: 4px !important;
+}
+
+.widget-button {
+  border-radius: 4px !important;
+}
+
+.widget-avatar {
+  border-radius: 999px !important;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hero responsive : réduction drastique sur petits écrans */
+@media (max-height: 800px) {
+  .hero-compact h1 {
+    font-size: 2.5rem !important;
+  }
+  .hero-compact p {
+    font-size: 1.1rem !important;
+  }
+}

@@ -1,0 +1,126 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+type Consent = "all" | "essential" | "none" | null;
+
+type GtagWindow = Window & {
+  gtag?: (command: string, action: string, params: Record<string, string>) => void;
+};
+
+export default function CookieBanner() {
+  const [consent, setConsent] = useState<Consent>(null);
+  const [showDetails, setShowDetails] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("ilocap-cookies");
+    if (saved) setConsent(saved as Consent);
+  }, []);
+
+  const handleConsent = (choice: Consent) => {
+    setConsent(choice);
+    localStorage.setItem("ilocap-cookies", choice || "none");
+    
+    const analyticsWindow = window as GtagWindow;
+    if (choice === "all" && typeof window !== "undefined" && analyticsWindow.gtag) {
+      analyticsWindow.gtag("consent", "update", {
+        analytics_storage: "granted",
+        ad_storage: "denied"
+      });
+    }
+  };
+
+  if (consent) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        exit={{ y: 100 }}
+        className="fixed bottom-0 left-0 right-0 z-50 bg-[#073642] border-t border-[#B89A5A]/20 px-5 py-5 md:px-16 md:py-6"
+      >
+        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-6">
+          
+          <div className="flex-1">
+            <p className="font-[family-name:var(--font-sora)] text-sm text-[#F3F1EC] mb-2 flex items-center gap-2">
+              {/* Icône cookie */}
+              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="10" cy="10" r="8"/>
+                <circle cx="7" cy="8" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="12" cy="7" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="8" cy="13" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="13" cy="12" r="1" fill="currentColor" stroke="none"/>
+                <circle cx="10.5" cy="10.5" r="0.8" fill="currentColor" stroke="none"/>
+              </svg>
+              Gestion des cookies
+            </p>
+            <p className="font-[family-name:var(--font-manrope)] text-xs text-[#F3F1EC]/60 leading-relaxed">
+              Nous utilisons des cookies essentiels au fonctionnement du site et des cookies analytiques (Google Analytics) pour comprendre comment vous utilisez nos services.{" "}
+              <button 
+                onClick={() => setShowDetails(!showDetails)}
+                className="text-[#B89A5A] underline hover:text-[#F3F1EC]"
+              >
+                En savoir plus
+              </button>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:flex gap-3 w-full md:w-auto">
+            <button
+              onClick={() => setShowDetails(true)}
+              className="px-4 py-3 md:py-2 border border-[#F3F1EC]/10 text-[#F3F1EC]/60 text-[10px] uppercase tracking-wider hover:border-[#B89A5A] hover:text-[#B89A5A] transition-all rounded-[6px]"
+            >
+              Personnaliser
+            </button>
+            <button
+              onClick={() => handleConsent("essential")}
+              className="px-4 py-3 md:py-2 border border-[#F3F1EC]/10 text-[#F3F1EC]/60 text-[10px] uppercase tracking-wider hover:border-[#C0392B] hover:text-[#C0392B] transition-all rounded-[6px]"
+            >
+              Tout refuser
+            </button>
+            <button
+              onClick={() => handleConsent("all")}
+              className="col-span-2 px-6 py-3 md:py-2 bg-[#B89A5A] text-[#0B0C0A] text-[10px] uppercase tracking-wider font-bold hover:bg-[#F3F1EC] transition-all rounded-[6px]"
+            >
+              Tout accepter
+            </button>
+          </div>
+        </div>
+
+        {showDetails && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            className="mt-6 pt-6 border-t border-[#F3F1EC]/5"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-4 border border-[#F3F1EC]/5">
+                <div className="flex justify-between mb-2">
+                  <span className="text-[#F3F1EC] text-xs font-bold">Essentiels</span>
+                  <span className="text-[#B89A5A] text-xs">Obligatoire</span>
+                </div>
+                <p className="text-[#F3F1EC]/40 text-xs">Fonctionnement du site, préférences, panier...</p>
+              </div>
+              <div className="p-4 border border-[#F3F1EC]/5">
+                <div className="flex justify-between mb-2">
+                  <span className="text-[#F3F1EC] text-xs font-bold">Analytiques</span>
+                  <span className="text-[#B89A5A] text-xs">Google Analytics</span>
+                </div>
+                <p className="text-[#F3F1EC]/40 text-xs">Mesure d'audience, pages vues, comportement utilisateur.</p>
+              </div>
+              <div className="p-4 border border-[#F3F1EC]/5">
+                <div className="flex justify-between mb-2">
+                  <span className="text-[#F3F1EC] text-xs font-bold">Marketing</span>
+                  <span className="text-[#F3F1EC]/40 text-xs">Non utilisé</span>
+                </div>
+                <p className="text-[#F3F1EC]/40 text-xs">Publicité ciblée (non activé actuellement).</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
