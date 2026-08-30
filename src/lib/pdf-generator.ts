@@ -79,8 +79,8 @@ export function generateDiagnosticPDF(data: PDFData): Blob {
 
   y += 10;
   const niveauColors: Record<string, [number, number, number]> = {
-    "Survivant": [192, 57, 43],
-    "Opportuniste": [230, 126, 34],
+    "Structuration prioritaire": [192, 57, 43],
+    "Progression": [230, 126, 34],
     "Stratège": [184, 154, 90],
     "Leader": [7, 54, 66]
   };

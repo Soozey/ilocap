@@ -21,8 +21,12 @@ const isDev = process.env.NODE_ENV === "development";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ilocap.com"),
-  title: "ILOCAP | Le sens au centre de votre transformation",
-  description: "Conseil en stratégie et transformation digitale. Construire ce qui dure et transformer ce qui compte.",
+  title: {
+    default: "ILOCAP | Transformation digitale, IA et plateformes métier",
+    template: "%s",
+  },
+  description: "ILOCAP conseille, conçoit et déploie des plateformes métier, des solutions d'intelligence artificielle, d'automatisation et de paiement.",
+  alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -34,20 +38,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://ilocap.com",
     siteName: "ILOCAP",
-    title: "ILOCAP | Le sens au centre de votre transformation",
-    description: "Conseil en stratégie et transformation digitale.",
-    images: [{
-      url: "/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "ILOCAP - Transformation digitale",
-    }],
+    title: "ILOCAP | Transformation digitale, IA et plateformes métier",
+    description: "Des solutions digitales concrètes pour les entreprises, les institutions, les PME et les entrepreneurs.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ILOCAP",
-    description: "Le sens au centre de votre transformation",
-    images: ["/og-image.png"],
+    title: "ILOCAP | Transformation digitale",
+    description: "Des solutions digitales concrètes, de la stratégie au déploiement.",
   },
   robots: {
     index: true,

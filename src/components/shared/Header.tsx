@@ -8,9 +8,10 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [
-    { label: "Methodologie", href: "/methodologie" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
+    { label: "Institutions", href: "/institutions" },
+    { label: "PME", href: "/pme" },
+    { label: "Réalisations", href: "/realisations" },
+    { label: "Méthode", href: "/methodologie" },
   ];
 
   return (
@@ -22,12 +23,12 @@ export default function Header() {
             alt="ILOCAP"
             width={426}
             height={133}
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            className="h-14 w-auto object-contain md:h-16"
             priority
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 lg:gap-10">
+        <div className="hidden md:flex items-center gap-5 lg:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -41,10 +42,10 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/diagnostic"
+            href="/contact?objet=devis"
             className="button-elegant font-manrope uppercase font-bold flex items-center justify-center px-4 text-[9px] sm:px-5 sm:text-[10px] md:px-6 lg:px-7 lg:text-[11px] bg-[#B89A5A] text-[#0B0C0A] hover:bg-[#F3F1EC]"
           >
-            Diagnostic
+            Demander un devis
           </Link>
 
           <button

@@ -1,102 +1,90 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeFrom, stagger } from "@/lib/motion";
+
+const deliverySteps = ["Cadrage", "Conception", "Déploiement"];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 md:pt-32 pb-16 overflow-hidden bg-[#F3F1EC]">
-      
-      {/* === FORME GÉOMÉTRIQUE FANTÔME === */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 pointer-events-none opacity-[0.03]">
-        <svg width="600" height="600" viewBox="0 0 200 200" fill="none">
-          <path d="M100 20L160 40L180 100L160 160L100 180L40 160L20 100L40 40Z" stroke="#073642" strokeWidth="0.5"/>
-          <path d="M100 40L140 55L155 100L140 145L100 160L60 145L45 100L60 55Z" stroke="#073642" strokeWidth="0.3"/>
-        </svg>
-      </div>
+    <section className="relative overflow-hidden bg-[#F3F1EC] pt-32 pb-20 md:pt-40 md:pb-28">
+      <div className="absolute inset-y-0 right-0 hidden w-[42%] bg-[#073642] lg:block" />
+      <div className="absolute left-[8%] top-36 h-72 w-72 rounded-full border border-[#B89A5A]/15" />
+      <div className="absolute left-[13%] top-48 h-48 w-48 rounded-full border border-[#073642]/10" />
 
-      {/* === SÉPARATION SUBTILE HEADER/HERO === */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#073642]/10 to-transparent" />
-      
-      <div className="px-gutter section-shell w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Colonne gauche */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, margin: "-80px" }}
-            className="flex flex-col items-start gap-6 md:gap-7"
-          >
-            
-            {/* Label avec ligne de connexion */}
-            <motion.div variants={fadeFrom("top")} className="flex items-center gap-4 max-w-full">
+      <div className="section-shell px-gutter relative z-10">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+          <div className="max-w-3xl">
+            <div className="mb-7 flex items-center gap-4">
               <div className="eyebrow-line" />
-              <span className="font-manrope text-[11px] md:text-[12px] uppercase text-[#073642] tracking-[0.2em] font-bold leading-relaxed">
-                CONSEIL EN STRATÉGIE & DIGITAL
-              </span>
-            </motion.div>
-            
-            {/* Titre avec accent visuel */}
-            <motion.div variants={fadeFrom("left")} className="relative">
-              <h1 className="font-sora text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-[1.03] text-[#073642] max-w-[760px]">
-                Le sens au centre de votre <span className="text-[#B89A5A]">transformation</span>
-              </h1>
-              {/* Ligne décorative sous le titre */}
-              <div className="mt-5 w-24 h-[2px] bg-[#B89A5A]" />
-            </motion.div>
-            
-            <motion.p variants={fadeFrom("bottom")} className="font-manrope text-base md:text-xl max-w-xl text-black/70 font-light leading-relaxed">
-              Construire ce qui dure et transformer ce qui compte.
-            </motion.p>
-            
-            {/* CTAs avec ombre */}
-            <motion.div variants={fadeFrom("bottom")} className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-              <Link 
+              <p className="font-manrope text-[11px] font-bold uppercase tracking-[0.2em] text-[#073642] md:text-xs">
+                Transformation digitale · IA · plateformes métier
+              </p>
+            </div>
+
+            <h1 className="font-sora text-[2.45rem] leading-[1.04] text-[#073642] sm:text-5xl md:text-6xl lg:text-[4.4rem]">
+              Transformons vos enjeux en solutions digitales <span className="text-[#B89A5A]">concrètes.</span>
+            </h1>
+
+            <p className="mt-7 max-w-2xl font-manrope text-base leading-relaxed text-[#073642]/72 md:text-xl">
+              ILOCAP accompagne les institutions, les entreprises et les entrepreneurs, de la stratégie au déploiement, avec des solutions utiles, sécurisées et adaptées à leurs réalités.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact?objet=devis"
+                className="button-elegant inline-flex items-center justify-center bg-[#073642] px-7 text-center font-manrope text-[11px] font-bold uppercase text-white hover:bg-[#B89A5A]"
+              >
+                Demander une étude et un devis
+              </Link>
+              <Link
                 href="https://calendly.com/candriatiana/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="button-elegant bg-[#073642] text-white px-6 md:px-7 font-manrope text-[10px] md:text-xs uppercase font-bold hover:bg-[#B89A5A] flex items-center justify-center text-center"
+                className="button-elegant inline-flex items-center justify-center border border-[#B89A5A] bg-white/50 px-7 text-center font-manrope text-[11px] font-bold uppercase text-[#073642] hover:bg-[#B89A5A] hover:text-white"
               >
-                Prendre RDV (30 min)
+                Prendre rendez-vous
               </Link>
-              
-              <Link 
-                href="#expertises"
-                className="button-elegant border border-[#B89A5A] text-[#073642] bg-white/40 backdrop-blur-sm px-6 md:px-7 font-manrope text-[10px] md:text-xs uppercase font-bold hover:bg-[#B89A5A] hover:text-white flex items-center justify-center text-center"
-              >
-                Explorer nos solutions
-              </Link>
-            </motion.div>
-          </motion.div>
-          
-          {/* Colonne droite : logo avec halo */}
-          <motion.div
-            variants={fadeFrom("right")}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, margin: "-80px" }}
-            className="hidden lg:flex justify-center items-center relative pl-8"
-          >
-            <div className="relative w-full max-w-[440px] flex items-center justify-center">
-              {/* Halo subtil derrière le logo */}
-              <div className="absolute inset-0 bg-[#B89A5A]/5 rounded-full blur-3xl scale-150" />
-              <Image
-                src="/Logo_ilocap_icon_rm.png" 
-                alt="ILOCAP Icon" 
-                width={440}
-                height={440}
-                className="w-full h-auto max-w-[440px] object-contain relative z-10"
-                style={{ 
-                  animation: "spin-slow 30s linear infinite",
-                  transformOrigin: "center center"
-                }}
-              />
             </div>
-          </motion.div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-[#073642]/10 pt-6">
+              {deliverySteps.map((step, index) => (
+                <div key={step} className="flex items-center gap-3">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#B89A5A]/40 font-sora text-[10px] text-[#B89A5A]">
+                    {index + 1}
+                  </span>
+                  <span className="font-manrope text-xs font-semibold uppercase tracking-[0.12em] text-[#073642]/70">
+                    {step}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative lg:pl-8">
+            <div className="rounded-[18px] border border-[#B89A5A]/30 bg-[#073642] p-6 text-white shadow-[0_28px_80px_rgba(7,54,66,0.24)] md:p-8">
+              <p className="font-manrope text-[10px] font-bold uppercase tracking-[0.24em] text-[#B89A5A]">
+                Deux parcours, un même engagement
+              </p>
+              <div className="mt-6 space-y-4">
+                <Link href="/institutions" className="group block rounded-[12px] border border-white/12 bg-white/5 p-5 transition hover:border-[#B89A5A]/70 hover:bg-white/10">
+                  <p className="font-sora text-lg uppercase">Entreprises & institutions</p>
+                  <p className="mt-2 font-manrope text-sm leading-relaxed text-white/65">
+                    Digitaliser les processus, interconnecter les systèmes et sécuriser les opérations.
+                  </p>
+                  <span className="mt-4 inline-flex font-manrope text-[10px] font-bold uppercase tracking-[0.18em] text-[#B89A5A]">
+                    Explorer ce parcours →
+                  </span>
+                </Link>
+                <Link href="/pme" className="group block rounded-[12px] border border-white/12 bg-white/5 p-5 transition hover:border-[#B89A5A]/70 hover:bg-white/10">
+                  <p className="font-sora text-lg uppercase">PME & entrepreneurs</p>
+                  <p className="mt-2 font-manrope text-sm leading-relaxed text-white/65">
+                    Gagner du temps, mieux vendre et automatiser les opérations quotidiennes.
+                  </p>
+                  <span className="mt-4 inline-flex font-manrope text-[10px] font-bold uppercase tracking-[0.18em] text-[#B89A5A]">
+                    Explorer ce parcours →
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

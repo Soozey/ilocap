@@ -8,21 +8,19 @@ export default function FloatingCTA() {
     <motion.div
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 2, duration: 0.5 }}
+      transition={{ delay: 0.8, duration: 0.4 }}
       className="fixed bottom-6 right-6 z-40"
     >
       <Link
-        href="/diagnostic"
+        href="/contact?objet=devis"
         className="flex flex-col items-center justify-center bg-[#B89A5A] text-[#073642] px-4 py-3 md:px-5 md:py-4 rounded-[10px] font-[family-name:var(--font-manrope)] text-[9px] md:text-[10px] uppercase tracking-[0.18em] font-bold shadow-lg shadow-[#B89A5A]/30 hover:bg-[#F3F1EC] hover:scale-105 transition-all duration-300"
       >
-        {/* Icône graphique : histogramme */}
         <svg className="w-5 h-5 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="2" y="10" width="3" height="8" rx="0.5" fill="currentColor" stroke="none"/>
-          <rect x="8" y="6" width="3" height="12" rx="0.5" fill="currentColor" stroke="none"/>
-          <rect x="14" y="2" width="3" height="16" rx="0.5" fill="currentColor" stroke="none"/>
+          <path d="M3 4h14v10H8l-4 3v-3H3V4Z" />
+          <path d="M6 8h8M6 11h5" />
         </svg>
-        <span className="leading-tight">Faire mon</span>
-        <span className="leading-tight">diagnostic</span>
+        <span className="leading-tight">Parler de mon</span>
+        <span className="leading-tight">projet</span>
       </Link>
     </motion.div>
   );
