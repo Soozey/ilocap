@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Sora, Manrope } from "next/font/google";
 import Script from "next/script";
+import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
 import "./globals.css";
 
 const sora = Sora({
@@ -107,6 +109,9 @@ export default function RootLayout({
       </Script>
       
       <body className={`${sora.variable} ${manrope.variable} font-[family-name:var(--font-manrope)] antialiased bg-[#F3F1EC]`}>
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
         {children}
         {isDev && (
           <Script id="disable-service-worker-dev" strategy="afterInteractive">
