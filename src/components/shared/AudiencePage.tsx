@@ -3,7 +3,6 @@ import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
-import CookieBanner from "@/components/shared/CookieBanner";
 
 type AudiencePageProps = {
   eyebrow: string;
@@ -105,7 +104,6 @@ export default function AudiencePage({ eyebrow, title, accent, introduction, cha
       </main>
       <Footer />
       <FloatingCTA />
-      <CookieBanner />
     </>
   );
 }
