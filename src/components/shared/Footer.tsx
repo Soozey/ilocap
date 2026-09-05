@@ -1,88 +1,59 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
+import AnimatedLogo from "@/components/shared/AnimatedLogo";
+
+const links = [
+  { label: "Solutions & accélérateurs", href: "/services#accelerateurs" },
+  { label: "Entreprises & institutions", href: "/institutions" },
+  { label: "PME & entrepreneurs", href: "/pme" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "Notre méthode", href: "/methodologie" },
+  { label: "Notre regard sur l’IA", href: "/insights/ia-et-expertise" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-ivory border-t border-[#073642]/10">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 py-20 lg:py-24 px-gutter section-shell">
-        <div className="md:col-span-4 flex flex-col gap-8">
-          <Image 
-            src="/Logo_ilocap_coloured-rm.png" 
-            alt="ILOCAP" 
-            width={160} 
-            height={60} 
-            className="object-contain"
-          />
-          <p className="font-manrope text-base text-black max-w-xs font-light leading-relaxed">
-            Architectes de la transformation digitale responsable. Nous creons des structures perennes au service du sens.
+    <footer className="border-t border-[#111A2E]/10 bg-[#EBFFF5]">
+      <div className="section-shell grid gap-12 px-gutter py-16 md:grid-cols-12 md:py-20">
+        <div className="md:col-span-5">
+          <AnimatedLogo variant="coloured" placement="footer" />
+          <p className="mt-7 max-w-md font-manrope text-base leading-relaxed text-[#111A2E]/65">
+            Nous créons des plateformes digitales intelligentes, de la stratégie au déploiement.
           </p>
-          <div className="flex gap-4">
-            <a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-[#073642]/15 hover:border-gold text-[#073642] hover:text-gold transition-standard rounded-[8px]">
-              <span className="text-base">in</span>
-            </a>
-            <a href="https://x.com/ilocap" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-[#073642]/15 hover:border-gold text-[#073642] hover:text-gold transition-standard rounded-[8px]">
-              <span className="text-base">X</span>
-            </a>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="rounded-[8px] border border-[#111A2E]/15 px-4 py-3 font-manrope text-[10px] font-bold uppercase tracking-[0.16em] text-[#111A2E] hover:border-[#18845B] hover:text-[#18845B]">LinkedIn</a>
+            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="rounded-[8px] border border-[#111A2E]/15 px-4 py-3 font-manrope text-[10px] font-bold uppercase tracking-[0.16em] text-[#111A2E] hover:border-[#18845B] hover:text-[#18845B]">Rendez-vous</a>
           </div>
         </div>
-        
-        <div className="md:col-span-2">
-          <h4 className="font-manrope text-xs uppercase text-gold font-bold mb-8 tracking-widest">Expertise</h4>
-          <ul className="flex flex-col gap-4">
-            {["Audit", "Strategie", "Transition"].map((item) => (
-              <li key={item}>
-                <Link href="/services" className="font-manrope text-xs uppercase text-black hover:text-[#073642] transition-standard tracking-wider">
-                  {item}
-                </Link>
+
+        <div className="md:col-span-3">
+          <h2 className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#18845B]">Explorer</h2>
+          <ul className="mt-6 space-y-4">
+            {links.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="font-manrope text-sm text-[#111A2E]/70 transition hover:text-[#111A2E]">{item.label}</Link>
               </li>
             ))}
           </ul>
         </div>
-        
-        <div className="md:col-span-2">
-          <h4 className="font-manrope text-xs uppercase text-gold font-bold mb-8 tracking-widest">Projets</h4>
-          <ul className="flex flex-col gap-4">
-            {["Industrie", "Public", "E-sante"].map((item) => (
-              <li key={item}>
-                <Link href="/services" className="font-manrope text-xs uppercase text-black hover:text-[#073642] transition-standard tracking-wider">
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
+
         <div className="md:col-span-4">
-          <h4 className="font-manrope text-xs uppercase text-gold font-bold mb-8 tracking-widest">Newsletter</h4>
-          <p className="font-manrope text-xs text-black uppercase mb-6 tracking-wide">Analyses trimestrielles exclusives</p>
-          <form action="mailto:management@ilocap.com" method="post" encType="text/plain" className="flex border border-[#073642]/15 bg-white rounded-[10px] overflow-hidden shadow-[0_14px_40px_rgba(7,54,66,0.06)]">
-            <input 
-              type="email" 
-              name="email"
-              placeholder="VOTRE EMAIL" 
-              required
-              className="bg-transparent border-none focus:ring-0 text-[#073642] font-manrope text-sm p-5 w-full placeholder:text-[#073642]/60"
-            />
-            <button type="submit" className="bg-[#073642] text-white px-8 transition-standard hover:bg-gold" aria-label="Envoyer l'email newsletter">
-              →
-            </button>
-          </form>
+          <h2 className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#18845B]">Démarrer un projet</h2>
+          <p className="mt-6 font-manrope text-sm leading-relaxed text-[#111A2E]/65">
+            Présentez-nous votre besoin. Nous vous répondrons avec une première orientation et les prochaines étapes possibles.
+          </p>
+          <Link href="/contact?objet=devis" className="button-elegant mt-7 inline-flex items-center justify-center bg-[#111A2E] px-6 font-manrope text-[10px] font-bold uppercase text-white hover:bg-[#18845B]">
+            Parler d’un projet
+          </Link>
         </div>
       </div>
-      
-      <div className="border-t border-[#073642]/10 py-10 px-gutter section-shell flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="font-manrope text-xs uppercase text-black tracking-widest">
-          © 2024 ILOCAP. TOUS DROITS RESERVES.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 text-center">
-          <Link href="/contact" className="font-manrope text-xs uppercase text-black hover:text-[#073642] transition-standard tracking-widest">
-            Mentions Legales
-          </Link>
-          <Link href="/contact" className="font-manrope text-xs uppercase text-black hover:text-[#073642] transition-standard tracking-widest">
-            Confidentialite
-          </Link>
+
+      <div className="border-t border-[#111A2E]/10">
+        <div className="section-shell flex flex-col gap-4 px-gutter py-7 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <p className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55">© {new Date().getFullYear()} ILOCAP. Tous droits réservés.</p>
+          <div className="flex justify-center gap-6">
+            <Link href="/contact" className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55 hover:text-[#111A2E]">Contact</Link>
+            <Link href="/contact" className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55 hover:text-[#111A2E]">Confidentialité</Link>
+          </div>
         </div>
       </div>
     </footer>

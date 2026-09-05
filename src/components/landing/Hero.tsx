@@ -1,102 +1,42 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeFrom, stagger } from "@/lib/motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 md:pt-32 pb-16 overflow-hidden bg-[#F3F1EC]">
-      
-      {/* === FORME GÉOMÉTRIQUE FANTÔME === */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 pointer-events-none opacity-[0.03]">
-        <svg width="600" height="600" viewBox="0 0 200 200" fill="none">
-          <path d="M100 20L160 40L180 100L160 160L100 180L40 160L20 100L40 40Z" stroke="#073642" strokeWidth="0.5"/>
-          <path d="M100 40L140 55L155 100L140 145L100 160L60 145L45 100L60 55Z" stroke="#073642" strokeWidth="0.3"/>
-        </svg>
-      </div>
-
-      {/* === SÉPARATION SUBTILE HEADER/HERO === */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#073642]/10 to-transparent" />
-      
-      <div className="px-gutter section-shell w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Colonne gauche */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, margin: "-80px" }}
-            className="flex flex-col items-start gap-6 md:gap-7"
-          >
-            
-            {/* Label avec ligne de connexion */}
-            <motion.div variants={fadeFrom("top")} className="flex items-center gap-4 max-w-full">
-              <div className="eyebrow-line" />
-              <span className="font-manrope text-[11px] md:text-[12px] uppercase text-[#073642] tracking-[0.2em] font-bold leading-relaxed">
-                CONSEIL EN STRATÉGIE & DIGITAL
-              </span>
-            </motion.div>
-            
-            {/* Titre avec accent visuel */}
-            <motion.div variants={fadeFrom("left")} className="relative">
-              <h1 className="font-sora text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-[1.03] text-[#073642] max-w-[760px]">
-                Le sens au centre de votre <span className="text-[#B89A5A]">transformation</span>
-              </h1>
-              {/* Ligne décorative sous le titre */}
-              <div className="mt-5 w-24 h-[2px] bg-[#B89A5A]" />
-            </motion.div>
-            
-            <motion.p variants={fadeFrom("bottom")} className="font-manrope text-base md:text-xl max-w-xl text-black/70 font-light leading-relaxed">
-              Construire ce qui dure et transformer ce qui compte.
-            </motion.p>
-            
-            {/* CTAs avec ombre */}
-            <motion.div variants={fadeFrom("bottom")} className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-              <Link 
-                href="https://calendly.com/candriatiana/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-elegant bg-[#073642] text-white px-6 md:px-7 font-manrope text-[10px] md:text-xs uppercase font-bold hover:bg-[#B89A5A] flex items-center justify-center text-center"
-              >
-                Prendre RDV (30 min)
+    <section className="relative overflow-hidden bg-[#111A2E] pb-16 pt-32 text-white md:pb-20 md:pt-40 lg:h-[calc(100svh-74px)] lg:min-h-[580px] lg:max-h-[720px] lg:py-0">
+      <div className="absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-[#D6B24F]/10 blur-[120px]" />
+      <div className="section-shell px-gutter relative z-10 lg:flex lg:h-full lg:items-center lg:pt-24">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+          <div className="max-w-2xl">
+            <p className="section-kicker border-white/14 text-[#9ADDCB] lg:px-[13px] lg:py-2 lg:text-[10px]">
+              ILOCAP · Studio digital
+            </p>
+            <h1 className="mt-6 max-w-2xl font-sora text-[2.55rem] leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl lg:text-[4.15rem]">
+              Nous donnons forme à <span className="brand-gradient-text">vos ambitions digitales.</span>
+            </h1>
+            <p className="mt-6 max-w-lg font-manrope text-base leading-relaxed text-white/62 lg:text-[1.15rem]">
+              Des solutions pensées pour vos métiers, utiles aujourd’hui et conçues pour évoluer avec vous.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact?objet=devis" className="button-elegant button-home-primary inline-flex items-center justify-center px-8 font-manrope text-[11px] font-extrabold uppercase lg:min-h-[58px] lg:px-10 lg:text-xs">
+                Parler de votre projet
               </Link>
-              
-              <Link 
-                href="#expertises"
-                className="button-elegant border border-[#B89A5A] text-[#073642] bg-white/40 backdrop-blur-sm px-6 md:px-7 font-manrope text-[10px] md:text-xs uppercase font-bold hover:bg-[#B89A5A] hover:text-white flex items-center justify-center text-center"
-              >
-                Explorer nos solutions
+              <Link href="/realisations" className="button-elegant button-home-secondary inline-flex items-center justify-center px-8 font-manrope text-[11px] font-extrabold uppercase lg:min-h-[58px] lg:px-10 lg:text-xs">
+                Voir nos réalisations
               </Link>
-            </motion.div>
-          </motion.div>
-          
-          {/* Colonne droite : logo avec halo */}
-          <motion.div
-            variants={fadeFrom("right")}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, margin: "-80px" }}
-            className="hidden lg:flex justify-center items-center relative pl-8"
-          >
-            <div className="relative w-full max-w-[440px] flex items-center justify-center">
-              {/* Halo subtil derrière le logo */}
-              <div className="absolute inset-0 bg-[#B89A5A]/5 rounded-full blur-3xl scale-150" />
-              <Image
-                src="/Logo_ilocap_icon_rm.png" 
-                alt="ILOCAP Icon" 
-                width={440}
-                height={440}
-                className="w-full h-auto max-w-[440px] object-contain relative z-10"
-                style={{ 
-                  animation: "spin-slow 30s linear infinite",
-                  transformOrigin: "center center"
-                }}
-              />
             </div>
-          </motion.div>
+          </div>
+
+          <div className="relative lg:scale-[1.1] xl:scale-[1.15]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] bg-[#17243B] shadow-[0_45px_120px_rgba(0,0,0,.35)]">
+              <Image src="/hero-studio-digital.webp" alt="Studio digital premium illustrant le savoir-faire ILOCAP" fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#111A2E]/22 via-transparent to-[#D6B24F]/8" />
+            </div>
+            <div className="absolute -bottom-5 left-6 right-6 flex items-center justify-between rounded-[14px] border border-white/10 bg-[#17243B]/90 px-5 py-4 backdrop-blur-xl md:left-10 md:right-10">
+              <p className="font-manrope text-[9px] font-bold uppercase tracking-[0.18em] text-white/62">Stratégie · Design · Technologie</p>
+              <span className="h-2.5 w-2.5 rounded-full bg-[#D6B24F] shadow-[0_0_18px_rgba(214,178,79,.72)]" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

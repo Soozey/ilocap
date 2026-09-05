@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 import Link from "next/link";
 
 const LEVIERS = [
   {
-    title: "Dominer votre marche",
-    description: "Creer une identite magnetique pour capturer l'attention de vos cibles et vous demarquer durablement.",
+    title: "Clarifier votre positionnement",
+    description: "Exprimer clairement votre valeur et construire des parcours cohérents pour vos publics.",
     icon: (
       <svg className="w-7 h-7 text-[#B89A5A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
@@ -16,8 +17,8 @@ const LEVIERS = [
     )
   },
   {
-    title: "Exceller operationnellement",
-    description: "Automatisez vos taches chronophages pour vous concentrer sur vos priorites strategiques.",
+    title: "Exceller opérationnellement",
+    description: "Automatiser les tâches chronophages pour concentrer les équipes sur les priorités stratégiques.",
     icon: (
       <svg className="w-7 h-7 text-[#B89A5A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" strokeLinejoin="round"/>
@@ -26,7 +27,7 @@ const LEVIERS = [
   },
   {
     title: "Affirmer votre valeur",
-    description: "Communiquez clairement vos engagements et votre caractere unique pour creer du lien.",
+    description: "Relier chaque décision digitale à une valeur concrète pour vos clients, usagers et équipes.",
     icon: (
       <svg className="w-7 h-7 text-[#B89A5A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/>
@@ -35,7 +36,7 @@ const LEVIERS = [
   },
   {
     title: "Mesurer pour progresser",
-    description: "Pilotez par la donnee pour optimiser chaque decision et chaque investissement.",
+    description: "Piloter par la donnée pour améliorer chaque décision et chaque investissement.",
     icon: (
       <svg className="w-7 h-7 text-[#B89A5A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="4" y="14" width="3" height="7" rx="0.5" fill="currentColor" stroke="none"/>
@@ -50,28 +51,29 @@ const LEVIERS = [
 const ETAPES = [
   {
     num: "01",
-    title: "Audit & Strategie",
-    description: "Une immersion totale dans vos enjeux pour une feuille de route sans ambiguite."
+    title: "Cadrage & stratégie",
+    description: "Objectifs, utilisateurs, contraintes et priorités réunis dans une feuille de route réaliste."
   },
   {
     num: "02",
-    title: "Technologie juste",
-    description: "Le meilleur de l'innovation (IA, Data) sans surdimensionnement."
+    title: "Conception utile",
+    description: "Des parcours, interfaces et choix techniques proportionnés à vos usages."
   },
   {
     num: "03",
-    title: "Vision strategique",
-    description: "Des interfaces pensees pour engager vos utilisateurs et marquer les esprits."
+    title: "Déploiement maîtrisé",
+    description: "Développement, intégration et tests par étapes pour sécuriser la mise en service."
   },
   {
     num: "04",
-    title: "Accompagnement continu",
-    description: "Une equipe reactive a vos cotes, de la conception au deploiement."
+    title: "Adoption & évolution",
+    description: "Formation, accompagnement des équipes et amélioration continue après le lancement."
   }
 ];
 
 export default function MethodologiePage() {
   return (
+    <>
     <main className="min-h-screen bg-[#F5F3EE] text-[#073642]">
       <Header />
       
@@ -80,7 +82,7 @@ export default function MethodologiePage() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-8 h-[1px] bg-[#B89A5A]" />
             <span className="font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] text-[#B89A5A]">
-              Notre methode
+              Notre méthode
             </span>
             <div className="w-8 h-[1px] bg-[#B89A5A]" />
           </div>
@@ -88,9 +90,9 @@ export default function MethodologiePage() {
             Cessez de subir le digital. <span className="text-[#B89A5A]">Faites-en</span> votre levier.
           </h1>
           <p className="font-[family-name:var(--font-manrope)] text-sm md:text-base text-[#073642]/60 max-w-2xl mx-auto">
-            Chez ILOCAP, la transformation digitale n'est pas une obligation technique. 
-            Nous la concevons comme un levier de performance. Un digital humain, accessible 
-            et parfaitement aligne avec vos enjeux.
+            Chez ILOCAP, la transformation digitale n’est pas une obligation technique.
+            Nous la concevons comme un levier de performance. Un digital humain, accessible
+            et parfaitement aligné avec vos enjeux.
           </p>
         </div>
       </section>
@@ -101,38 +103,38 @@ export default function MethodologiePage() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               <h2 className="font-[family-name:var(--font-sora)] text-2xl md:text-3xl uppercase mb-6">
-                Transformez vos ambitions en <span className="text-[#B89A5A]">resultats mesurables</span>
+                Transformez vos ambitions en <span className="text-[#B89A5A]">résultats mesurables</span>
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Vision strategique</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Vos objectifs pilotent la technologie, jamais l'inverse.</p>
+                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Vision stratégique</p>
+                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Vos objectifs pilotent la technologie, jamais l’inverse.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Impact immediat</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Des solutions pragmatiques pour des gains de temps et d'argent rapides.</p>
+                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Impact progressif</p>
+                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Des résultats utiles dès les premières étapes, puis améliorés avec les retours terrain.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
                     <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Partenariat de confiance</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Nous sommes le prolongement de votre equipe, pas un prestataire.</p>
+                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Nous travaillons comme le prolongement de votre équipe.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">ROI garanti</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Chaque ligne de code, chaque design doit servir votre croissance.</p>
+                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Impact vérifiable</p>
+                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Chaque fonctionnalité doit répondre à un objectif observable.</p>
                   </div>
                 </div>
               </div>
@@ -140,14 +142,14 @@ export default function MethodologiePage() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex justify-center"
             >
               <div className="w-64 h-64 border border-[#B89A5A]/20 rounded-full flex items-center justify-center relative">
                 <div className="absolute inset-0 border border-[#B89A5A]/10 rounded-full animate-pulse" />
                 <div className="text-center">
                   <p className="font-[family-name:var(--font-sora)] text-4xl text-[#B89A5A]">360°</p>
-                  <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60 mt-2">Vision complete<br/>du business</p>
+                  <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60 mt-2">Vision complète<br/>du projet</p>
                 </div>
               </div>
             </motion.div>
@@ -161,7 +163,7 @@ export default function MethodologiePage() {
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
               <span className="font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] text-[#B89A5A]">
-                Strategie globale
+                Stratégie globale
               </span>
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
             </div>
@@ -176,7 +178,7 @@ export default function MethodologiePage() {
                 key={levier.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="bg-[#F5F3EE] border border-[#E5E5E5] p-8 hover:border-[#B89A5A] transition-all duration-300 rounded-sm"
               >
@@ -204,7 +206,7 @@ export default function MethodologiePage() {
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
             </div>
             <h2 className="font-[family-name:var(--font-sora)] text-2xl md:text-3xl uppercase">
-              Une methodologie <span className="text-[#B89A5A]">eprouvee</span>, de l'idee au deploiement
+              Une méthodologie <span className="text-[#B89A5A]">éprouvée</span>, de l’idée au déploiement
             </h2>
           </div>
 
@@ -214,7 +216,7 @@ export default function MethodologiePage() {
                 key={etape.num}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
                 className="flex items-start gap-8"
               >
@@ -237,14 +239,14 @@ export default function MethodologiePage() {
 
       <section className="pb-24 px-6 lg:px-16 text-center">
         <h2 className="font-[family-name:var(--font-sora)] text-2xl uppercase mb-8 text-[#073642]">
-          Pret a donner du sens a votre <span className="text-[#B89A5A]">digital</span> ?
+          Prêt à transformer un besoin en <span className="text-[#B89A5A]">projet concret</span> ?
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/services"
+            href="/contact?objet=devis"
             className="bg-[#073642] text-[#F3F1EC] px-12 py-5 font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#B89A5A] transition-all rounded-sm"
           >
-            Voir nos services →
+            Demander une étude et un devis →
           </Link>
           <Link
             href="https://calendly.com/candriatiana/30min"
@@ -256,5 +258,7 @@ export default function MethodologiePage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

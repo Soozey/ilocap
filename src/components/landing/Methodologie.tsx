@@ -6,23 +6,23 @@ import { fadeFrom, stagger } from "@/lib/motion";
 const steps = [
   {
     number: "01",
-    title: "Audit et Strategie",
-    description: "Une immersion totale dans vos enjeux pour une feuille de route sans faille. Nous cartographions vos processus, identifions les fuites et priorisons les quick wins.",
+    title: "Cadrage et stratégie",
+    description: "Nous clarifions les objectifs, les utilisateurs, les contraintes et les priorités afin de construire une feuille de route réaliste.",
   },
   {
     number: "02",
-    title: "Technologie Juste",
-    description: "Le meilleur de l'innovation (IA, Data) sans surdimensionnement. Nous selectionnons les outils adaptes a votre maturite et a votre budget.",
+    title: "Conception utile",
+    description: "Nous concevons les parcours, les interfaces et l’architecture autour de vos usages, sans complexité inutile.",
   },
   {
     number: "03",
-    title: "Vision Strategique",
-    description: "Des interfaces pensees pour engager vos utilisateurs et marquer les esprits. Design et experience au service de vos objectifs business.",
+    title: "Déploiement maîtrisé",
+    description: "Nous développons, intégrons et testons la solution par étapes pour sécuriser la mise en service et les données.",
   },
   {
     number: "04",
-    title: "Accompagnement Continu",
-    description: "Une equipe reactive a vos cotes, de la conception au deploiement. Formation, support et optimisation continue pour garantir le ROI.",
+    title: "Adoption et amélioration",
+    description: "Nous formons les équipes, accompagnons le changement et faisons évoluer la solution à partir des retours terrain.",
   },
 ];
 
@@ -34,15 +34,15 @@ export default function Methodologie() {
           variants={fadeFrom("left")}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, margin: "-120px" }}
+          viewport={{ once: true, margin: "-80px" }}
           className="mb-14 md:mb-20"
         >
           <h2 className="font-sora text-3xl md:text-4xl lg:text-5xl uppercase mb-6 text-petrol leading-tight">
-            Notre Approche
+            Une méthode qui va jusqu’au résultat
           </h2>
           <div className="h-[2px] w-32 bg-gold" />
           <p className="font-manrope text-base md:text-lg text-muted mt-6 max-w-2xl leading-relaxed">
-            Une methodologie eprouvee, de l'idee au resultat mesurable.
+            Un interlocuteur engagé, du premier cadrage à l’adoption par vos équipes.
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function Methodologie() {
             variants={stagger}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-60px" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           >
             {steps.map((step, index) => (

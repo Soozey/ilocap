@@ -78,6 +78,135 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
+.button-teal-solid {
+  border: 1px solid rgba(126, 225, 213, 0.26);
+  background: linear-gradient(120deg, #17656b 0%, #287f84 100%);
+  color: #f4fffb;
+  box-shadow: 0 14px 34px rgba(15, 94, 101, 0.26);
+  transition: background 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.button-teal-solid:hover {
+  border-color: rgba(147, 235, 224, 0.58);
+  background: linear-gradient(120deg, #1c747a 0%, #329096 100%);
+  box-shadow: 0 18px 42px rgba(19, 111, 117, 0.32);
+  transform: translateY(-2px);
+}
+
+.button-logo-lavender {
+  border: 1px solid rgba(214, 222, 250, 0.52);
+  background: linear-gradient(120deg, #aebadf 0%, #c4c9ed 100%);
+  color: #111a2e;
+  box-shadow: 0 14px 34px rgba(164, 175, 220, 0.2);
+  transition: background 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.button-logo-lavender:hover {
+  border-color: rgba(236, 239, 255, 0.78);
+  background: linear-gradient(120deg, #bac5e8 0%, #d0d5f4 100%);
+  box-shadow: 0 18px 42px rgba(175, 185, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+.button-teal-outline {
+  border: 1px solid rgba(62, 166, 170, 0.72);
+  background: rgba(7, 25, 39, 0.08);
+  color: #edfdf9;
+  transition: background-color 250ms ease, border-color 250ms ease,
+    color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+}
+
+.button-teal-outline:hover {
+  border-color: rgba(118, 220, 209, 0.88);
+  background: rgba(42, 133, 139, 0.14);
+  box-shadow: 0 14px 34px rgba(11, 86, 92, 0.18);
+  transform: translateY(-2px);
+}
+
+.button-home-primary {
+  border: 1px solid rgba(155, 239, 226, 0.62);
+  background: linear-gradient(120deg, #1d747b 0%, #2e9798 54%, #5fb6a9 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(17, 116, 120, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  text-shadow: 0 1px 10px rgba(7, 25, 39, 0.28);
+}
+
+.button-home-primary:hover {
+  border-color: rgba(205, 255, 247, 0.92);
+  background: linear-gradient(120deg, #24838a 0%, #39a7a5 54%, #71c6b8 100%);
+  box-shadow: 0 20px 44px rgba(20, 133, 135, 0.42),
+    0 0 0 4px rgba(120, 217, 197, 0.09);
+}
+
+.button-home-secondary {
+  border: 1px solid rgba(237, 253, 249, 0.42);
+  background: rgba(255, 255, 255, 0.075);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.button-home-secondary:hover {
+  border-color: rgba(151, 235, 222, 0.9);
+  background: rgba(53, 151, 153, 0.18);
+  box-shadow: 0 18px 38px rgba(5, 38, 50, 0.26),
+    0 0 0 4px rgba(120, 217, 197, 0.07);
+}
+
+.button-home-primary:focus-visible,
+.button-home-secondary:focus-visible {
+  outline: 3px solid rgba(225, 186, 88, 0.86);
+  outline-offset: 4px;
+}
+
+.brand-gradient-text {
+  background: linear-gradient(105deg, #78d9c5 2%, #b8b76b 50%, #e1ba58 96%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2d8178, #ddb34d);
+  content: '';
+  box-shadow: 0 0 12px rgba(221, 179, 77, 0.45);
+}
+
+.premium-card {
+  border: 1px solid rgba(17, 26, 46, 0.1);
+  border-radius: 16px;
+  transition: border-color 300ms ease, box-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.premium-card:hover {
+  border-color: rgba(175, 139, 47, 0.42);
+  box-shadow: 0 22px 55px rgba(17, 26, 46, 0.08);
+  transform: translateY(-3px);
+}
+
 .eyebrow-line {
   width: 48px;
   height: 1px;
@@ -149,6 +278,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-pulse-glow {
   animation: pulse-glow 6s ease-in-out infinite;
+}
+
+@keyframes logo-o-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-logo-o {
+  animation: logo-o-turn 12s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-o { animation: none; }
 }
 
 /* ============================================

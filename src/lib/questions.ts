@@ -101,7 +101,7 @@ export interface DiagnosticResult {
   opportunitesManquees: number;
   priorite: string;
   score: number;
-  niveau: "Survivant" | "Opportuniste" | "Stratège" | "Leader";
+  niveau: "Structuration prioritaire" | "Progression" | "Stratège" | "Leader";
 }
 
 export function calculateDiagnostic(
@@ -118,7 +118,7 @@ export function calculateDiagnostic(
   const tempsPerdu = Math.round(baseTemps * (1 - totalScore / maxScore));
   const opportunitesManquees = Math.round(baseOpportunites * (1 - totalScore / maxScore));
 
-  const niveau = score <= 30 ? "Survivant" : score <= 60 ? "Opportuniste" : score <= 85 ? "Stratège" : "Leader";
+  const niveau = score <= 30 ? "Structuration prioritaire" : score <= 60 ? "Progression" : score <= 85 ? "Stratège" : "Leader";
 
   const priorites = [
     "Automatisation administrative",
@@ -141,14 +141,14 @@ export function calculateDiagnostic(
 export const MATURITY_LEVELS = [
   {
     max: 30,
-    label: "Survivant",
+    label: "Structuration prioritaire",
     color: "#C0392B",
     description: "Vous gérez au jour le jour. L'urgence l'emporte sur la stratégie.",
     action: "3 actions gratuites cette semaine pour respirer"
   },
   {
     max: 60,
-    label: "Opportuniste",
+    label: "Progression",
     color: "#E67E22",
     description: "Vous avez des bonnes pratiques mais elles ne sont pas systématisées.",
     action: "Un audit rapide pour identifier les quick wins"

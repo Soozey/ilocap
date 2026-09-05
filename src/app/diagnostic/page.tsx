@@ -95,7 +95,7 @@ export default function DiagnosticPage() {
         const errorData = await response.json().catch(() => ({ error: "Erreur serveur" }));
         setSubmitError(errorData.error || `Erreur ${response.status}. Veuillez reessayer dans quelques instants.`);
       }
-    } catch (error) {
+    } catch {
       setSubmitError("Impossible de contacter le serveur. Verifiez votre connexion ou reessayez.");
     } finally {
       setIsSubmitting(false);
@@ -592,7 +592,7 @@ export default function DiagnosticPage() {
               />
               <input
                 type="tel"
-                placeholder="TELEPHONE (optionnel, +30% de conversion)"
+                placeholder="TÉLÉPHONE (optionnel)"
                 value={leadForm.telephone}
                 onChange={(e) => setLeadForm({ ...leadForm, telephone: e.target.value })}
                 className="w-full bg-[#F5F3EE] border border-[#E5E5E5] p-4 text-[#073642] font-[family-name:var(--font-manrope)] text-sm focus:border-[#B89A5A] outline-none placeholder:text-[#073642]/30 rounded-sm"
@@ -634,7 +634,7 @@ export default function DiagnosticPage() {
                   onChange={(e) => setLeadForm({ ...leadForm, smsRappel: e.target.checked })}
                 />
                 <span className="font-[family-name:var(--font-manrope)] text-[10px] text-[#073642]/60">
-                  Je veux aussi un SMS de rappel pour mon entretien (+15% de presence)
+                  Je souhaite recevoir un SMS de rappel pour mon entretien
                 </span>
               </label>
             </div>
