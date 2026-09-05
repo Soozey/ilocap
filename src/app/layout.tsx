@@ -77,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-KEF5H5P9Y9"
+        src="https://www.googletagmanager.com/gtag/js?id=G-6C9DTT0RX9"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -94,7 +94,7 @@ export default function RootLayout({
             'security_storage': 'granted'
           });
           
-          gtag('config', 'G-KEF5H5P9Y9', {
+          gtag('config', 'G-6C9DTT0RX9', {
             page_location: window.location.href,
             page_title: document.title,
             send_page_view: false,
