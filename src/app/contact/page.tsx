@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 const initialForm = {
   nom: "",
@@ -22,6 +23,13 @@ export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const hasStartedForm = useRef(false);
+
+  const handleFormStart = () => {
+    if (hasStartedForm.current) return;
+    hasStartedForm.current = true;
+    trackEvent("lead_form_start", { form_name: "contact_project" });
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,6 +44,12 @@ export default function ContactPage() {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || "Votre demande n’a pas pu être envoyée.");
+      trackEvent("generate_lead", {
+        form_name: "contact_project",
+        project_type: form.typeProjet || "not_set",
+        prospect_profile: form.profil || "not_set",
+      });
+      trackEvent("lead_form_submit", { form_name: "contact_project" });
       setStatus("success");
     } catch (submitError) {
       setStatus("error");
@@ -84,7 +98,7 @@ export default function ContactPage() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} onFocusCapture={handleFormStart} className="space-y-6">
                 <div><p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Votre demande</p><h2 className="mt-3 font-sora text-2xl md:text-3xl">Quelques informations suffisent pour commencer.</h2></div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className={labelClass}>Nom et prénom *<input name="name" autoComplete="name" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })} className={fieldClass} /></label>
