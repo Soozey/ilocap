@@ -6,7 +6,6 @@ import References from "@/components/landing/References";
 import CTAFinal from "@/components/landing/CTAFinal";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
-import CookieBanner from "@/components/shared/CookieBanner";
 import AnimatedSection from "@/components/landing/AnimatedSection";
 
 export default function Home() {
@@ -30,7 +29,6 @@ export default function Home() {
         </AnimatedSection>
       </main>
       <Footer />
-      <CookieBanner />
     </>
   );
 }
