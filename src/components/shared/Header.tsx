@@ -36,7 +36,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact?objet=devis"
-            className="button-elegant button-logo-lavender flex items-center justify-center px-4 font-manrope text-[9px] font-extrabold uppercase sm:px-5 sm:text-[10px] md:px-6 lg:px-7 lg:text-[11px]"
+            className="button-elegant button-logo-lavender hidden items-center justify-center px-6 font-manrope text-[10px] font-extrabold uppercase md:flex lg:px-7 lg:text-[11px]"
           >
             Parler d’un projet
           </Link>
@@ -75,6 +75,13 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/contact?objet=devis"
+                onClick={() => setIsMenuOpen(false)}
+                className="button-elegant button-home-primary mt-5 flex min-h-12 items-center justify-center px-6 text-center font-manrope text-[10px] font-extrabold uppercase tracking-[0.16em]"
+              >
+                Parler de votre projet
+              </Link>
             </div>
           </motion.div>
         )}
