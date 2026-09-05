@@ -3,7 +3,6 @@ import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
-import CookieBanner from "@/components/shared/CookieBanner";
 
 const figures = [
   { value: "24/7", label: "Assistance juridique" },
@@ -304,7 +303,6 @@ export default function ArozoPresentation() {
       </main>
       <Footer />
       <FloatingCTA />
-      <CookieBanner />
     </>
   );
 }
