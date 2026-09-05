@@ -9,7 +9,7 @@ export default function FloatingCTA() {
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 0.8, duration: 0.4 }}
-      className="fixed bottom-6 right-6 z-40"
+      className="fixed bottom-6 right-6 z-40 hidden lg:block"
     >
       <Link
         href="/contact?objet=devis"
