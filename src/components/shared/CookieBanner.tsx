@@ -9,26 +9,32 @@ type GtagWindow = Window & {
   gtag?: (command: string, action: string, params: Record<string, string>) => void;
 };
 
+const CONSENT_KEY = "ilocap-cookie-consent-v2";
+
+function updateAnalyticsConsent(choice: Consent) {
+  const analyticsWindow = window as GtagWindow;
+  analyticsWindow.gtag?.("consent", "update", {
+    analytics_storage: choice === "all" ? "granted" : "denied",
+    ad_storage: "denied",
+  });
+}
+
 export default function CookieBanner() {
   const [consent, setConsent] = useState<Consent>(null);
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("ilocap-cookies");
-    if (saved) setConsent(saved as Consent);
+    const saved = localStorage.getItem(CONSENT_KEY) as Consent;
+    if (saved === "all" || saved === "essential") {
+      setConsent(saved);
+      updateAnalyticsConsent(saved);
+    }
   }, []);
 
   const handleConsent = (choice: Consent) => {
     setConsent(choice);
-    localStorage.setItem("ilocap-cookies", choice || "none");
-    
-    const analyticsWindow = window as GtagWindow;
-    if (choice === "all" && typeof window !== "undefined" && analyticsWindow.gtag) {
-      analyticsWindow.gtag("consent", "update", {
-        analytics_storage: "granted",
-        ad_storage: "denied"
-      });
-    }
+    localStorage.setItem(CONSENT_KEY, choice || "essential");
+    updateAnalyticsConsent(choice);
   };
 
   if (consent) return null;
@@ -39,7 +45,9 @@ export default function CookieBanner() {
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         exit={{ y: 100 }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-[#073642] border-t border-[#B89A5A]/20 px-5 py-5 md:px-16 md:py-6"
+        role="dialog"
+        aria-label="Choix des cookies"
+        className="fixed bottom-0 left-0 right-0 z-[100] max-h-[85svh] overflow-y-auto border-t border-[#B89A5A]/20 bg-[#073642] px-5 py-5 shadow-[0_-20px_60px_rgba(0,0,0,0.3)] md:px-16 md:py-6"
       >
         <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-6">
           
