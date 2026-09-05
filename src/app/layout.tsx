@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Sora, Manrope } from "next/font/google";
 import Script from "next/script";
 import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
+import CookieBanner from "@/components/shared/CookieBanner";
 import "./globals.css";
 
 const sora = Sora({
@@ -113,6 +114,7 @@ export default function RootLayout({
           <AnalyticsTracker />
         </Suspense>
         {children}
+        <CookieBanner />
         {isDev && (
           <Script id="disable-service-worker-dev" strategy="afterInteractive">
             {`
