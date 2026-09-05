@@ -108,7 +108,7 @@ export default function CookieBanner() {
                   <span className="text-[#F3F1EC] text-xs font-bold">Analytiques</span>
                   <span className="text-[#B89A5A] text-xs">Google Analytics</span>
                 </div>
-                <p className="text-[#F3F1EC]/40 text-xs">Mesure d'audience, pages vues, comportement utilisateur.</p>
+                <p className="text-[#F3F1EC]/40 text-xs">Mesure d&apos;audience, pages vues, comportement utilisateur.</p>
               </div>
               <div className="p-4 border border-[#F3F1EC]/5">
                 <div className="flex justify-between mb-2">
