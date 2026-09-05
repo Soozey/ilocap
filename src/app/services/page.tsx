@@ -35,9 +35,9 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="bg-[#F3F1EC] text-[#073642]">
-        <section className="bg-[#073642] px-gutter pb-20 pt-36 text-white md:pb-24 md:pt-44">
+        <section className="overflow-hidden bg-[#073642] px-gutter pb-20 pt-36 text-white md:pb-24 md:pt-44">
           <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end">
-            <div><div className="mb-6 flex items-center gap-4"><div className="h-px w-12 bg-[#B89A5A]" /><span className="font-manrope text-[10px] font-bold uppercase tracking-[0.22em] text-[#B89A5A]">Solutions & produits</span></div><h1 className="max-w-4xl font-sora text-4xl leading-[1.05] md:text-6xl">La bonne combinaison d’expertise, sans <span className="text-[#B89A5A]">surdimensionnement.</span></h1></div>
+            <div className="min-w-0"><div className="mb-6 flex items-center gap-4"><div className="h-px w-12 bg-[#B89A5A]" /><span className="font-manrope text-[10px] font-bold uppercase tracking-[0.22em] text-[#B89A5A]">Solutions & produits</span></div><h1 className="max-w-4xl font-sora text-[2.15rem] leading-[1.06] sm:text-4xl md:text-5xl lg:text-6xl">La bonne combinaison d’expertise, sans <span className="break-words text-[#B89A5A] [overflow-wrap:anywhere]">surdimensionnement.</span></h1></div>
             <p className="font-manrope text-base leading-relaxed text-white/70 md:text-lg">Nous assemblons conseil, technologie et accompagnement en fonction du problème à résoudre, de votre maturité et de vos contraintes.</p>
           </div>
         </section>
