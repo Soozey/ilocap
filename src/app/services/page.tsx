@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
 import CookieBanner from "@/components/shared/CookieBanner";
+import { solutions } from "@/lib/solutions";
 
 export const metadata: Metadata = {
   title: "Solutions digitales et produits | ILOCAP",
@@ -24,13 +26,9 @@ const complementary = [
   { title: "Conduite du changement", description: "Formation, documentation, assistance au déploiement et accompagnement des équipes dans l’adoption des nouveaux usages." },
 ];
 
-const products = [
-  { name: "TrackFuel360", description: "Gestion de flotte, suivi du carburant, alertes et pilotage opérationnel.", image: "/realisations/trackfuel-dashboard.png", alt: "TrackFuel360" },
-  { name: "Primi", description: "Marketplace multivendeur avec boutiques, catalogue, recherche et parcours vendeur.", image: "/realisations/primi-marketplace.png", alt: "Primi marketplace" },
-  { name: "Lawmate", description: "Gestion de dossiers et mise en relation dans le domaine juridique.", image: null, alt: "" },
-  { name: "PARAFEO", description: "Signature électronique, horodatage et traçabilité documentaire.", image: null, alt: "" },
-  { name: "PharmXpress", description: "Recherche et mise en relation autour de la disponibilité des médicaments.", image: null, alt: "" },
-  { name: "Medilibre", description: "Téléconsultation, suivi patient et parcours de soins digitaux.", image: null, alt: "" },
+const otherAccelerators = [
+  { name: "PharmXpress", description: "Recherche et mise en relation autour de la disponibilité des médicaments." },
+  { name: "Medilibre", description: "Téléconsultation, suivi patient et parcours de soins digitaux." },
 ];
 
 export default function ServicesPage() {
@@ -68,15 +66,83 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="section-shell px-gutter py-20 md:py-28">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Solutions & accélérateurs</p><h2 className="mt-4 font-sora text-3xl leading-tight md:text-5xl">Des bases déjà construites pour aller plus vite.</h2></div><p className="max-w-md font-manrope text-sm leading-relaxed text-[#073642]/65">Chaque produit peut être configuré ou étendu selon votre contexte. Démonstration et étude d’adéquation sur demande.</p></div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <article key={product.name} className="overflow-hidden rounded-[14px] border border-[#073642]/10 bg-white">
-                {product.image ? <div className="relative aspect-[16/9] bg-[#E8E4DC]"><Image src={product.image} alt={product.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover object-top" /></div> : <div className="flex aspect-[16/9] items-center justify-center bg-[#073642]"><span className="font-sora text-3xl text-[#B89A5A]">{product.name.slice(0, 2).toUpperCase()}</span></div>}
-                <div className="p-6"><h3 className="font-sora text-xl uppercase">{product.name}</h3><p className="mt-3 font-manrope text-sm leading-relaxed text-[#073642]/65">{product.description}</p></div>
+        <section id="accelerateurs" className="section-shell scroll-mt-24 px-gutter py-20 md:py-28">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-3xl">
+              <p className="section-kicker w-fit border-[#18845B]/20 text-[#18845B]">Solutions & accélérateurs</p>
+              <h2 className="mt-5 font-sora text-3xl leading-[1.06] tracking-[-0.04em] text-[#111A2E] md:text-5xl">Des solutions déjà structurées, adaptées à votre réalité.</h2>
+            </div>
+            <p className="max-w-md font-manrope text-base leading-relaxed text-[#334158]/65">Chaque solution part d’un socle éprouvé, puis se configure selon vos processus, vos contraintes et votre ambition.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {solutions.map((solution) => (
+              <article
+                key={solution.slug}
+                style={{ "--card-accent": solution.accent } as CSSProperties}
+                className="group flex flex-col overflow-hidden rounded-[20px] border border-[#111A2E]/10 bg-[#FBFCFC] transition duration-300 hover:-translate-y-1 hover:border-[#18845B]/30 hover:shadow-[0_26px_70px_rgba(17,26,46,.12)]"
+              >
+                <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#17243B] lg:aspect-[16/9]">
+                  <Image
+                    src={solution.visual}
+                    alt={solution.visualAlt}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.025]"
+                    style={{ objectPosition: solution.visualPosition }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111A2E]/82 via-transparent to-transparent" />
+                  <Link
+                    href={`/solutions/${solution.slug}`}
+                    aria-label={`Découvrir la fiche ${solution.name}`}
+                    className="group/logo absolute bottom-4 left-4 right-4 flex min-h-20 items-center justify-center rounded-[14px] border border-[#D8E2E6]/85 bg-[#F6F9FA]/95 px-5 py-3 shadow-[0_12px_34px_rgba(17,26,46,.12)] backdrop-blur-xl transition duration-300 hover:border-[var(--card-accent)] hover:bg-white"
+                  >
+                    <Image src={solution.logo} alt={`Logo ${solution.name}`} width={300} height={110} className="max-h-16 w-auto max-w-[82%] object-contain transition duration-300 group-hover/logo:scale-[1.035]" />
+                    <span aria-hidden="true" className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full border border-[#111A2E]/10 bg-white font-manrope text-sm text-[#111A2E]/55 transition group-hover/logo:border-[var(--card-accent)] group-hover/logo:text-[var(--card-accent)]">↗</span>
+                  </Link>
+                </div>
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <p className="font-manrope text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--card-accent)]">{solution.category}</p>
+                  <h3 className="mt-4 font-sora text-2xl leading-tight tracking-[-0.025em] text-[#111A2E]">{solution.name}</h3>
+                  <p className="mt-4 font-manrope text-base leading-relaxed text-[#334158]/65">{solution.cardDescription}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {solution.proofs.slice(0, 3).map((proof) => (
+                      <span key={proof.label} className="rounded-full border border-[#111A2E]/10 bg-[#EBFFF5] px-3 py-2 font-manrope text-xs font-semibold text-[#334158]/75">
+                        {proof.value}
+                      </span>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/solutions/${solution.slug}`}
+                    className="mt-8 inline-flex items-center justify-between rounded-[12px] border border-[#111A2E] bg-[#111A2E] px-5 py-4 font-manrope text-xs font-extrabold uppercase tracking-[0.15em] text-white shadow-[0_10px_24px_rgba(17,26,46,.12)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--card-accent)] hover:bg-[var(--card-accent)] hover:text-[#111A2E]"
+                  >
+                    Découvrir la solution <span aria-hidden="true" className="flex h-7 w-7 items-center justify-center rounded-full border border-white/25 text-lg">→</span>
+                  </Link>
+                </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-14 border-t border-[#111A2E]/12 pt-10">
+            <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
+              <div>
+                <p className="font-manrope text-xs font-extrabold uppercase tracking-[0.2em] text-[#8A6A20]">Également dans notre atelier</p>
+                <h3 className="mt-3 font-sora text-2xl leading-tight tracking-[-0.03em] text-[#111A2E] md:text-3xl">D’autres accélérateurs à activer selon le besoin.</h3>
+              </div>
+              <p className="font-manrope text-sm text-[#334158]/55">Présentation sur demande</p>
+            </div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {otherAccelerators.map((product, index) => (
+                <article key={product.name} className="rounded-[14px] border border-[#111A2E]/10 bg-white p-5 transition hover:border-[#18845B]/30">
+                  <div className="flex items-center justify-between">
+                    <span className="font-sora text-sm text-[#18845B]">0{index + 1}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#D6B24F]" />
+                  </div>
+                  <h4 className="mt-6 font-sora text-lg uppercase">{product.name}</h4>
+                  <p className="mt-3 font-manrope text-sm leading-relaxed text-[#334158]/62">{product.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

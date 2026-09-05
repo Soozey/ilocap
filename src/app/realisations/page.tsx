@@ -45,6 +45,22 @@ const projects = [
     image: "/realisations/espamada.png",
     alt: "Communication de la plateforme EspaMada",
   },
+  {
+    category: "E-commerce · Création visuelle",
+    title: "GreenVillage",
+    context: "Valoriser un catalogue très dense et rendre les nouveautés immédiatement identifiables dans un univers fortement concurrentiel.",
+    solution: "Un travail continu sur les visuels produits, les bannières commerciales et leur intégration dans l’expérience e-commerce.",
+    image: "/realisations/greenvillage-site.png",
+    alt: "Sélection de visuels e-commerce GreenVillage",
+  },
+  {
+    category: "Commerce · Présence digitale",
+    title: "EJACOS Market",
+    context: "Installer une identité reconnaissable et préparer une présence digitale cohérente pour une nouvelle offre commerciale.",
+    solution: "Une base de communication structurée autour de la marque, de ses engagements et de son positionnement marketplace.",
+    image: "/references/logo-ejacos-transparent.png",
+    alt: "Identité visuelle EJACOS Market",
+  },
 ];
 
 export default function RealisationsPage() {

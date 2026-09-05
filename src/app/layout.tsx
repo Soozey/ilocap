@@ -28,6 +28,14 @@ export const metadata: Metadata = {
   description: "ILOCAP conseille, conçoit et déploie des plateformes métier, des solutions d'intelligence artificielle, d'automatisation et de paiement.",
   alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=ilocap-20260904", sizes: "any" },
+      { url: "/icon.png?v=ilocap-20260904", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico?v=ilocap-20260904",
+    apple: "/apple-touch-icon.png?v=ilocap-20260904",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -66,10 +74,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <head>
-        <link rel="apple-touch-icon" href="/icon-192x192.png" />
-      </head>
-      
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-KEF5H5P9Y9"
         strategy="afterInteractive"

@@ -13,7 +13,7 @@ export default function FloatingCTA() {
     >
       <Link
         href="/contact?objet=devis"
-        className="flex flex-col items-center justify-center bg-[#B89A5A] text-[#073642] px-4 py-3 md:px-5 md:py-4 rounded-[10px] font-[family-name:var(--font-manrope)] text-[9px] md:text-[10px] uppercase tracking-[0.18em] font-bold shadow-lg shadow-[#B89A5A]/30 hover:bg-[#F3F1EC] hover:scale-105 transition-all duration-300"
+        className="button-teal-solid flex flex-col items-center justify-center px-4 py-3 md:px-5 md:py-4 rounded-[10px] font-[family-name:var(--font-manrope)] text-[9px] md:text-[10px] uppercase tracking-[0.18em] font-extrabold hover:scale-105 transition-all duration-300"
       >
         <svg className="w-5 h-5 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M3 4h14v10H8l-4 3v-3H3V4Z" />
