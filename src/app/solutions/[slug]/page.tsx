@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
-import CookieBanner from "@/components/shared/CookieBanner";
 import ArozoPresentation from "@/components/solutions/ArozoPresentation";
 import { getSolution, solutions } from "@/lib/solutions";
 
@@ -265,7 +264,6 @@ export default async function SolutionPage({ params }: PageProps) {
       </main>
       <Footer />
       <FloatingCTA />
-      <CookieBanner />
     </>
   );
 }
