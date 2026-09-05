@@ -4,7 +4,6 @@ import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
-import CookieBanner from "@/components/shared/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Réalisations et études de cas | ILOCAP",
@@ -103,7 +102,6 @@ export default function RealisationsPage() {
       </main>
       <Footer />
       <FloatingCTA />
-      <CookieBanner />
     </>
   );
 }
