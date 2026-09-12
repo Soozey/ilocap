@@ -24,18 +24,18 @@ export default function Footer() {
         <div className="md:col-span-2">
           <h2 className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#173C31]/45">Explorer</h2>
           <ul className="mt-5 space-y-3 font-[family-name:var(--font-inter)] text-sm text-[#173C31]/70">
-            <li><Link href="/#expertises" className="hover:text-[#173C31]">Expertises</Link></li>
-            <li><Link href="/#services" className="hover:text-[#173C31]">Services</Link></li>
-            <li><Link href="/#solutions" className="hover:text-[#173C31]">Solutions</Link></li>
+            <li><Link href="/services" className="hover:text-[#173C31]">Services</Link></li>
+            <li><Link href="/solutions" className="hover:text-[#173C31]">Solutions</Link></li>
+            <li><Link href="/realisations" className="hover:text-[#173C31]">Réalisations</Link></li>
           </ul>
         </div>
 
         <div className="md:col-span-2">
           <h2 className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#173C31]/45">ILOCAP</h2>
           <ul className="mt-5 space-y-3 font-[family-name:var(--font-inter)] text-sm text-[#173C31]/70">
-            <li><Link href="/realisations" className="hover:text-[#173C31]">Réalisations</Link></li>
             <li><Link href="/methodologie" className="hover:text-[#173C31]">À propos</Link></li>
             <li><Link href="/contact" className="hover:text-[#173C31]">Contact</Link></li>
+            <li><a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="hover:text-[#173C31]">LinkedIn</a></li>
           </ul>
         </div>
 
@@ -48,8 +48,8 @@ export default function Footer() {
             <Link href="/contact?objet=devis" className="inline-flex min-h-10 items-center rounded-md bg-[#173C31] px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-white">
               Nous écrire
             </Link>
-            <a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center rounded-md border border-[#173C31]/20 px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
-              LinkedIn
+            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center rounded-md border border-[#173C31]/20 px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
+              Rendez-vous
             </a>
           </div>
         </div>
