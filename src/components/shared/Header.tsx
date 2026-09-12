@@ -35,7 +35,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-[family-name:var(--font-inter)] text-[13px] font-medium text-[#171A18]/72 transition-colors hover:text-[#2F6B56]"
+              className="font-[family-name:var(--font-inter)] text-[13px] font-medium text-[#171A18]/72 transition-opacity hover:opacity-55"
             >
               {item.label}
             </Link>
@@ -45,7 +45,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact?objet=devis"
-            className="hidden min-h-11 items-center justify-center rounded-md bg-[#173C31] px-5 font-[family-name:var(--font-inter)] text-[12px] font-semibold text-white transition hover:bg-[#2F6B56] md:inline-flex"
+            className="hidden min-h-12 items-center justify-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-[13px] font-semibold text-white transition hover:bg-[#102F27] md:inline-flex"
           >
             Parler de votre projet
           </Link>
@@ -78,7 +78,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="border-b border-[#171A18]/10 py-4 font-[family-name:var(--font-inter)] text-[15px] text-[#171A18] transition-colors hover:text-[#2F6B56]"
+                  className="border-b border-[#171A18]/10 py-4 font-[family-name:var(--font-inter)] text-[15px] text-[#171A18] transition-opacity hover:opacity-55"
                 >
                   {item.label}
                 </Link>
