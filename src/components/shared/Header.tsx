@@ -6,9 +6,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navItems = [
-  { label: "Expertises", href: "/#expertises" },
-  { label: "Services", href: "/#services" },
-  { label: "Solutions", href: "/#solutions" },
+  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Réalisations", href: "/realisations" },
   { label: "À propos", href: "/methodologie" },
   { label: "Contact", href: "/contact" },
