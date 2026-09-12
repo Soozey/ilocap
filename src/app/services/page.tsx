@@ -23,18 +23,9 @@ const serviceFamilies = [
     imageAlt: "Tableau de bord métier TrackFuel 360 conçu par ILOCAP",
     background: "bg-[#FBF9F4]",
     items: [
-      {
-        title: "Conception de plateformes",
-        text: "Applications, portails et plateformes pensés autour de vos usages réels.",
-      },
-      {
-        title: "Cadrage fonctionnel & parcours",
-        text: "Besoins, priorités, règles métier et parcours utilisateurs structurés avant la mise en œuvre.",
-      },
-      {
-        title: "Conseil & structuration",
-        text: "Une feuille de route lisible pour faire avancer le projet, arbitrer et préparer son évolution.",
-      },
+      { title: "Conception de plateformes", text: "Applications, portails et plateformes pensés autour de vos usages réels." },
+      { title: "Cadrage fonctionnel & parcours", text: "Besoins, priorités, règles métier et parcours utilisateurs structurés avant la mise en œuvre." },
+      { title: "Conseil & structuration", text: "Une feuille de route lisible pour faire avancer le projet, arbitrer et préparer son évolution." },
     ],
   },
   {
@@ -47,22 +38,10 @@ const serviceFamilies = [
     imageAlt: "Automatisation et pilotage des processus avec ILOCAP",
     background: "bg-[#EEF2E7]",
     items: [
-      {
-        title: "Processus & workflows",
-        text: "Validations, échanges et tâches répétitives rendus plus simples et plus fluides.",
-      },
-      {
-        title: "Outils connectés & évolutifs",
-        text: "Données, intégrations et architecture conçues pour grandir avec votre activité.",
-      },
-      {
-        title: "Automatisation & reporting",
-        text: "Déclenchements, alertes, tableaux de bord et suivi opérationnel pour mieux piloter l’activité.",
-      },
-      {
-        title: "Données & intégrations",
-        text: "Des échanges structurés avec vos outils existants, API, plateformes métier et systèmes tiers.",
-      },
+      { title: "Processus & workflows", text: "Validations, échanges et tâches répétitives rendus plus simples et plus fluides." },
+      { title: "Outils connectés & évolutifs", text: "Données, intégrations et architecture conçues pour grandir avec votre activité." },
+      { title: "Automatisation & reporting", text: "Déclenchements, alertes, tableaux de bord et suivi opérationnel pour mieux piloter l’activité." },
+      { title: "Données & intégrations", text: "Des échanges structurés avec vos outils existants, API, plateformes métier et systèmes tiers." },
     ],
   },
   {
@@ -75,18 +54,9 @@ const serviceFamilies = [
     imageAlt: "Création visuelle et traitement d’images réalisés par ILOCAP",
     background: "bg-[#F5F2EA]",
     items: [
-      {
-        title: "Création visuelle",
-        text: "Traitement d’images, contenus de marque et supports digitaux soignés.",
-      },
-      {
-        title: "Community management",
-        text: "Planification, création et animation régulière de vos communautés.",
-      },
-      {
-        title: "Sites, contenus & acquisition",
-        text: "Sites web, landing pages, contenus éditoriaux et dispositifs pensés pour soutenir vos objectifs commerciaux.",
-      },
+      { title: "Création visuelle", text: "Traitement d’images, contenus de marque et supports digitaux soignés." },
+      { title: "Community management", text: "Planification, création et animation régulière de vos communautés." },
+      { title: "Sites, contenus & acquisition", text: "Sites web, landing pages, contenus éditoriaux et dispositifs pensés pour soutenir vos objectifs commerciaux." },
     ],
   },
   {
@@ -100,22 +70,10 @@ const serviceFamilies = [
     background: "bg-[#EDE7DA]",
     monochrome: true,
     items: [
-      {
-        title: "Automatisation & support",
-        text: "Workflows, reporting, assistance et amélioration continue de vos opérations.",
-      },
-      {
-        title: "BPO & back-office",
-        text: "Des activités opérationnelles prises en charge avec des processus structurés et des indicateurs de suivi.",
-      },
-      {
-        title: "Formation & adoption",
-        text: "Documentation, formation et accompagnement des équipes pour ancrer les nouveaux usages.",
-      },
-      {
-        title: "Automatisation commerciale",
-        text: "Qualification, relances, suivi et assistance pour renforcer la capacité commerciale sans alourdir l’organisation.",
-      },
+      { title: "Automatisation & support", text: "Workflows, reporting, assistance et amélioration continue de vos opérations." },
+      { title: "BPO & back-office", text: "Des activités opérationnelles prises en charge avec des processus structurés et des indicateurs de suivi." },
+      { title: "Formation & adoption", text: "Documentation, formation et accompagnement des équipes pour ancrer les nouveaux usages." },
+      { title: "Automatisation commerciale", text: "Qualification, relances, suivi et assistance pour renforcer la capacité commerciale sans alourdir l’organisation." },
     ],
   },
 ];
@@ -125,27 +83,22 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="bg-[#F5F2EA] text-[#171A18]">
-        <section className="relative overflow-hidden px-5 pb-20 pt-36 md:px-8 md:pb-24 md:pt-44 lg:px-12">
+        <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 lg:px-12">
           <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <div className="absolute inset-0 opacity-[0.08]">
-            <Image src="/abstract-wave.png" alt="" fill priority className="object-cover" />
+          <div className="absolute inset-0 opacity-[0.18]">
+            <Image src="/abstract-wave.png" alt="" fill priority className="object-cover mix-blend-multiply" />
           </div>
           <div className="relative mx-auto max-w-[1320px]">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#2F6B56]">
-              Services
-            </p>
-            <div className="mt-5 grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
-              <h1 className="max-w-4xl font-[family-name:var(--font-source-serif)] text-[3rem] font-semibold leading-[0.98] tracking-[-0.035em] text-[#171A18] sm:text-6xl lg:text-[5rem]">
-                Ce que nous pouvons faire <em className="font-normal">avec vous.</em>
+            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#171A18]/68">Services</p>
+            <div className="mt-4 grid gap-7 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
+              <h1 className="max-w-4xl font-[family-name:var(--font-source-serif)] text-[2.65rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.5rem] lg:text-[4.25rem]">
+                Ce que nous pouvons faire avec vous.
               </h1>
-              <div className="lg:pb-2">
-                <p className="max-w-xl font-[family-name:var(--font-inter)] text-[17px] leading-7 text-[#343A36] md:text-[19px] md:leading-8">
+              <div className="lg:pb-1">
+                <p className="max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
                   De l’idée au fonctionnement quotidien, ILOCAP réunit conseil, technologie, contenus et accompagnement autour d’un même objectif : faire avancer votre activité.
                 </p>
-                <Link
-                  href="/contact?objet=devis"
-                  className="mt-6 inline-flex min-h-12 items-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-white transition hover:bg-[#2F6B56]"
-                >
+                <Link href="/contact?objet=devis" className="mt-5 inline-flex min-h-[52px] items-center rounded-md bg-[#173C31] px-7 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
                   Parler de votre projet
                 </Link>
               </div>
@@ -156,37 +109,35 @@ export default function ServicesPage() {
         <section className="border-y border-[#171A18]/10 bg-[#FBF9F4]">
           <div className="mx-auto grid max-w-[1320px] divide-y divide-[#171A18]/10 px-5 md:grid-cols-4 md:divide-x md:divide-y-0 md:px-8 lg:px-12">
             {serviceFamilies.map((family) => (
-              <a key={family.number} href={`#service-${family.number}`} className="group py-6 transition-colors hover:bg-[#EEF2E7] md:px-5 md:py-7 first:md:pl-0 last:md:pr-0">
+              <a key={family.number} href={`#service-${family.number}`} className="group py-5 transition-colors hover:bg-[#F5F2EA] md:px-5 md:py-6 first:md:pl-0 last:md:pr-0">
                 <span className="font-[family-name:var(--font-inter)] text-[10px] font-semibold tracking-[0.18em] text-[#B89A5A]">{family.number}</span>
-                <p className="mt-2 font-[family-name:var(--font-source-serif)] text-lg font-semibold leading-tight text-[#171A18] transition-colors group-hover:text-[#2F6B56]">{family.eyebrow}</p>
+                <p className="mt-2 font-[family-name:var(--font-source-serif)] text-lg font-semibold leading-tight text-[#171A18]">{family.eyebrow}</p>
               </a>
             ))}
           </div>
         </section>
 
         {serviceFamilies.map((family, familyIndex) => (
-          <section id={`service-${family.number}`} key={family.number} className={`${family.background} scroll-mt-20 py-20 md:py-28`}>
+          <section id={`service-${family.number}`} key={family.number} className={`${family.background} scroll-mt-20 py-16 md:py-20`}>
             <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
-              <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div className="grid gap-9 lg:grid-cols-2 lg:items-center lg:gap-14">
                 <div className={familyIndex % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="flex items-center gap-4">
                     <span className="font-[family-name:var(--font-inter)] text-[11px] font-semibold tracking-[0.2em] text-[#B89A5A]">{family.number}</span>
                     <span className="h-px w-10 bg-[#B89A5A]/70" />
-                    <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#2F6B56]">{family.eyebrow}</p>
+                    <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#171A18]/68">{family.eyebrow}</p>
                   </div>
-                  <h2 className="mt-5 max-w-2xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-[#171A18] md:text-6xl">
+                  <h2 className="mt-5 max-w-2xl font-[family-name:var(--font-source-serif)] text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3.3rem]">
                     {family.title}
                   </h2>
-                  <p className="mt-6 max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C] md:text-[17px]">
-                    {family.description}
-                  </p>
+                  <p className="mt-5 max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C] md:text-[17px]">{family.description}</p>
 
-                  <div className="mt-9 border-t border-[#171A18]/12">
+                  <div className="mt-8 border-t border-[#171A18]/12">
                     {family.items.map((item, index) => (
-                      <article key={item.title} className="grid gap-2 border-b border-[#171A18]/12 py-5 sm:grid-cols-[36px_1fr]">
+                      <article key={item.title} className="grid gap-2 border-b border-[#171A18]/12 py-4 sm:grid-cols-[36px_1fr]">
                         <span className="font-[family-name:var(--font-inter)] text-[11px] font-semibold text-[#171A18]/38">0{index + 1}</span>
                         <div>
-                          <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold text-[#171A18] md:text-2xl">{item.title}</h3>
+                          <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold text-[#171A18] md:text-[1.4rem]">{item.title}</h3>
                           <p className="mt-2 max-w-xl font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C] md:text-[16px] md:leading-7">{item.text}</p>
                         </div>
                       </article>
@@ -194,28 +145,20 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                <div className={`group relative min-h-[360px] overflow-hidden rounded-[20px] border border-[#171A18]/10 bg-white md:min-h-[520px] ${familyIndex % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <Image
-                    src={family.image}
-                    alt={family.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className={`object-cover object-center transition duration-700 ${family.monochrome ? "grayscale saturate-0 contrast-[1.04] group-hover:grayscale-0 group-hover:saturate-100" : ""}`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#171A18]/14 via-transparent to-transparent" />
+                <div className={`group relative min-h-[320px] overflow-hidden rounded-[20px] border border-[#171A18]/10 bg-white md:min-h-[450px] ${familyIndex % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className={`object-cover object-center transition duration-700 ${family.monochrome ? "grayscale saturate-0 contrast-[1.04] group-hover:grayscale-0 group-hover:saturate-100" : ""}`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171A18]/10 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
           </section>
         ))}
 
-        <section className="bg-[#FBF9F4] py-16 md:py-20">
+        <section className="bg-[#FBF9F4] py-14 md:py-16">
           <div className="mx-auto grid max-w-[1320px] gap-8 px-5 md:px-8 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-12">
             <div>
-              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2F6B56]">
-                Vous cherchez plutôt un produit déjà structuré ?
-              </p>
-              <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.03] tracking-[-0.025em] text-[#171A18] md:text-5xl">
+              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Vous cherchez plutôt un produit déjà structuré ?</p>
+              <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.2rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3rem]">
                 Nos solutions partent d’un socle existant, puis s’adaptent à votre contexte.
               </h2>
             </div>
@@ -223,31 +166,21 @@ export default function ServicesPage() {
               <p className="max-w-md font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
                 AroZo, LAMINA, PATRIMONIA, TrackFuel 360, SIIRH et nos autres accélérateurs sont présentés séparément pour rendre le choix plus simple.
               </p>
-              <Link
-                href="/solutions"
-                className="mt-6 inline-flex min-h-11 items-center rounded-md border border-[#171A18]/20 px-5 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#2F6B56] hover:bg-[#2F6B56] hover:text-white"
-              >
+              <Link href="/solutions" className="mt-6 inline-flex min-h-11 items-center rounded-md border border-[#171A18]/20 px-5 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/45 hover:bg-white">
                 Découvrir nos solutions
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#173C31] px-5 py-20 text-white md:px-8 md:py-24 lg:px-12">
+        <section className="bg-[#173C31] px-5 py-16 text-white md:px-8 md:py-20 lg:px-12">
           <div className="mx-auto max-w-4xl text-center">
             <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-white/58">Un projet ?</p>
-            <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-none tracking-[-0.025em] md:text-6xl">
-              Parlons de votre projet.
-            </h2>
+            <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-[2.4rem] font-semibold leading-none tracking-[-0.025em] md:text-[3.5rem]">Parlons de votre projet.</h2>
             <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
               Nous pouvons partir d’un besoin précis, d’un processus à améliorer ou simplement d’un objectif métier à clarifier.
             </p>
-            <a
-              href="https://calendly.com/candriatiana/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex min-h-12 items-center rounded-md bg-[#F5F2EA] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] transition hover:bg-white hover:text-[#2F6B56]"
-            >
+            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-[52px] items-center rounded-md bg-[#F5F2EA] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:bg-white">
               Planifier un rendez-vous
             </a>
           </div>
