@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,9 +61,9 @@ export default function Footer() {
         <div className="mx-auto flex max-w-[1320px] flex-col gap-4 px-5 py-6 font-[family-name:var(--font-inter)] text-[11px] text-[#171A18]/52 md:flex-row md:items-center md:justify-between md:px-8 lg:px-12">
           <p>© {new Date().getFullYear()} ILOCAP. Tous droits réservés.</p>
           <div className="flex flex-wrap gap-5">
-            <Link href="/contact" className="transition-colors hover:text-[#2F6B56]">Mentions légales</Link>
-            <Link href="/contact" className="transition-colors hover:text-[#2F6B56]">Politique de confidentialité</Link>
-            <button type="button" className="transition-colors hover:text-[#2F6B56]">Cookies</button>
+            <Link href="/contact?objet=mentions-legales" className="transition-colors hover:text-[#2F6B56]">Demander les mentions légales</Link>
+            <Link href="/contact?objet=confidentialite" className="transition-colors hover:text-[#2F6B56]">Questions de confidentialité</Link>
+            <button type="button" onClick={() => window.dispatchEvent(new Event("ilocap:open-cookie-settings"))} className="transition-colors hover:text-[#2F6B56]">Cookies</button>
           </div>
         </div>
       </div>

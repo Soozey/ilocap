@@ -4,12 +4,6 @@ import withSerwist from "@serwist/next";
 const nextConfig: NextConfig = {
   // Génère un dossier .next/standalone autonome (requis pour Docker)
   output: "standalone",
-  eslint: {
-    ignoreDuringBuilds: true, // ← AJOUTÉ
-  },
-  typescript: {
-    ignoreBuildErrors: true, // ← AJOUTÉ (au cas où)
-  },
   images: {
     formats: ["image/webp", "image/avif"],
     remotePatterns: [

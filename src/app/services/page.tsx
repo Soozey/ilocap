@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ServiceSheet from "@/components/shared/ServiceSheet";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
@@ -14,68 +16,89 @@ export const metadata: Metadata = {
 
 const serviceFamilies = [
   {
-    number: "01",
-    eyebrow: "Concevoir · structurer",
-    title: "Transformer un besoin métier en solution claire.",
-    description:
-      "Nous partons des usages réels, des contraintes et des objectifs pour concevoir un dispositif utile avant de choisir la technologie.",
-    image: "/realisations/trackfuel-dashboard.png",
-    imageAlt: "Tableau de bord métier TrackFuel 360 conçu par ILOCAP",
-    background: "bg-[#FBF9F4]",
-    items: [
-      { title: "Conception de plateformes", text: "Applications, portails et plateformes pensés autour de vos usages réels." },
-      { title: "Cadrage fonctionnel & parcours", text: "Besoins, priorités, règles métier et parcours utilisateurs structurés avant la mise en œuvre." },
-      { title: "Conseil & structuration", text: "Une feuille de route lisible pour faire avancer le projet, arbitrer et préparer son évolution." },
-    ],
+    "number": "01",
+    "eyebrow": "Concevoir vos plateformes",
+    "description": "Du besoin métier à une plateforme prête à développer.",
+    "image": "/services/conception-cadrage.svg",
+    "imageAlt": "Concevoir vos plateformes",
+    "items": [
+      {
+        "title": "Sites web & applications",
+        "text": "Des interfaces utiles, adaptées à vos utilisateurs."
+      },
+      {
+        "title": "Portails & plateformes métier",
+        "text": "Des outils sur mesure pour vos activités."
+      },
+      {
+        "title": "Cadrage & parcours utilisateurs",
+        "text": "Des besoins et priorités clairs avant le développement."
+      }
+    ]
   },
   {
-    number: "02",
-    eyebrow: "Automatiser · connecter",
-    title: "Des processus plus fluides et des outils qui travaillent ensemble.",
-    description:
-      "Nous simplifions les circuits, réduisons les tâches répétitives et connectons les données pour rendre les opérations plus lisibles et plus efficaces.",
-    image: "/services/automation-trackfuel.webp",
-    imageAlt: "Automatisation et pilotage des processus avec ILOCAP",
-    background: "bg-[#EEF2E7]",
-    items: [
-      { title: "Processus & workflows", text: "Validations, échanges et tâches répétitives rendus plus simples et plus fluides." },
-      { title: "Outils connectés & évolutifs", text: "Données, intégrations et architecture conçues pour grandir avec votre activité." },
-      { title: "Automatisation & reporting", text: "Déclenchements, alertes, tableaux de bord et suivi opérationnel pour mieux piloter l’activité." },
-      { title: "Données & intégrations", text: "Des échanges structurés avec vos outils existants, API, plateformes métier et systèmes tiers." },
-    ],
+    "number": "02",
+    "eyebrow": "Automatiser vos opérations",
+    "description": "Moins de tâches répétitives, des outils mieux connectés.",
+    "image": "/services/automation-trackfuel.webp",
+    "imageAlt": "Automatiser vos opérations",
+    "items": [
+      {
+        "title": "Workflows & validations",
+        "text": "Automatiser les relances et les circuits de validation."
+      },
+      {
+        "title": "Données & intégrations",
+        "text": "Faire circuler les informations entre vos outils."
+      },
+      {
+        "title": "Tableaux de bord & reporting",
+        "text": "Suivre vos opérations avec des indicateurs utiles."
+      }
+    ]
   },
   {
-    number: "03",
-    eyebrow: "Visibilité · engagement",
-    title: "Une présence digitale qui reste utile, cohérente et active.",
-    description:
-      "Nous construisons les supports et les contenus qui rendent une activité plus visible, plus compréhensible et plus régulière dans le temps.",
-    image: "/services/creation-visuelle-greenvillage.png",
-    imageAlt: "Création visuelle et traitement d’images réalisés par ILOCAP",
-    background: "bg-[#F5F2EA]",
-    items: [
-      { title: "Création visuelle", text: "Traitement d’images, contenus de marque et supports digitaux soignés." },
-      { title: "Community management", text: "Planification, création et animation régulière de vos communautés." },
-      { title: "Sites, contenus & acquisition", text: "Sites web, landing pages, contenus éditoriaux et dispositifs pensés pour soutenir vos objectifs commerciaux." },
-    ],
+    "number": "03",
+    "eyebrow": "Développer votre visibilité",
+    "description": "Des images et des contenus qui mettent votre activité en valeur.",
+    "image": "/services/creation-visuelle-greenvillage.png",
+    "imageAlt": "Développer votre visibilité",
+    "items": [
+      {
+        "title": "Traitement d’images & création",
+        "text": "Retouches, visuels produits et supports de marque."
+      },
+      {
+        "title": "Community management",
+        "text": "Planifier, publier et animer vos réseaux sociaux."
+      },
+      {
+        "title": "Contenus & acquisition",
+        "text": "Des pages et des contenus pensés pour générer des contacts."
+      }
+    ]
   },
   {
-    number: "04",
-    eyebrow: "Accompagner · faire évoluer",
-    title: "Votre équipe digitale, au quotidien.",
-    description:
-      "Un projet ne s’arrête pas à sa mise en ligne. Nous pouvons rester à vos côtés pour exploiter, améliorer, documenter et faire évoluer le dispositif.",
-    image: "/services/community-management.webp",
-    imageAlt: "Communication digitale et accompagnement ILOCAP lors du symposium de la cybersécurité",
-    background: "bg-[#EDE7DA]",
-    monochrome: true,
-    items: [
-      { title: "Automatisation & support", text: "Workflows, reporting, assistance et amélioration continue de vos opérations." },
-      { title: "BPO & back-office", text: "Des activités opérationnelles prises en charge avec des processus structurés et des indicateurs de suivi." },
-      { title: "Formation & adoption", text: "Documentation, formation et accompagnement des équipes pour ancrer les nouveaux usages." },
-      { title: "Automatisation commerciale", text: "Qualification, relances, suivi et assistance pour renforcer la capacité commerciale sans alourdir l’organisation." },
-    ],
-  },
+    "number": "04",
+    "eyebrow": "Accompagner vos équipes",
+    "description": "Un appui régulier pour exploiter vos outils et soutenir votre activité.",
+    "image": "/services/community-management.webp",
+    "imageAlt": "Accompagner vos équipes",
+    "items": [
+      {
+        "title": "Support & amélioration continue",
+        "text": "Maintenir vos outils et les faire évoluer."
+      },
+      {
+        "title": "BPO & back-office",
+        "text": "Prendre en charge vos tâches administratives et commerciales."
+      },
+      {
+        "title": "Formation & adoption",
+        "text": "Former les équipes et faciliter les nouveaux usages."
+      }
+    ]
+  }
 ];
 
 export default function ServicesPage() {
@@ -85,9 +108,7 @@ export default function ServicesPage() {
       <main className="bg-[#F5F2EA] text-[#171A18]">
         <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 lg:px-12">
           <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <div className="absolute inset-0 opacity-[0.18]">
-            <Image src="/abstract-wave.png" alt="" fill priority className="object-cover mix-blend-multiply" />
-          </div>
+          <DigitalFibres />
           <div className="relative mx-auto max-w-[1320px]">
             <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#171A18]/68">Services</p>
             <div className="mt-4 grid gap-7 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
@@ -106,53 +127,15 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="border-y border-[#171A18]/10 bg-[#FBF9F4]">
-          <div className="mx-auto grid max-w-[1320px] divide-y divide-[#171A18]/10 px-5 md:grid-cols-4 md:divide-x md:divide-y-0 md:px-8 lg:px-12">
-            {serviceFamilies.map((family) => (
-              <a key={family.number} href={`#service-${family.number}`} className="group py-5 transition-colors hover:bg-[#F5F2EA] md:px-5 md:py-6 first:md:pl-0 last:md:pr-0">
-                <span className="font-[family-name:var(--font-inter)] text-[10px] font-semibold tracking-[0.18em] text-[#B89A5A]">{family.number}</span>
-                <p className="mt-2 font-[family-name:var(--font-source-serif)] text-lg font-semibold leading-tight text-[#171A18]">{family.eyebrow}</p>
-              </a>
-            ))}
-          </div>
+        <section aria-label="Nos quatre familles de services" className="mx-auto grid max-w-[1320px] gap-5 px-5 pb-16 md:grid-cols-2 md:px-8 lg:px-12">
+          {serviceFamilies.map(family => (
+            <ServiceSheet key={family.number} id={`service-${family.number}`} number={family.number} title={family.eyebrow} description={family.description}>
+              <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-white"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-2" /></div>
+              <ul className="space-y-4">{family.items.map(item => <li key={item.title}><h3 className="font-semibold">{item.title}</h3><p className="mt-1 text-[15px] leading-6 text-[#343A36]">{item.text}</p></li>)}</ul>
+              <Link href={`/contact?objet=devis&service=${family.number}`} className="mt-6 inline-flex min-h-11 items-center rounded-md bg-[#173C31] px-5 text-sm font-semibold text-white hover:bg-[#102F27]">Parlons de votre besoin</Link>
+            </ServiceSheet>
+          ))}
         </section>
-
-        {serviceFamilies.map((family, familyIndex) => (
-          <section id={`service-${family.number}`} key={family.number} className={`${family.background} scroll-mt-20 py-16 md:py-20`}>
-            <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
-              <div className="grid gap-9 lg:grid-cols-2 lg:items-center lg:gap-14">
-                <div className={familyIndex % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-4">
-                    <span className="font-[family-name:var(--font-inter)] text-[11px] font-semibold tracking-[0.2em] text-[#B89A5A]">{family.number}</span>
-                    <span className="h-px w-10 bg-[#B89A5A]/70" />
-                    <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#171A18]/68">{family.eyebrow}</p>
-                  </div>
-                  <h2 className="mt-5 max-w-2xl font-[family-name:var(--font-source-serif)] text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3.3rem]">
-                    {family.title}
-                  </h2>
-                  <p className="mt-5 max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C] md:text-[17px]">{family.description}</p>
-
-                  <div className="mt-8 border-t border-[#171A18]/12">
-                    {family.items.map((item, index) => (
-                      <article key={item.title} className="grid gap-2 border-b border-[#171A18]/12 py-4 sm:grid-cols-[36px_1fr]">
-                        <span className="font-[family-name:var(--font-inter)] text-[11px] font-semibold text-[#171A18]/38">0{index + 1}</span>
-                        <div>
-                          <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold text-[#171A18] md:text-[1.4rem]">{item.title}</h3>
-                          <p className="mt-2 max-w-xl font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C] md:text-[16px] md:leading-7">{item.text}</p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-
-                <div className={`group relative min-h-[320px] overflow-hidden rounded-[20px] border border-[#171A18]/10 bg-white md:min-h-[450px] ${familyIndex % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 1024px) 100vw, 50vw" className={`object-cover object-center transition duration-700 ${family.monochrome ? "grayscale saturate-0 contrast-[1.04] group-hover:grayscale-0 group-hover:saturate-100" : ""}`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#171A18]/10 via-transparent to-transparent" />
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
 
         <section className="bg-[#FBF9F4] py-14 md:py-16">
           <div className="mx-auto grid max-w-[1320px] gap-8 px-5 md:px-8 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-12">

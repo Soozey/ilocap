@@ -31,9 +31,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "Une suite RH souveraine pour fiabiliser les dossiers, le temps de travail, la paie et le pilotage social.",
     logo: "/solutions/logo-siirh.png",
-    visual: "/solutions/siirh-fiche.png",
+    visual: "/solutions/banners/siirh-v2.webp",
     visualAlt: "Présentation de la suite de gestion RH SIIRH",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#E8782A",
     proofs: [
       { value: "120K+", label: "salariés et agents ciblés" },
@@ -111,9 +111,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "Le pilotage unifié de la flotte, du carburant et de la maintenance, avec des alertes directement exploitables.",
     logo: "/solutions/logo-trackfuel360.png",
-    visual: "/realisations/trackfuel-dashboard.png",
+    visual: "/solutions/banners/trackfuel-360-v2.webp",
     visualAlt: "Tableau de bord de suivi de flotte TrackFuel 360",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#1B8FE5",
     proofs: [
       { value: "−28%", label: "fraude carburant potentielle" },
@@ -191,9 +191,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "Un socle unifié pour piloter les capacités, distribuer les titres et fluidifier chaque étape du voyage.",
     logo: "/solutions/logo-lamina.png",
-    visual: "/solutions/lamina-fiche.png",
+    visual: "/solutions/banners/lamina-v2.webp",
     visualAlt: "Présentation de la plateforme de réservation et de billetterie LAMINA",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#3E78A7",
     proofs: [
       { value: "GDS / API", label: "architecture ouverte" },
@@ -271,9 +271,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "La plateforme de gouvernance patrimoniale qui relie inventaire, responsabilités, valeur, documents et décisions.",
     logo: "/solutions/logo-patrimonia.png",
-    visual: "/solutions/patrimonia-fiche.png",
+    visual: "/solutions/banners/patrimonia-v2.webp",
     visualAlt: "Présentation de la plateforme de gestion et de gouvernance des actifs PATRIMONIA",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#587A99",
     proofs: [
       { value: "M57 / M14", label: "référentiels comptables" },
@@ -365,9 +365,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "Une marketplace claire et évolutive pour fédérer des vendeurs, structurer leurs offres et fluidifier la découverte des produits.",
     logo: "/solutions/logo-primimport.png",
-    visual: "/realisations/primi-marketplace.png",
+    visual: "/solutions/banners/primimport-store-v2.webp",
     visualAlt: "Interface de la marketplace Primimport.store",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#B5773E",
     proofs: [
       { value: "Multi", label: "vendeurs et boutiques" },
@@ -445,9 +445,9 @@ export const solutions: Solution[] = [
     cardDescription:
       "Information, urgence, orientation et outils professionnels réunis dans un même espace d’accès au droit.",
     logo: "/solutions/logo-arozo.png",
-    visual: "/solutions/arozo-sos-droits.png",
+    visual: "/solutions/banners/arozo-v2.webp",
     visualAlt: "Parcours d’assistance juridique immédiate proposé par AroZo",
-    visualPosition: "center top",
+    visualPosition: "center",
     accent: "#18A89B",
     proofs: [
       { value: "24/7", label: "assistance juridique" },
@@ -512,7 +512,7 @@ export const solutions: Solution[] = [
       {
         title: "Obtenir une assistance immédiate",
         description: "Un parcours d’urgence guidé pour comprendre la situation, sécuriser les premières actions et demander de l’aide.",
-        image: "/solutions/arozo-sos-droits.png",
+        image: "/solutions/arozo-apercu.png",
         alt: "Parcours SOS Droits et assistance juridique immédiate sur AroZo",
       },
     ],

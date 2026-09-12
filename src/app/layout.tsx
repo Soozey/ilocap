@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Caveat, Inter, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
 import CookieBanner from "@/components/shared/CookieBanner";
@@ -21,6 +21,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 });
 
+const handwritten = Caveat({ subsets: ["latin"], variable: "--font-handwritten", weight: "500", display: "swap" });
 const isDev = process.env.NODE_ENV === "development";
 
 export const metadata: Metadata = {
@@ -100,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           });
         `}
       </Script>
-      <body className={`${inter.variable} ${sourceSerif.variable} antialiased bg-[#F5F2EA] text-[#171A18]`}>
+      <body className={`${inter.variable} ${sourceSerif.variable} ${handwritten.variable} antialiased bg-[#F5F2EA] text-[#171A18]`}>
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>

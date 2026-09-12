@@ -1,28 +1,34 @@
 import Image from "next/image";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
 const serviceCards = [
   {
-    title: "Plateformes & automatisation",
-    text: "Des solutions sur mesure pour fluidifier vos processus, connecter vos outils et gagner en efficacité.",
-    image: "/services/automation-trackfuel.webp",
-    href: "/services",
+    "title": "Concevoir vos plateformes",
+    "text": "Sites, applications et plateformes métier, du cadrage à la mise en ligne.",
+    "image": "/services/conception-cadrage.svg",
+    "href": "/services#service-01"
   },
   {
-    title: "Présence digitale & contenus",
-    text: "Sites web, contenus, community management et traitement d’images pour renforcer votre visibilité.",
-    image: "/services/creation-visuelle-greenvillage.png",
-    href: "/services",
+    "title": "Automatiser vos opérations",
+    "text": "Workflows, données connectées et reporting pour simplifier le quotidien.",
+    "image": "/services/automation-trackfuel.webp",
+    "href": "/services#service-02"
   },
   {
-    title: "Conseil & structuration",
-    text: "Cadrage, accompagnement et organisation pour faire avancer des projets clairs, utiles et durables.",
-    image: "/realisations/symposium-cybersecurite-scene.webp",
-    href: "/methodologie",
-    monochrome: true,
+    "title": "Développer votre visibilité",
+    "text": "Traitement d’images, contenus et réseaux sociaux pour valoriser votre activité.",
+    "image": "/services/creation-visuelle-greenvillage.png",
+    "href": "/services#service-03"
   },
+  {
+    "title": "Accompagner vos équipes",
+    "text": "Support, BPO et formation pour faire fonctionner et évoluer vos outils.",
+    "image": "/services/community-management.webp",
+    "href": "/services#service-04"
+  }
 ];
 
 const solutionCards = [
@@ -30,21 +36,21 @@ const solutionCards = [
     title: "AroZo",
     text: "Information, urgence, orientation et outils professionnels réunis dans un même espace d’accès au droit.",
     logo: "/solutions/logo-arozo.png",
-    image: "/solutions/arozo-sos-droits.png",
+    image: "/solutions/banners/arozo-v2.webp",
     href: "/solutions/arozo",
   },
   {
     title: "LAMINA",
     text: "Un socle unifié pour piloter les capacités, distribuer les titres et fluidifier chaque étape du voyage.",
     logo: "/solutions/logo-lamina.png",
-    image: "/solutions/lamina-fiche.png",
+    image: "/solutions/banners/lamina-v2.webp",
     href: "/solutions/lamina",
   },
   {
     title: "PATRIMONIA",
     text: "La plateforme de gouvernance patrimoniale qui relie inventaire, responsabilités, valeur, documents et décisions.",
     logo: "/solutions/logo-patrimonia.png",
-    image: "/solutions/patrimonia-fiche.png",
+    image: "/solutions/banners/patrimonia-v2.webp",
     href: "/solutions/patrimonia",
   },
 ];
@@ -64,11 +70,9 @@ export default function Home() {
     <>
       <Header />
       <main className="bg-[#F5F2EA] text-[#171A18]">
-        <section className="relative flex min-h-[520px] items-center overflow-hidden pt-[74px] md:min-h-[570px]">
+        <section className="relative flex min-h-[440px] items-center overflow-hidden pt-[74px] md:min-h-[480px]">
           <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <div className="absolute inset-0 opacity-[0.2]">
-            <Image src="/abstract-wave.png" alt="" fill priority className="object-cover object-center mix-blend-multiply" />
-          </div>
+          <DigitalFibres />
           <div className="relative z-10 mx-auto w-full max-w-4xl px-5 py-14 text-center md:px-8 md:py-16">
             <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.25em] text-[#171A18]/70">
               ILOCAP · STUDIO DIGITAL
@@ -90,26 +94,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#FBF9F4] py-16 md:py-20">
+        <section className="bg-[#FBF9F4] py-12 md:py-16">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
               <div>
                 <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Services</p>
                 <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3.35rem]">
-                  Des expertises complémentaires pour des résultats concrets.
+                  Votre équipe digitale, du projet au quotidien.
                 </h2>
               </div>
               <div className="lg:pb-1">
                 <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
-                  De la stratégie à l’exécution, nous réunissons les compétences utiles pour faire avancer vos projets sans multiplier les interlocuteurs.
+                  Un partenaire pour concevoir, automatiser, créer vos contenus et accompagner vos équipes. En mission ponctuelle ou dans la durée.
                 </p>
                 <Link href="/services" className="mt-4 inline-flex font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] underline decoration-[#B89A5A] underline-offset-4 transition-opacity hover:opacity-65">
-                  Découvrir l’ensemble de nos services
+                  Choisir votre service
                 </Link>
               </div>
             </div>
 
-            <div className="mt-9 grid gap-5 md:grid-cols-3">
+            <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {serviceCards.map((card) => (
                 <article key={card.title} className="group overflow-hidden rounded-[18px] border border-[#171A18]/10 bg-white transition duration-300 hover:-translate-y-0.5 hover:border-[#173C31]/35 hover:shadow-[0_18px_50px_rgba(23,60,49,.08)]">
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#E8E3D8]">
@@ -118,7 +122,7 @@ export default function Home() {
                       alt={card.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className={`object-cover transition duration-700 ${card.monochrome ? "grayscale saturate-0 contrast-[1.04] group-hover:grayscale-0 group-hover:saturate-100" : ""}`}
+                      className={`object-cover transition duration-700 `}
                     />
                   </div>
                   <div className="p-6">
@@ -134,42 +138,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#EDE7DA] py-16 md:py-20">
-          <div className="mx-auto grid max-w-[1320px] gap-9 px-5 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:px-12">
-            <div className="flex flex-col justify-center">
-              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Au plus près de vos équipes</p>
-              <h2 className="mt-4 max-w-xl font-[family-name:var(--font-source-serif)] text-[2.35rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3.35rem]">
-                Votre équipe digitale, au quotidien.
-              </h2>
-              <p className="mt-5 max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C] md:text-[17px]">
-                Nous travaillons à vos côtés comme un partenaire opérationnel : cadrage, création, automatisation, amélioration continue et accompagnement des équipes.
-              </p>
-              <Link href="/services" className="mt-7 inline-flex w-fit min-h-12 items-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-white transition hover:bg-[#102F27]">
-                Voir nos services
-              </Link>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-[1.1fr_.9fr] md:items-stretch">
-              <div className="group relative min-h-[330px] overflow-hidden rounded-[18px] bg-[#D8D0C1] md:min-h-[400px]">
-                <Image src="/services/community-management.webp" alt="ILOCAP au plus près des équipes et des projets" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover grayscale saturate-0 contrast-[1.04] transition duration-700 group-hover:grayscale-0 group-hover:saturate-100" />
-              </div>
-              <div className="flex flex-col justify-center rounded-[18px] bg-[#F7F3E9] p-7 md:p-8">
-                {[
-                  ["Conception & cadrage", "Faire émerger les bons besoins, prioriser et transformer les idées en feuille de route claire."],
-                  ["Processus & workflows", "Simplifier les circuits, automatiser les tâches répétitives et améliorer la traçabilité."],
-                  ["Outils connectés & évolutifs", "Construire des solutions capables de s’intégrer à votre environnement et d’évoluer avec vous."],
-                ].map(([title, text], index) => (
-                  <div key={title} className={index === 0 ? "pb-5" : "border-t border-[#171A18]/12 py-5 last:pb-0"}>
-                    <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold text-[#171A18]">{title}</h3>
-                    <p className="mt-2 font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C]">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#EEF2E7] py-16 md:py-20">
+        <section className="bg-[#EEF2E7] py-12 md:py-16">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
               <div>
@@ -186,12 +155,9 @@ export default function Home() {
             <div className="mt-9 grid gap-5 md:grid-cols-3">
               {solutionCards.map((card) => (
                 <article key={card.title} className="group overflow-hidden rounded-[18px] border border-[#171A18]/10 bg-[#FBFCF8] transition duration-300 hover:-translate-y-0.5 hover:border-[#173C31]/35 hover:shadow-[0_18px_50px_rgba(23,60,49,.08)]">
-                  <div className="flex min-h-[76px] items-center border-b border-[#171A18]/10 bg-white px-5 py-3">
-                    <Image src={card.logo} alt={`Logo ${card.title}`} width={220} height={80} className="max-h-11 w-auto max-w-[75%] object-contain object-left" />
-                  </div>
-                  <div className="relative aspect-[16/6] overflow-hidden bg-white">
-                    <Image src={card.image} alt={card.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.015]" />
-                  </div>
+                  <Link href={card.href} aria-label={`Découvrir ${card.title}`} className="relative block aspect-[2/1] overflow-hidden border-b border-[#171A18]/10 bg-[#F5F2EA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#173C31]">
+                    <Image src={card.image} alt={card.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain transition duration-500 group-hover:scale-[1.015]" />
+                  </Link>
                   <div className="p-6">
                     <h3 className="font-[family-name:var(--font-source-serif)] text-2xl font-semibold text-[#171A18]">{card.title}</h3>
                     <p className="mt-3 min-h-[72px] font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C]">{card.text}</p>
@@ -224,9 +190,9 @@ export default function Home() {
             </div>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
               {references.map((logo) => (
-                <div key={logo.alt} className="flex h-24 items-center justify-center rounded-[14px] border border-[#171A18]/8 bg-white px-4 py-3 transition duration-300 hover:border-[#173C31]/35">
+                <Link href="/realisations" key={logo.alt} aria-label={`${logo.alt} — voir nos réalisations`} className="flex h-24 items-center justify-center rounded-[14px] border border-[#171A18]/8 bg-white px-4 py-3 transition duration-300 hover:border-[#173C31]/35">
                   <Image src={logo.src} alt={logo.alt} width={180} height={90} className="max-h-14 w-auto max-w-full object-contain" />
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -234,7 +200,7 @@ export default function Home() {
 
         <section className="relative overflow-hidden bg-[#173C31] py-16 text-white md:py-20">
           <div className="relative mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
-            <div className="mx-auto max-w-[760px] text-center">
+            <div className="mx-auto max-w-[760px] text-center xl:mr-[320px]">
               <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-white/58">Un projet ?</p>
               <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-[2.4rem] font-semibold leading-none tracking-[-0.025em] md:text-[3.5rem]">Parlons de votre projet.</h2>
               <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
@@ -245,8 +211,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="pointer-events-none absolute right-10 top-1/2 hidden w-[250px] -translate-y-1/2 text-[#E2C56D] lg:block">
-              <p className="rotate-[-7deg] text-right font-['Segoe_Print','Bradley_Hand',cursive] text-[24px] leading-[1.15]">
+            <div className="pointer-events-none absolute right-10 top-1/2 hidden w-[250px] -translate-y-1/2 text-[#E2C56D] xl:block">
+              <p className="rotate-[-7deg] text-right font-[family-name:var(--font-handwritten)] text-[24px] leading-[1.15]">
                 Échangeons autour de vos idées.
               </p>
               <svg className="ml-auto mt-1 h-14 w-36" viewBox="0 0 150 58" fill="none" aria-hidden="true">

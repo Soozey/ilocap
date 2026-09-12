@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
@@ -80,11 +81,11 @@ export default function ArozoPresentation() {
     <>
       <Header />
       <main className="overflow-hidden bg-[#F5F8FA] text-[#0F1C2C]">
-        <section className="relative bg-[#0F1C2C] px-gutter pb-20 pt-32 text-white md:pb-28 md:pt-40">
-          <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_18%_28%,rgba(24,168,155,.28),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(233,120,42,.16),transparent_22%)]" />
+        <section className="relative overflow-hidden bg-[#173C31] px-gutter pb-14 pt-32 text-white md:pb-16 md:pt-36">
+          <DigitalFibres color="#F5F2EA" />
           <div className="section-shell relative grid gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20">
             <div>
-              <Link href="/services#accelerateurs" className="inline-flex items-center gap-3 font-manrope text-xs font-semibold uppercase tracking-[0.16em] text-white/55 transition hover:text-white">
+              <Link href="/solutions" className="inline-flex items-center gap-3 font-manrope text-xs font-semibold uppercase tracking-[0.16em] text-white/55 transition hover:text-white">
                 <span aria-hidden="true">←</span> Solutions & accélérateurs
               </Link>
 
@@ -110,22 +111,10 @@ export default function ArozoPresentation() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[650px] pb-8 pt-4">
-              <div className="absolute left-[8%] top-[12%] h-[68%] w-[84%] rounded-[32px] border border-[#75E0D6]/15 bg-[#14263A] shadow-[0_45px_120px_rgba(0,0,0,.35)]" />
-              <div className="relative ml-auto mr-[8%] w-[46%] rotate-[3deg] overflow-hidden rounded-[28px] border-[7px] border-[#263548] bg-white shadow-[0_35px_90px_rgba(0,0,0,.45)]">
-                <div className="relative aspect-[9/16] bg-[#EDF5FF]">
-                  <Image src="/solutions/arozo-sos-droits.png" alt="Parcours d’assistance juridique et SOS Droits AroZo" fill priority sizes="(max-width: 1024px) 46vw, 300px" className="object-cover object-top" />
-                </div>
+            <div className="relative mx-auto w-full max-w-[650px] overflow-hidden rounded-xl border border-white/15 bg-[#F5F2EA] p-3">
+              <div className="relative aspect-[2/1]">
+                <Image src="/solutions/banners/arozo-v2.webp" alt="AroZo : assistance juridique, guides pratiques et espace professionnel" fill priority sizes="(max-width: 1024px) 100vw, 54vw" className="object-contain" />
               </div>
-              <div className="absolute bottom-0 left-[3%] w-[42%] -rotate-[4deg] overflow-hidden rounded-[24px] border-[6px] border-[#DCE8EC] bg-white shadow-[0_28px_70px_rgba(0,0,0,.38)]">
-                <div className="relative aspect-[9/14] bg-[#EDF5FF]">
-                  <Image src="/solutions/arozo-annuaire.png" alt="Annuaire des professionnels du droit AroZo" fill sizes="(max-width: 1024px) 42vw, 270px" className="object-cover object-top" />
-                </div>
-              </div>
-              <div className="absolute bottom-10 right-0 flex w-[58%] items-center justify-center rounded-[15px] border border-white/15 bg-[#F1F5F6]/95 px-5 py-4 shadow-[0_18px_50px_rgba(0,0,0,.25)] backdrop-blur-xl">
-                <Image src="/solutions/logo-arozo.png" alt="Logo AroZo" width={512} height={148} className="h-auto max-h-16 w-auto max-w-full object-contain" />
-              </div>
-              <div className="absolute right-[4%] top-0 rounded-full bg-[#E9782A] px-4 py-2 font-manrope text-xs font-extrabold uppercase tracking-[0.15em] text-white shadow-lg">SOS Droits</div>
             </div>
           </div>
         </section>
@@ -141,7 +130,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section id="parcours" className="section-shell scroll-mt-24 px-gutter py-20 md:py-28">
+        <section id="parcours" className="section-shell scroll-mt-24 px-gutter py-12 md:py-16">
           <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:gap-16">
             <div>
               <p className="font-manrope text-xs font-extrabold uppercase tracking-[0.2em] text-[#0B8075]">Deux portes d’entrée</p>
@@ -168,7 +157,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section className="bg-[#EAF5F5] py-20 md:py-28">
+        <section className="bg-[#EAF5F5] py-12 md:py-16">
           <div className="section-shell px-gutter">
             <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
               <div className="max-w-3xl">
@@ -218,7 +207,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-12 md:py-16">
           <div className="section-shell grid gap-12 px-gutter lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16">
             <div className="lg:sticky lg:top-32">
               <p className="font-manrope text-xs font-extrabold uppercase tracking-[0.2em] text-[#0B8075]">L’expérience AroZo</p>
@@ -232,13 +221,13 @@ export default function ArozoPresentation() {
             <div className="grid gap-6 sm:grid-cols-2">
               <article className="overflow-hidden rounded-[24px] border border-[#0F1C2C]/10 bg-[#F5F8FA] p-4 shadow-[0_24px_70px_rgba(15,28,44,.10)]">
                 <div className="relative aspect-[9/16] overflow-hidden rounded-[18px] bg-[#EDF5FF]">
-                  <Image src="/solutions/arozo-sos-droits.png" alt="Interface du parcours SOS Droits AroZo" fill sizes="(max-width: 640px) 100vw, 35vw" className="object-cover object-top" />
+                  <Image src="/solutions/arozo-sos-droits.png" alt="Interface du parcours SOS Droits AroZo" fill sizes="(max-width: 640px) 100vw, 35vw" className="object-contain" />
                 </div>
                 <div className="px-2 pb-2 pt-6"><p className="font-manrope text-xs font-extrabold uppercase tracking-[0.17em] text-[#C85D16]">Parcours 01</p><h3 className="mt-3 font-sora text-xl">Assistance & SOS Droits</h3></div>
               </article>
               <article className="mt-0 overflow-hidden rounded-[24px] border border-[#0F1C2C]/10 bg-[#F5F8FA] p-4 shadow-[0_24px_70px_rgba(15,28,44,.10)] sm:mt-14">
                 <div className="relative aspect-[9/16] overflow-hidden rounded-[18px] bg-[#EDF5FF]">
-                  <Image src="/solutions/arozo-annuaire.png" alt="Interface de l’annuaire des professionnels AroZo" fill sizes="(max-width: 640px) 100vw, 35vw" className="object-cover object-top" />
+                  <Image src="/solutions/arozo-annuaire.png" alt="Interface de l’annuaire des professionnels AroZo" fill sizes="(max-width: 640px) 100vw, 35vw" className="object-contain" />
                 </div>
                 <div className="px-2 pb-2 pt-6"><p className="font-manrope text-xs font-extrabold uppercase tracking-[0.17em] text-[#0B8075]">Parcours 02</p><h3 className="mt-3 font-sora text-xl">Annuaire des professionnels</h3></div>
               </article>
@@ -246,7 +235,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section className="section-shell px-gutter py-20 md:py-28">
+        <section className="section-shell px-gutter py-12 md:py-16">
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
             <div>
               <p className="font-manrope text-xs font-extrabold uppercase tracking-[0.2em] text-[#0B8075]">Publics concernés</p>
@@ -264,7 +253,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section className="bg-[#EAF5F5] py-20 md:py-24">
+        <section className="bg-[#EAF5F5] py-12 md:py-16">
           <div className="section-shell px-gutter">
             <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
               <div>
@@ -288,7 +277,7 @@ export default function ArozoPresentation() {
           </div>
         </section>
 
-        <section className="px-gutter py-20 md:py-28">
+        <section className="px-gutter py-12 md:py-16">
           <div className="section-shell overflow-hidden rounded-[26px] bg-[#0F1C2C] text-white shadow-[0_32px_90px_rgba(15,28,44,.18)]">
             <div className="grid gap-10 p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:items-center lg:p-16">
               <div>

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/shared/Header";
@@ -43,11 +44,12 @@ export default async function SolutionPage({ params }: PageProps) {
     <>
       <Header />
       <main style={accentStyle} className="bg-[#F4F7F6] text-[#111A2E]">
-        <section className="overflow-hidden bg-[#111A2E] px-gutter pb-16 pt-32 text-white md:pb-24 md:pt-40">
-          <div className="section-shell grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-16">
+        <section className="relative overflow-hidden bg-[#173C31] px-gutter pb-14 pt-32 text-white md:pb-16 md:pt-36">
+          <DigitalFibres color="#F5F2EA" />
+          <div className="section-shell relative grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-12">
             <div>
               <Link
-                href="/services#accelerateurs"
+                href="/solutions"
                 className="inline-flex items-center gap-3 font-manrope text-xs font-semibold uppercase tracking-[0.16em] text-white/60 transition hover:text-white"
               >
                 <span aria-hidden="true">←</span> Solutions & accélérateurs
@@ -79,17 +81,17 @@ export default async function SolutionPage({ params }: PageProps) {
             </div>
 
             <div className="relative">
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[24px] border border-white/12 bg-[#17243B] shadow-[0_40px_110px_rgba(0,0,0,.3)]">
+              <div className="relative aspect-[2/1] overflow-hidden rounded-[24px] border border-white/12 bg-[#F5F2EA]">
                 <Image
                   src={solution.visual}
                   alt={solution.visualAlt}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 54vw"
-                  className="object-cover"
+                  className="object-contain"
                   style={{ objectPosition: solution.visualPosition }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111A2E]/78 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent" />
               </div>
               <div className="absolute -bottom-6 left-5 flex min-h-24 w-[min(72%,280px)] items-center justify-center rounded-[14px] border border-[#D8E2E6]/80 bg-[#F1F5F6]/92 p-4 shadow-[0_14px_38px_rgba(17,26,46,.10)] backdrop-blur md:left-8">
                 <Image
@@ -188,7 +190,7 @@ export default async function SolutionPage({ params }: PageProps) {
                   {solution.gallery.map((item) => (
                     <article key={item.title} className="overflow-hidden rounded-[20px] border border-[#111A2E]/10 bg-[#F4F7F6]">
                       <div className="relative aspect-[4/5] overflow-hidden bg-[#EAF4F3]">
-                        <Image src={item.image} alt={item.alt} fill sizes="(max-width: 640px) 100vw, 34vw" className="object-cover object-top" />
+                        <Image src={item.image} alt={item.alt} fill sizes="(max-width: 640px) 100vw, 34vw" className="object-contain" />
                         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#111A2E]/42 to-transparent" />
                       </div>
                       <div className="p-6 md:p-7">

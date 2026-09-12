@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { trackEvent } from "@/lib/analytics";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 
 const initialForm = {
   nom: "",
@@ -57,49 +58,50 @@ export default function ContactPage() {
     }
   };
 
-  const fieldClass = "mt-2 w-full rounded-[8px] border border-[#073642]/12 bg-[#F3F1EC] p-4 font-manrope text-sm text-[#073642] outline-none transition placeholder:text-[#073642]/35 focus:border-[#B89A5A] focus:ring-2 focus:ring-[#B89A5A]/15";
-  const labelClass = "font-manrope text-[10px] font-bold uppercase tracking-[0.16em] text-[#073642]/62";
+  const fieldClass = "mt-2 w-full rounded-[8px] border border-[#171A18]/12 bg-[#F5F2EA] p-4 font-[family-name:var(--font-inter)] text-sm text-[#171A18] outline-none transition placeholder:text-[#171A18]/35 focus:border-[#B89A5A] focus:ring-2 focus:ring-[#B89A5A]/15";
+  const labelClass = "font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.16em] text-[#171A18]/62";
 
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#F3F1EC] text-[#073642]">
-        <section className="bg-[#073642] px-gutter pb-16 pt-36 text-white md:pb-20 md:pt-44">
-          <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-end">
+      <main className="min-h-screen bg-[#F5F2EA] text-[#171A18]">
+        <section className="relative overflow-hidden bg-[#F5F2EA] px-gutter pb-12 pt-32 md:pb-16 md:pt-36">
+          <DigitalFibres />
+          <div className="section-shell relative grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-end">
             <div>
-              <div className="mb-6 flex items-center gap-4"><div className="h-px w-12 bg-[#B89A5A]" /><span className="font-manrope text-[10px] font-bold uppercase tracking-[0.22em] text-[#B89A5A]">Demande de devis</span></div>
-              <h1 className="max-w-4xl font-sora text-4xl leading-[1.05] md:text-6xl">Présentez-nous votre projet, même s’il est encore <span className="text-[#B89A5A]">au stade de l’idée.</span></h1>
+              <div className="mb-6 flex items-center gap-4"><div className="h-px w-12 bg-[#B89A5A]" /><span className="font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.22em] text-[#B89A5A]">Demande de devis</span></div>
+              <h1 className="max-w-4xl font-[family-name:var(--font-source-serif)] text-4xl leading-[1.05] md:text-6xl">Présentez-nous votre projet, même s’il est encore <span className="text-[#B89A5A]">au stade de l’idée.</span></h1>
             </div>
-            <p className="font-manrope text-base leading-relaxed text-white/70 md:text-lg">Nous analyserons votre demande et reviendrons vers vous avec une première orientation et les informations nécessaires pour cadrer la suite.</p>
+            <p className="font-[family-name:var(--font-inter)] text-base leading-relaxed text-[#343A36]">Nous analyserons votre demande et reviendrons vers vous avec une première orientation et les informations nécessaires pour cadrer la suite.</p>
           </div>
         </section>
 
-        <section className="section-shell grid gap-10 px-gutter py-16 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16 lg:py-24">
+        <section className="section-shell grid gap-10 px-gutter py-16 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16 lg:py-16">
           <aside>
-            <p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Contact direct</p>
-            <h2 className="mt-4 font-sora text-3xl leading-tight">Vous préférez échanger directement ?</h2>
-            <div className="mt-8 space-y-6 rounded-[14px] border border-[#073642]/10 bg-white p-6">
-              <div><p className={labelClass}>Email</p><a href="mailto:management@ilocap.com" className="mt-2 block font-manrope text-sm hover:text-[#B89A5A]">management@ilocap.com</a></div>
-              <div><p className={labelClass}>Téléphone / WhatsApp</p><a href="https://wa.me/261343807857" target="_blank" rel="noopener noreferrer" className="mt-2 block font-manrope text-sm hover:text-[#B89A5A]">+261 34 38 07 857</a></div>
-              <div><p className={labelClass}>Localisation</p><p className="mt-2 font-manrope text-sm text-[#073642]/65">Antananarivo, Madagascar</p></div>
+            <p className="font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.2em] text-[#B89A5A]">Contact direct</p>
+            <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-3xl leading-tight">Vous préférez échanger directement ?</h2>
+            <div className="mt-8 space-y-6 rounded-[14px] border border-[#171A18]/10 bg-white p-6">
+              <div><p className={labelClass}>Email</p><a href="mailto:management@ilocap.com" className="mt-2 block font-[family-name:var(--font-inter)] text-sm hover:text-[#B89A5A]">management@ilocap.com</a></div>
+              <div><p className={labelClass}>Téléphone / WhatsApp</p><a href="https://wa.me/261343807857" target="_blank" rel="noopener noreferrer" className="mt-2 block font-[family-name:var(--font-inter)] text-sm hover:text-[#B89A5A]">+261 34 38 07 857</a></div>
+              <div><p className={labelClass}>Localisation</p><p className="mt-2 font-[family-name:var(--font-inter)] text-sm text-[#343A36]">Antananarivo, Madagascar</p></div>
             </div>
-            <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="button-elegant mt-5 inline-flex w-full items-center justify-center border border-[#B89A5A] px-6 text-center font-manrope text-[10px] font-bold uppercase text-[#073642] hover:bg-[#B89A5A] hover:text-white">Réserver un échange de 30 min</Link>
+            <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="button-elegant mt-5 inline-flex w-full items-center justify-center border border-[#B89A5A] px-6 text-center font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] hover:bg-[#B89A5A] hover:text-white">Réserver un échange de 30 min</Link>
           </aside>
 
-          <div className="rounded-[16px] border border-[#073642]/10 bg-white p-6 shadow-[0_24px_80px_rgba(7,54,66,0.08)] md:p-10">
+          <div className="rounded-[16px] border border-[#171A18]/10 bg-white p-6 shadow-[0_24px_80px_rgba(7,54,66,0.08)] md:p-10">
             {status === "success" ? (
               <div className="flex min-h-[560px] flex-col items-center justify-center text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#B89A5A]/15 text-2xl text-[#B89A5A]">✓</div>
-                <h2 className="mt-7 font-sora text-3xl">Votre demande a bien été transmise.</h2>
-                <p className="mt-4 max-w-lg font-manrope text-sm leading-relaxed text-[#073642]/65">Nous allons l’étudier et vous contacter pour préciser le besoin. Vous pouvez aussi réserver immédiatement un créneau si le projet est urgent.</p>
+                <h2 className="mt-7 font-[family-name:var(--font-source-serif)] text-3xl">Votre demande a bien été transmise.</h2>
+                <p className="mt-4 max-w-lg font-[family-name:var(--font-inter)] text-sm leading-relaxed text-[#343A36]">Nous allons l’étudier et vous contacter pour préciser le besoin. Vous pouvez aussi réserver immédiatement un créneau si le projet est urgent.</p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="button-elegant inline-flex items-center justify-center bg-[#073642] px-6 font-manrope text-[10px] font-bold uppercase text-white hover:bg-[#B89A5A]">Choisir un créneau</Link>
-                  <button type="button" onClick={() => { setForm(initialForm); setStatus("idle"); }} className="button-elegant border border-[#073642]/15 px-6 font-manrope text-[10px] font-bold uppercase text-[#073642] hover:border-[#B89A5A]">Nouvelle demande</button>
+                  <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="button-elegant inline-flex items-center justify-center bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-white hover:bg-[#B89A5A]">Choisir un créneau</Link>
+                  <button type="button" onClick={() => { setForm(initialForm); setStatus("idle"); }} className="button-elegant border border-[#171A18]/15 px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] hover:border-[#B89A5A]">Nouvelle demande</button>
                 </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} onFocusCapture={handleFormStart} className="space-y-6">
-                <div><p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Votre demande</p><h2 className="mt-3 font-sora text-2xl md:text-3xl">Quelques informations suffisent pour commencer.</h2></div>
+                <div><p className="font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.2em] text-[#B89A5A]">Votre demande</p><h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl">Quelques informations suffisent pour commencer.</h2></div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className={labelClass}>Nom et prénom *<input name="name" autoComplete="name" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })} className={fieldClass} /></label>
                   <label className={labelClass}>Organisation<input name="organization" autoComplete="organization" value={form.organisation} onChange={(e) => setForm({ ...form, organisation: e.target.value })} className={fieldClass} /></label>
@@ -111,9 +113,9 @@ export default function ContactPage() {
                   <label className={labelClass}>Budget indicatif<select name="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className={fieldClass}><option value="">Je souhaite être conseillé</option><option>Moins de 10 000 €</option><option>10 000 à 30 000 €</option><option>30 000 à 100 000 €</option><option>Plus de 100 000 €</option></select></label>
                 </div>
                 <label className={labelClass}>Quel problème souhaitez-vous résoudre ? *<textarea name="message" required rows={6} placeholder="Décrivez brièvement le contexte, les utilisateurs concernés et le résultat attendu." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${fieldClass} resize-y`} /></label>
-                <label className="flex items-start gap-3 font-manrope text-xs leading-relaxed text-[#073642]/60"><input type="checkbox" required checked={form.optIn} onChange={(e) => setForm({ ...form, optIn: e.target.checked })} className="mt-0.5 h-4 w-4 accent-[#B89A5A]" /><span>J’accepte que mes informations soient utilisées pour répondre à cette demande.</span></label>
-                {status === "error" && <p role="alert" className="rounded-[8px] border border-red-200 bg-red-50 p-4 font-manrope text-sm text-red-700">{error}</p>}
-                <button type="submit" disabled={status === "sending"} className="button-elegant w-full bg-[#B89A5A] px-7 font-manrope text-[10px] font-bold uppercase text-[#073642] hover:bg-[#073642] hover:text-white disabled:cursor-wait disabled:opacity-60">{status === "sending" ? "Envoi en cours…" : "Envoyer ma demande de devis →"}</button>
+                <label className="flex items-start gap-3 font-[family-name:var(--font-inter)] text-xs leading-relaxed text-[#343A36]"><input type="checkbox" required checked={form.optIn} onChange={(e) => setForm({ ...form, optIn: e.target.checked })} className="mt-0.5 h-4 w-4 accent-[#B89A5A]" /><span>J’accepte que mes informations soient utilisées pour répondre à cette demande.</span></label>
+                {status === "error" && <p role="alert" className="rounded-[8px] border border-red-200 bg-red-50 p-4 font-[family-name:var(--font-inter)] text-sm text-red-700">{error}</p>}
+                <button type="submit" disabled={status === "sending"} className="button-elegant w-full bg-[#B89A5A] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] hover:bg-[#173C31] hover:text-white disabled:cursor-wait disabled:opacity-60">{status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}</button>
               </form>
             )}
           </div>

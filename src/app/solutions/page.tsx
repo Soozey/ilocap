@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
@@ -20,9 +21,7 @@ export default function SolutionsPage() {
       <main className="bg-[#F5F2EA] text-[#171A18]">
         <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 lg:px-12">
           <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <div className="absolute inset-0 opacity-[0.18]">
-            <Image src="/abstract-wave.png" alt="" fill priority className="object-cover mix-blend-multiply" />
-          </div>
+          <DigitalFibres />
           <div className="relative mx-auto max-w-[1320px]">
             <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#171A18]/68">Solutions & accélérateurs</p>
             <div className="mt-4 grid gap-7 lg:grid-cols-[1.12fr_.88fr] lg:items-end">
@@ -36,25 +35,21 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        <section className="bg-[#EEF2E7] py-16 md:py-20">
+        <section className="bg-[#EEF2E7] py-12 md:py-16">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-5 md:grid-cols-2">
               {solutions.map((solution) => (
                 <article key={solution.slug} className="group flex flex-col overflow-hidden rounded-[20px] border border-[#171A18]/10 bg-[#FBFCF8] transition duration-300 hover:-translate-y-0.5 hover:border-[#173C31]/35 hover:shadow-[0_20px_55px_rgba(23,60,49,.09)]">
-                  <div className="flex min-h-[82px] items-center border-b border-[#171A18]/10 bg-white px-6 py-3">
-                    <Image src={solution.logo} alt={`Logo ${solution.name}`} width={300} height={110} className="max-h-12 w-auto max-w-[72%] object-contain object-left" />
-                  </div>
-
-                  <div className="relative aspect-[16/6] overflow-hidden bg-white">
+                  <Link href={`/solutions/${solution.slug}`} aria-label={`Découvrir ${solution.name}`} className="relative block aspect-[2/1] overflow-hidden border-b border-[#171A18]/10 bg-[#F5F2EA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#173C31]">
                     <Image
                       src={solution.visual}
                       alt={solution.visualAlt}
                       fill
                       sizes="(max-width: 767px) 100vw, 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-[1.01]"
+                      className="object-contain transition duration-500 group-hover:scale-[1.01]"
                       style={{ objectPosition: solution.visualPosition }}
                     />
-                  </div>
+                  </Link>
 
                   <div className="flex flex-1 flex-col p-6 md:p-7">
                     <p className="font-[family-name:var(--font-inter)] text-[10px] font-semibold uppercase tracking-[0.18em] text-[#171A18]/58">{solution.category}</p>
