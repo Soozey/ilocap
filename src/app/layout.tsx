@@ -1,25 +1,27 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Sora, Manrope } from "next/font/google";
+import { Caveat, Inter, Source_Serif_4 } from "next/font/google";
 import Script from "next/script";
 import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
 import CookieBanner from "@/components/shared/CookieBanner";
 import "./globals.css";
 
-const sora = Sora({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sora",
-  weight: ["700", "800"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-source-serif",
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const handwritten = Caveat({ subsets: ["latin"], variable: "--font-handwritten", weight: "500", display: "swap" });
 const isDev = process.env.NODE_ENV === "development";
 
 export const metadata: Metadata = {
@@ -66,27 +68,19 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#073642",
+  themeColor: "#173C31",
   colorScheme: "light",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-6C9DTT0RX9"
-        strategy="afterInteractive"
-      />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-6C9DTT0RX9" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          
           gtag('consent', 'default', {
             'analytics_storage': 'denied',
             'ad_storage': 'denied',
@@ -94,7 +88,6 @@ export default function RootLayout({
             'personalization_storage': 'denied',
             'security_storage': 'granted'
           });
-          
           gtag('config', 'G-6C9DTT0RX9', {
             page_location: window.location.href,
             page_title: document.title,
@@ -108,8 +101,7 @@ export default function RootLayout({
           });
         `}
       </Script>
-      
-      <body className={`${sora.variable} ${manrope.variable} font-[family-name:var(--font-manrope)] antialiased bg-[#F3F1EC]`}>
+      <body className={`${inter.variable} ${sourceSerif.variable} ${handwritten.variable} antialiased bg-[#F5F2EA] text-[#171A18]`}>
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>

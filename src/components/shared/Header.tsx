@@ -1,32 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import AnimatedLogo from "@/components/shared/AnimatedLogo";
+
+const navItems = [
+  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "À propos", href: "/methodologie" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = [
-    { label: "Expertise", href: "/#expertise" },
-    { label: "Services continus", href: "/#services-continus" },
-    { label: "Solutions", href: "/services#accelerateurs" },
-    { label: "Réalisations", href: "/realisations" },
-  ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#111A2E]/95 backdrop-blur-xl transition-colors duration-300">
-      <div className="flex h-20 md:h-24 justify-between items-center w-full px-gutter max-w-[1440px] mx-auto">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
-          <AnimatedLogo />
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-[#171A18]/10 bg-[#F5F2EA]/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 lg:px-12">
+        <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center">
+          <Image
+            src="/Logo_ilocap_coloured-rm.png"
+            alt="ILOCAP"
+            width={220}
+            height={90}
+            priority
+            className="h-11 w-auto object-contain md:h-12"
+          />
         </Link>
 
-        <div className="hidden md:flex items-center gap-5 lg:gap-8">
+        <div className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="px-1 py-2 font-manrope text-[11px] uppercase tracking-[0.18em] text-white/80 transition-colors hover:text-[#78D9C5] lg:text-xs"
+              className="font-[family-name:var(--font-inter)] text-[13px] font-medium text-[#171A18]/72 transition-opacity hover:opacity-55"
             >
               {item.label}
             </Link>
@@ -36,21 +45,20 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact?objet=devis"
-            className="button-elegant button-logo-lavender hidden items-center justify-center px-6 font-manrope text-[10px] font-extrabold uppercase md:flex lg:px-7 lg:text-[11px]"
+            className="hidden min-h-12 items-center justify-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-[13px] font-semibold text-white transition hover:bg-[#102F27] md:inline-flex"
           >
-            Parler d’un projet
+            Parler de votre projet
           </Link>
-
           <button
             type="button"
             aria-label="Ouvrir le menu"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="md:hidden w-11 h-11 border flex flex-col items-center justify-center gap-1.5 transition-colors rounded-[8px] border-white/20 text-white hover:border-[#B89A5A]"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-md border border-[#171A18]/20 text-[#171A18] lg:hidden"
           >
-            <span className="w-5 h-px bg-current" />
-            <span className="w-5 h-px bg-current" />
-            <span className="w-5 h-px bg-current" />
+            <span className="h-px w-5 bg-current" />
+            <span className="h-px w-5 bg-current" />
+            <span className="h-px w-5 bg-current" />
           </button>
         </div>
       </div>
@@ -58,11 +66,11 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.22 }}
-            className="border-t border-white/10 bg-[#111A2E] px-gutter pb-5 md:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="border-t border-[#171A18]/10 bg-[#F5F2EA] px-5 pb-6 lg:hidden"
           >
             <div className="flex flex-col pt-2">
               {navItems.map((item) => (
@@ -70,7 +78,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="border-b border-white/10 py-4 font-manrope text-xs uppercase tracking-[0.18em] text-white/90 hover:text-[#78D9C5]"
+                  className="border-b border-[#171A18]/10 py-4 font-[family-name:var(--font-inter)] text-[15px] text-[#171A18] transition-opacity hover:opacity-55"
                 >
                   {item.label}
                 </Link>
@@ -78,7 +86,7 @@ export default function Header() {
               <Link
                 href="/contact?objet=devis"
                 onClick={() => setIsMenuOpen(false)}
-                className="button-elegant button-home-primary mt-5 flex min-h-12 items-center justify-center px-6 text-center font-manrope text-[10px] font-extrabold uppercase tracking-[0.16em]"
+                className="mt-5 flex min-h-12 items-center justify-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white"
               >
                 Parler de votre projet
               </Link>

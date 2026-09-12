@@ -1,151 +1,173 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
 import Image from "next/image";
+import ServiceSheet from "@/components/shared/ServiceSheet";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import FloatingCTA from "@/components/shared/FloatingCTA";
-import { solutions } from "@/lib/solutions";
 
 export const metadata: Metadata = {
-  title: "Solutions digitales et produits | ILOCAP",
-  description: "Plateformes métier, intelligence artificielle, automatisation, Fintech, commerce digital et produits ILOCAP.",
+  title: "Services digitaux | ILOCAP",
+  description:
+    "Conception de plateformes, automatisation, présence digitale, contenus et accompagnement opérationnel pour entreprises et institutions.",
   alternates: { canonical: "/services" },
 };
 
-const coreSolutions = [
-  { title: "Transformation & plateformes métier", description: "Audit, conception d’applications et portails, dématérialisation, gestion documentaire, interopérabilité et tableaux de bord.", items: ["Web & mobile", "Portails sécurisés", "Données & intégrations"] },
-  { title: "IA & automatisation", description: "Assistants intelligents, automatisation du service client, traitement documentaire et optimisation des processus internes.", items: ["Assistants IA", "Automatisation", "Pilotage par la donnée"] },
-  { title: "Fintech & services transactionnels", description: "Parcours de paiement, wallets, mobile money, agrégation et intégration sécurisée aux systèmes financiers existants.", items: ["Paiement", "Wallets", "Intégrations sécurisées"] },
-];
-
-const complementary = [
-  { title: "Design & acquisition", description: "Identité, expérience utilisateur, landing pages, contenus, SEO local et campagnes reliées à vos objectifs commerciaux." },
-  { title: "Automatisation commerciale & BPO", description: "Qualification, relances, support client et back-office pour gagner en capacité sans alourdir l’organisation." },
-  { title: "Conduite du changement", description: "Formation, documentation, assistance au déploiement et accompagnement des équipes dans l’adoption des nouveaux usages." },
-];
-
-const otherAccelerators = [
-  { name: "PharmXpress", description: "Recherche et mise en relation autour de la disponibilité des médicaments." },
-  { name: "Medilibre", description: "Téléconsultation, suivi patient et parcours de soins digitaux." },
+const serviceFamilies = [
+  {
+    "number": "01",
+    "eyebrow": "Concevoir vos plateformes",
+    "description": "Du besoin métier à une plateforme prête à développer.",
+    "image": "/services/conception-cadrage.svg",
+    "imageAlt": "Concevoir vos plateformes",
+    "items": [
+      {
+        "title": "Sites web & applications",
+        "text": "Des interfaces utiles, adaptées à vos utilisateurs."
+      },
+      {
+        "title": "Portails & plateformes métier",
+        "text": "Des outils sur mesure pour vos activités."
+      },
+      {
+        "title": "Cadrage & parcours utilisateurs",
+        "text": "Des besoins et priorités clairs avant le développement."
+      }
+    ]
+  },
+  {
+    "number": "02",
+    "eyebrow": "Automatiser vos opérations",
+    "description": "Moins de tâches répétitives, des outils mieux connectés.",
+    "image": "/services/automation-trackfuel.webp",
+    "imageAlt": "Automatiser vos opérations",
+    "items": [
+      {
+        "title": "Workflows & validations",
+        "text": "Automatiser les relances et les circuits de validation."
+      },
+      {
+        "title": "Données & intégrations",
+        "text": "Faire circuler les informations entre vos outils."
+      },
+      {
+        "title": "Tableaux de bord & reporting",
+        "text": "Suivre vos opérations avec des indicateurs utiles."
+      }
+    ]
+  },
+  {
+    "number": "03",
+    "eyebrow": "Développer votre visibilité",
+    "description": "Des images et des contenus qui mettent votre activité en valeur.",
+    "image": "/services/creation-visuelle-greenvillage.png",
+    "imageAlt": "Développer votre visibilité",
+    "items": [
+      {
+        "title": "Traitement d’images & création",
+        "text": "Retouches, visuels produits et supports de marque."
+      },
+      {
+        "title": "Community management",
+        "text": "Planifier, publier et animer vos réseaux sociaux."
+      },
+      {
+        "title": "Contenus & acquisition",
+        "text": "Des pages et des contenus pensés pour générer des contacts."
+      }
+    ]
+  },
+  {
+    "number": "04",
+    "eyebrow": "Accompagner vos équipes",
+    "description": "Un appui régulier pour exploiter vos outils et soutenir votre activité.",
+    "image": "/services/community-management.webp",
+    "imageAlt": "Accompagner vos équipes",
+    "items": [
+      {
+        "title": "Support & amélioration continue",
+        "text": "Maintenir vos outils et les faire évoluer."
+      },
+      {
+        "title": "BPO & back-office",
+        "text": "Prendre en charge vos tâches administratives et commerciales."
+      },
+      {
+        "title": "Formation & adoption",
+        "text": "Former les équipes et faciliter les nouveaux usages."
+      }
+    ]
+  }
 ];
 
 export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#F3F1EC] text-[#073642]">
-        <section className="overflow-hidden bg-[#073642] px-gutter pb-20 pt-36 text-white md:pb-24 md:pt-44">
-          <div className="section-shell grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end">
-            <div className="min-w-0"><div className="mb-6 flex items-center gap-4"><div className="h-px w-12 bg-[#B89A5A]" /><span className="font-manrope text-[10px] font-bold uppercase tracking-[0.22em] text-[#B89A5A]">Solutions & produits</span></div><h1 className="max-w-4xl font-sora text-[2.15rem] leading-[1.06] sm:text-4xl md:text-5xl lg:text-6xl">La bonne combinaison d’expertise, sans <span className="break-words text-[#B89A5A] [overflow-wrap:anywhere]">surdimensionnement.</span></h1></div>
-            <p className="font-manrope text-base leading-relaxed text-white/70 md:text-lg">Nous assemblons conseil, technologie et accompagnement en fonction du problème à résoudre, de votre maturité et de vos contraintes.</p>
-          </div>
-        </section>
-
-        <section className="section-shell px-gutter py-20 md:py-28">
-          <p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Expertises principales</p>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {coreSolutions.map((solution, index) => (
-              <article key={solution.title} className="rounded-[14px] border border-[#073642]/10 bg-white p-7 md:p-8">
-                <span className="font-sora text-3xl text-[#B89A5A]">0{index + 1}</span>
-                <h2 className="mt-6 font-sora text-xl uppercase leading-tight">{solution.title}</h2>
-                <p className="mt-4 font-manrope text-sm leading-relaxed text-[#073642]/65">{solution.description}</p>
-                <ul className="mt-6 space-y-3">{solution.items.map((item) => <li key={item} className="flex items-center gap-3 font-manrope text-xs font-semibold uppercase tracking-[0.08em] text-[#073642]/70"><span className="h-1.5 w-1.5 rounded-full bg-[#B89A5A]" />{item}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-white py-20 md:py-24">
-          <div className="section-shell px-gutter">
-            <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-              <div><p className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#B89A5A]">Compétences complémentaires</p><h2 className="mt-4 font-sora text-3xl leading-tight md:text-4xl">Ce qui transforme une solution en résultat.</h2></div>
-              <div className="grid gap-4">{complementary.map((item) => <article key={item.title} className="rounded-[12px] border border-[#073642]/10 bg-[#F3F1EC] p-6"><h3 className="font-sora text-lg uppercase">{item.title}</h3><p className="mt-3 font-manrope text-sm leading-relaxed text-[#073642]/65">{item.description}</p></article>)}</div>
-            </div>
-          </div>
-        </section>
-
-        <section id="accelerateurs" className="section-shell scroll-mt-24 px-gutter py-20 md:py-28">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-3xl">
-              <p className="section-kicker w-fit border-[#18845B]/20 text-[#18845B]">Solutions & accélérateurs</p>
-              <h2 className="mt-5 font-sora text-3xl leading-[1.06] tracking-[-0.04em] text-[#111A2E] md:text-5xl">Des solutions déjà structurées, adaptées à votre réalité.</h2>
-            </div>
-            <p className="max-w-md font-manrope text-base leading-relaxed text-[#334158]/65">Chaque solution part d’un socle éprouvé, puis se configure selon vos processus, vos contraintes et votre ambition.</p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {solutions.map((solution) => (
-              <article
-                key={solution.slug}
-                style={{ "--card-accent": solution.accent } as CSSProperties}
-                className="group flex flex-col overflow-hidden rounded-[20px] border border-[#111A2E]/10 bg-[#FBFCFC] transition duration-300 hover:-translate-y-1 hover:border-[#18845B]/30 hover:shadow-[0_26px_70px_rgba(17,26,46,.12)]"
-              >
-                <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#17243B] lg:aspect-[16/9]">
-                  <Image
-                    src={solution.visual}
-                    alt={solution.visualAlt}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.025]"
-                    style={{ objectPosition: solution.visualPosition }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111A2E]/82 via-transparent to-transparent" />
-                  <Link
-                    href={`/solutions/${solution.slug}`}
-                    aria-label={`Découvrir la fiche ${solution.name}`}
-                    className="group/logo absolute bottom-4 left-4 right-4 flex min-h-20 items-center justify-center rounded-[14px] border border-[#D8E2E6]/85 bg-[#F6F9FA]/95 px-5 py-3 shadow-[0_12px_34px_rgba(17,26,46,.12)] backdrop-blur-xl transition duration-300 hover:border-[var(--card-accent)] hover:bg-white"
-                  >
-                    <Image src={solution.logo} alt={`Logo ${solution.name}`} width={300} height={110} className="max-h-16 w-auto max-w-[82%] object-contain transition duration-300 group-hover/logo:scale-[1.035]" />
-                    <span aria-hidden="true" className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full border border-[#111A2E]/10 bg-white font-manrope text-sm text-[#111A2E]/55 transition group-hover/logo:border-[var(--card-accent)] group-hover/logo:text-[var(--card-accent)]">↗</span>
-                  </Link>
-                </div>
-                <div className="flex flex-1 flex-col p-6 md:p-7">
-                  <p className="font-manrope text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--card-accent)]">{solution.category}</p>
-                  <h3 className="mt-4 font-sora text-2xl leading-tight tracking-[-0.025em] text-[#111A2E]">{solution.name}</h3>
-                  <p className="mt-4 font-manrope text-base leading-relaxed text-[#334158]/65">{solution.cardDescription}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {solution.proofs.slice(0, 3).map((proof) => (
-                      <span key={proof.label} className="rounded-full border border-[#111A2E]/10 bg-[#EBFFF5] px-3 py-2 font-manrope text-xs font-semibold text-[#334158]/75">
-                        {proof.value}
-                      </span>
-                    ))}
-                  </div>
-                  <Link
-                    href={`/solutions/${solution.slug}`}
-                    className="mt-8 inline-flex items-center justify-between rounded-[12px] border border-[#111A2E] bg-[#111A2E] px-5 py-4 font-manrope text-xs font-extrabold uppercase tracking-[0.15em] text-white shadow-[0_10px_24px_rgba(17,26,46,.12)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--card-accent)] hover:bg-[var(--card-accent)] hover:text-[#111A2E]"
-                  >
-                    Découvrir la solution <span aria-hidden="true" className="flex h-7 w-7 items-center justify-center rounded-full border border-white/25 text-lg">→</span>
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-14 border-t border-[#111A2E]/12 pt-10">
-            <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
-              <div>
-                <p className="font-manrope text-xs font-extrabold uppercase tracking-[0.2em] text-[#8A6A20]">Également dans notre atelier</p>
-                <h3 className="mt-3 font-sora text-2xl leading-tight tracking-[-0.03em] text-[#111A2E] md:text-3xl">D’autres accélérateurs à activer selon le besoin.</h3>
+      <main className="bg-[#F5F2EA] text-[#171A18]">
+        <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 lg:px-12">
+          <div className="absolute inset-0 bg-[#F5F2EA]" />
+          <DigitalFibres />
+          <div className="relative mx-auto max-w-[1320px]">
+            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#171A18]/68">Services</p>
+            <div className="mt-4 grid gap-7 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
+              <h1 className="max-w-4xl font-[family-name:var(--font-source-serif)] text-[2.65rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.5rem] lg:text-[4.25rem]">
+                Ce que nous pouvons faire avec vous.
+              </h1>
+              <div className="lg:pb-1">
+                <p className="max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
+                  De l’idée au fonctionnement quotidien, ILOCAP réunit conseil, technologie, contenus et accompagnement autour d’un même objectif : faire avancer votre activité.
+                </p>
+                <Link href="/contact?objet=devis" className="mt-5 inline-flex min-h-[52px] items-center rounded-md bg-[#173C31] px-7 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
+                  Parler de votre projet
+                </Link>
               </div>
-              <p className="font-manrope text-sm text-[#334158]/55">Présentation sur demande</p>
-            </div>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {otherAccelerators.map((product, index) => (
-                <article key={product.name} className="rounded-[14px] border border-[#111A2E]/10 bg-white p-5 transition hover:border-[#18845B]/30">
-                  <div className="flex items-center justify-between">
-                    <span className="font-sora text-sm text-[#18845B]">0{index + 1}</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#D6B24F]" />
-                  </div>
-                  <h4 className="mt-6 font-sora text-lg uppercase">{product.name}</h4>
-                  <p className="mt-3 font-manrope text-sm leading-relaxed text-[#334158]/62">{product.description}</p>
-                </article>
-              ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-[#B89A5A] px-gutter py-16 text-[#073642]"><div className="section-shell flex flex-col justify-between gap-8 lg:flex-row lg:items-center"><h2 className="max-w-3xl font-sora text-3xl leading-tight md:text-4xl">Identifions la solution la plus adaptée à votre besoin et à votre budget.</h2><Link href="/contact?objet=devis" className="button-elegant inline-flex shrink-0 items-center justify-center bg-[#073642] px-7 font-manrope text-[10px] font-bold uppercase text-white hover:bg-white hover:text-[#073642]">Demander une étude</Link></div></section>
+        <section aria-label="Nos quatre familles de services" className="mx-auto grid max-w-[1320px] gap-5 px-5 pb-16 md:grid-cols-2 md:px-8 lg:px-12">
+          {serviceFamilies.map(family => (
+            <ServiceSheet key={family.number} id={`service-${family.number}`} number={family.number} title={family.eyebrow} description={family.description}>
+              <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-white"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-2" /></div>
+              <ul className="space-y-4">{family.items.map(item => <li key={item.title}><h3 className="font-semibold">{item.title}</h3><p className="mt-1 text-[15px] leading-6 text-[#343A36]">{item.text}</p></li>)}</ul>
+              <Link href={`/contact?objet=devis&service=${family.number}`} className="mt-6 inline-flex min-h-11 items-center rounded-md bg-[#173C31] px-5 text-sm font-semibold text-white hover:bg-[#102F27]">Parlons de votre besoin</Link>
+            </ServiceSheet>
+          ))}
+        </section>
+
+        <section className="bg-[#FBF9F4] py-14 md:py-16">
+          <div className="mx-auto grid max-w-[1320px] gap-8 px-5 md:px-8 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-12">
+            <div>
+              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Vous cherchez plutôt un produit déjà structuré ?</p>
+              <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.2rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3rem]">
+                Nos solutions partent d’un socle existant, puis s’adaptent à votre contexte.
+              </h2>
+            </div>
+            <div className="lg:justify-self-end">
+              <p className="max-w-md font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
+                AroZo, LAMINA, PATRIMONIA, TrackFuel 360, SIIRH et nos autres accélérateurs sont présentés séparément pour rendre le choix plus simple.
+              </p>
+              <Link href="/solutions" className="mt-6 inline-flex min-h-11 items-center rounded-md border border-[#171A18]/20 px-5 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/45 hover:bg-white">
+                Découvrir nos solutions
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#173C31] px-5 py-16 text-white md:px-8 md:py-20 lg:px-12">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-white/58">Un projet ?</p>
+            <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-[2.4rem] font-semibold leading-none tracking-[-0.025em] md:text-[3.5rem]">Parlons de votre projet.</h2>
+            <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
+              Nous pouvons partir d’un besoin précis, d’un processus à améliorer ou simplement d’un objectif métier à clarifier.
+            </p>
+            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-[52px] items-center rounded-md bg-[#F5F2EA] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:bg-white">
+              Planifier un rendez-vous
+            </a>
+          </div>
+        </section>
       </main>
       <Footer />
       <FloatingCTA />

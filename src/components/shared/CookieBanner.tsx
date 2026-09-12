@@ -24,11 +24,14 @@ export default function CookieBanner() {
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
+    const reopen = () => { setConsent(null); setShowDetails(true); };
+    window.addEventListener("ilocap:open-cookie-settings", reopen);
     const saved = localStorage.getItem(CONSENT_KEY) as Consent;
     if (saved === "all" || saved === "essential") {
       setConsent(saved);
       updateAnalyticsConsent(saved);
     }
+    return () => window.removeEventListener("ilocap:open-cookie-settings", reopen);
   }, []);
 
   const handleConsent = (choice: Consent) => {

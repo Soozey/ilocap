@@ -6,21 +6,16 @@ import { motion } from "framer-motion";
 export default function FloatingCTA() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      initial={{ opacity: 0, scale: 0.92, y: 18 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 0.8, duration: 0.4 }}
+      transition={{ delay: 0.8, duration: 0.35 }}
       className="fixed bottom-6 right-6 z-40 hidden lg:block"
     >
       <Link
         href="/contact?objet=devis"
-        className="button-teal-solid flex flex-col items-center justify-center px-4 py-3 md:px-5 md:py-4 rounded-[10px] font-[family-name:var(--font-manrope)] text-[9px] md:text-[10px] uppercase tracking-[0.18em] font-extrabold hover:scale-105 transition-all duration-300"
+        className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#173C31] px-5 font-[family-name:var(--font-inter)] text-[12px] font-semibold text-white shadow-[0_14px_36px_rgba(23,60,49,.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#2F6B56]"
       >
-        <svg className="w-5 h-5 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M3 4h14v10H8l-4 3v-3H3V4Z" />
-          <path d="M6 8h8M6 11h5" />
-        </svg>
-        <span className="leading-tight">Parler de mon</span>
-        <span className="leading-tight">projet</span>
+        Parler de mon projet
       </Link>
     </motion.div>
   );

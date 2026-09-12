@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import Link from "next/link";
+import DigitalFibres from "@/components/shared/DigitalFibres";
 
 const LEVIERS = [
   {
@@ -74,22 +75,23 @@ const ETAPES = [
 export default function MethodologiePage() {
   return (
     <>
-    <main className="min-h-screen bg-[#F5F3EE] text-[#073642]">
+    <main className="min-h-screen bg-[#F5F2EA] text-[#171A18]">
       <Header />
       
-      <section className="pt-32 pb-24 px-6 lg:px-16">
-        <div className="max-w-[1000px] mx-auto text-center">
+      <section className="relative overflow-hidden pt-32 pb-16 px-6 lg:px-16">
+        <DigitalFibres />
+        <div className="relative max-w-[1000px] mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-8 h-[1px] bg-[#B89A5A]" />
-            <span className="font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] text-[#B89A5A]">
+            <span className="font-[family-name:var(--font-inter)] text-[11px] uppercase tracking-[0.2em] text-[#B89A5A]">
               Notre méthode
             </span>
             <div className="w-8 h-[1px] bg-[#B89A5A]" />
           </div>
-          <h1 className="font-[family-name:var(--font-sora)] text-3xl md:text-5xl uppercase leading-[1.1] mb-6">
+          <h1 className="font-[family-name:var(--font-source-serif)] text-3xl md:text-5xl  leading-[1.1] mb-6">
             Cessez de subir le digital. <span className="text-[#B89A5A]">Faites-en</span> votre levier.
           </h1>
-          <p className="font-[family-name:var(--font-manrope)] text-sm md:text-base text-[#073642]/60 max-w-2xl mx-auto">
+          <p className="font-[family-name:var(--font-inter)] text-sm md:text-base text-[#343A36] max-w-2xl mx-auto">
             Chez ILOCAP, la transformation digitale n’est pas une obligation technique.
             Nous la concevons comme un levier de performance. Un digital humain, accessible
             et parfaitement aligné avec vos enjeux.
@@ -97,7 +99,7 @@ export default function MethodologiePage() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 lg:px-16">
+      <section className="pb-16 px-6 lg:px-16">
         <div className="max-w-[1000px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -105,36 +107,36 @@ export default function MethodologiePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-[family-name:var(--font-sora)] text-2xl md:text-3xl uppercase mb-6">
+              <h2 className="font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl  mb-6">
                 Transformez vos ambitions en <span className="text-[#B89A5A]">résultats mesurables</span>
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Vision stratégique</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Vos objectifs pilotent la technologie, jamais l’inverse.</p>
+                    <p className="font-[family-name:var(--font-source-serif)] text-sm  text-[#171A18]">Vision stratégique</p>
+                    <p className="font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#343A36]">Vos objectifs pilotent la technologie, jamais l’inverse.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Impact progressif</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Des résultats utiles dès les premières étapes, puis améliorés avec les retours terrain.</p>
+                    <p className="font-[family-name:var(--font-source-serif)] text-sm  text-[#171A18]">Impact progressif</p>
+                    <p className="font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#343A36]">Des résultats utiles dès les premières étapes, puis améliorés avec les retours terrain.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Partenariat de confiance</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Nous travaillons comme le prolongement de votre équipe.</p>
+                    <p className="font-[family-name:var(--font-source-serif)] text-sm  text-[#171A18]">Partenariat de confiance</p>
+                    <p className="font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#343A36]">Nous travaillons comme le prolongement de votre équipe.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 bg-[#B89A5A] mt-2 flex-shrink-0" />
                   <div>
-                    <p className="font-[family-name:var(--font-sora)] text-sm uppercase text-[#073642]">Impact vérifiable</p>
-                    <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60">Chaque fonctionnalité doit répondre à un objectif observable.</p>
+                    <p className="font-[family-name:var(--font-source-serif)] text-sm  text-[#171A18]">Impact vérifiable</p>
+                    <p className="font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#343A36]">Chaque fonctionnalité doit répondre à un objectif observable.</p>
                   </div>
                 </div>
               </div>
@@ -148,8 +150,8 @@ export default function MethodologiePage() {
               <div className="w-64 h-64 border border-[#B89A5A]/20 rounded-full flex items-center justify-center relative">
                 <div className="absolute inset-0 border border-[#B89A5A]/10 rounded-full animate-pulse" />
                 <div className="text-center">
-                  <p className="font-[family-name:var(--font-sora)] text-4xl text-[#B89A5A]">360°</p>
-                  <p className="font-[family-name:var(--font-manrope)] text-xs text-[#073642]/60 mt-2">Vision complète<br/>du projet</p>
+                  <p className="font-[family-name:var(--font-source-serif)] text-4xl text-[#B89A5A]">360°</p>
+                  <p className="font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#343A36] mt-2">Vision complète<br/>du projet</p>
                 </div>
               </div>
             </motion.div>
@@ -157,17 +159,17 @@ export default function MethodologiePage() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 lg:px-16 bg-white">
+      <section className="pb-16 px-6 lg:px-16 bg-white">
         <div className="max-w-[1200px] mx-auto py-16">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
-              <span className="font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] text-[#B89A5A]">
+              <span className="font-[family-name:var(--font-inter)] text-[11px] uppercase tracking-[0.2em] text-[#B89A5A]">
                 Stratégie globale
               </span>
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
             </div>
-            <h2 className="font-[family-name:var(--font-sora)] text-2xl md:text-3xl uppercase">
+            <h2 className="font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl ">
               Quatre leviers pour <span className="text-[#B89A5A]">transformer</span> votre organisation
             </h2>
           </div>
@@ -180,13 +182,13 @@ export default function MethodologiePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-[#F5F3EE] border border-[#E5E5E5] p-8 hover:border-[#B89A5A] transition-all duration-300 rounded-sm"
+                className="bg-[#F5F2EA] border border-[#E5E5E5] p-8 hover:border-[#B89A5A] transition-all duration-300 rounded-sm"
               >
                 <div className="text-[#B89A5A] mb-4">{levier.icon}</div>
-                <h3 className="font-[family-name:var(--font-sora)] text-lg uppercase tracking-widest mb-3 text-[#073642]">
+                <h3 className="font-[family-name:var(--font-source-serif)] text-lg   mb-3 text-[#171A18]">
                   {levier.title}
                 </h3>
-                <p className="font-[family-name:var(--font-manrope)] text-sm text-[#073642]/60 leading-relaxed">
+                <p className="font-[family-name:var(--font-inter)] text-sm text-[#343A36] leading-relaxed">
                   {levier.description}
                 </p>
               </motion.div>
@@ -195,17 +197,17 @@ export default function MethodologiePage() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 lg:px-16">
+      <section className="pb-16 px-6 lg:px-16">
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
-              <span className="font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] text-[#B89A5A]">
+              <span className="font-[family-name:var(--font-inter)] text-[11px] uppercase tracking-[0.2em] text-[#B89A5A]">
                 Notre approche
               </span>
               <div className="w-8 h-[1px] bg-[#B89A5A]" />
             </div>
-            <h2 className="font-[family-name:var(--font-sora)] text-2xl md:text-3xl uppercase">
+            <h2 className="font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl ">
               Une méthodologie <span className="text-[#B89A5A]">éprouvée</span>, de l’idée au déploiement
             </h2>
           </div>
@@ -220,14 +222,14 @@ export default function MethodologiePage() {
                 transition={{ delay: idx * 0.15 }}
                 className="flex items-start gap-8"
               >
-                <div className="font-[family-name:var(--font-sora)] text-4xl text-[#B89A5A]/30 flex-shrink-0 w-16">
+                <div className="font-[family-name:var(--font-source-serif)] text-4xl text-[#B89A5A]/30 flex-shrink-0 w-16">
                   {etape.num}
                 </div>
                 <div className="border-l border-[#B89A5A]/20 pl-8 py-2">
-                  <h3 className="font-[family-name:var(--font-sora)] text-lg uppercase tracking-widest mb-2 text-[#073642]">
+                  <h3 className="font-[family-name:var(--font-source-serif)] text-lg   mb-2 text-[#171A18]">
                     {etape.title}
                   </h3>
-                  <p className="font-[family-name:var(--font-manrope)] text-sm text-[#073642]/60 leading-relaxed">
+                  <p className="font-[family-name:var(--font-inter)] text-sm text-[#343A36] leading-relaxed">
                     {etape.description}
                   </p>
                 </div>
@@ -237,23 +239,23 @@ export default function MethodologiePage() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 lg:px-16 text-center">
-        <h2 className="font-[family-name:var(--font-sora)] text-2xl uppercase mb-8 text-[#073642]">
+      <section className="pb-16 px-6 lg:px-16 text-center">
+        <h2 className="font-[family-name:var(--font-source-serif)] text-2xl  mb-8 text-[#171A18]">
           Prêt à transformer un besoin en <span className="text-[#B89A5A]">projet concret</span> ?
         </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact?objet=devis"
-            className="bg-[#073642] text-[#F3F1EC] px-12 py-5 font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#B89A5A] transition-all rounded-sm"
+            className="bg-[#173C31] text-[#F5F2EA] px-12 py-5 font-[family-name:var(--font-inter)] text-sm font-semibold hover:bg-[#B89A5A] transition-all rounded-sm"
           >
-            Demander une étude et un devis →
+            Parler de votre projet
           </Link>
           <Link
             href="https://calendly.com/candriatiana/30min"
             target="_blank"
-            className="border border-[#B89A5A] text-[#B89A5A] px-12 py-5 font-[family-name:var(--font-manrope)] text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#B89A5A] hover:text-[#0B0C0A] transition-all rounded-sm"
+            className="border border-[#B89A5A] text-[#B89A5A] px-12 py-5 font-[family-name:var(--font-inter)] text-sm font-semibold hover:bg-[#B89A5A] hover:text-[#0B0C0A] transition-all rounded-sm"
           >
-            Prendre RDV ↗
+            Planifier un rendez-vous
           </Link>
         </div>
       </section>

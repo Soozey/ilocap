@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640">
+<rect width="1000" height="640" fill="#EDE7DA"/>
+<g font-family="Arial,sans-serif" fill="#173C31">
+<text x="65" y="80" font-size="15" letter-spacing="3">DE L’IDÉE AU PARCOURS</text>
+<text x="65" y="133" font-size="34">Donner une structure à votre projet.</text>
+<rect x="65" y="185" width="255" height="338" rx="12" fill="#FAF8F3"/>
+<rect x="372" y="185" width="255" height="338" rx="12" fill="#FAF8F3"/>
+<rect x="680" y="185" width="255" height="338" rx="12" fill="#FAF8F3"/>
+<g font-size="15" fill="#8A7444"><text x="90" y="221">01 — CADRER</text><text x="397" y="221">02 — ORGANISER</text><text x="705" y="221">03 — CONCEVOIR</text></g>
+<g font-size="21"><text x="90" y="267">Les usages réels</text><text x="397" y="267">Le parcours métier</text><text x="705" y="267">Le bon dispositif</text></g>
+<g fill="#D8E2D9"><rect x="90" y="300" width="204" height="45" rx="5"/><rect x="90" y="363" width="204" height="45" rx="5"/><rect x="90" y="426" width="204" height="45" rx="5"/></g>
+<g font-size="15"><text x="105" y="328">Besoins &amp; priorités</text><text x="105" y="391">Contraintes &amp; objectifs</text><text x="105" y="454">Feuille de route</text></g>
+<g stroke="#729486" stroke-width="2" fill="#EEF2E7"><rect x="403" y="300" width="194" height="38" rx="5"/><path d="M500 338v25"/><rect x="403" y="363" width="194" height="38" rx="5"/><path d="M500 401v25"/><rect x="403" y="426" width="194" height="38" rx="5"/></g>
+<g font-size="14"><text x="426" y="324">Demande</text><text x="426" y="387">Validation</text><text x="426" y="450">Suivi &amp; restitution</text></g>
+<g stroke="#CCD5CC" fill="none"><rect x="705" y="300" width="205" height="165" rx="6"/><path d="M705 332h205M749 332v133"/></g>
+<g fill="#D8E2D9"><rect x="763" y="346" width="131" height="22" rx="3"/><rect x="763" y="380" width="58" height="67" rx="3"/><rect x="836" y="380" width="58" height="67" rx="3"/></g>
+<text x="65" y="578" font-size="15" fill="#59645B">Illustration de démarche · cadrage, parcours et conception</text>
+</g></svg>
