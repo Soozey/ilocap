@@ -1,58 +1,67 @@
+import Image from "next/image";
 import Link from "next/link";
-import AnimatedLogo from "@/components/shared/AnimatedLogo";
-
-const links = [
-  { label: "Solutions & accélérateurs", href: "/services#accelerateurs" },
-  { label: "Entreprises & institutions", href: "/institutions" },
-  { label: "PME & entrepreneurs", href: "/pme" },
-  { label: "Réalisations", href: "/realisations" },
-  { label: "Notre méthode", href: "/methodologie" },
-  { label: "Notre regard sur l’IA", href: "/insights/ia-et-expertise" },
-];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#111A2E]/10 bg-[#EBFFF5]">
-      <div className="section-shell grid gap-12 px-gutter py-16 md:grid-cols-12 md:py-20">
-        <div className="md:col-span-5">
-          <AnimatedLogo variant="coloured" placement="footer" />
-          <p className="mt-7 max-w-md font-manrope text-base leading-relaxed text-[#111A2E]/65">
-            Nous créons des plateformes digitales intelligentes, de la stratégie au déploiement.
+    <footer className="border-t border-[#173C31]/10 bg-[#F5F2EA] text-[#173C31]">
+      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-12 md:grid-cols-12 md:px-8 lg:px-12 lg:py-14">
+        <div className="md:col-span-4">
+          <Image
+            src="/Logo_ilocap_coloured-rm.png"
+            alt="ILOCAP"
+            width={230}
+            height={95}
+            className="h-14 w-auto object-contain"
+          />
+          <p className="mt-5 font-[family-name:var(--font-inter)] text-sm font-medium text-[#173C31]/80">
+            Conseil · Technologie · Impact
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="rounded-[8px] border border-[#111A2E]/15 px-4 py-3 font-manrope text-[10px] font-bold uppercase tracking-[0.16em] text-[#111A2E] hover:border-[#18845B] hover:text-[#18845B]">LinkedIn</a>
-            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="rounded-[8px] border border-[#111A2E]/15 px-4 py-3 font-manrope text-[10px] font-bold uppercase tracking-[0.16em] text-[#111A2E] hover:border-[#18845B] hover:text-[#18845B]">Rendez-vous</a>
-          </div>
+          <p className="mt-2 max-w-sm font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/60">
+            Des solutions digitales utiles, structurées et évolutives pour faire avancer vos projets.
+          </p>
         </div>
 
-        <div className="md:col-span-3">
-          <h2 className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#18845B]">Explorer</h2>
-          <ul className="mt-6 space-y-4">
-            {links.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="font-manrope text-sm text-[#111A2E]/70 transition hover:text-[#111A2E]">{item.label}</Link>
-              </li>
-            ))}
+        <div className="md:col-span-2">
+          <h2 className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#173C31]/45">Explorer</h2>
+          <ul className="mt-5 space-y-3 font-[family-name:var(--font-inter)] text-sm text-[#173C31]/70">
+            <li><Link href="/#expertises" className="hover:text-[#173C31]">Expertises</Link></li>
+            <li><Link href="/#services" className="hover:text-[#173C31]">Services</Link></li>
+            <li><Link href="/#solutions" className="hover:text-[#173C31]">Solutions</Link></li>
+          </ul>
+        </div>
+
+        <div className="md:col-span-2">
+          <h2 className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#173C31]/45">ILOCAP</h2>
+          <ul className="mt-5 space-y-3 font-[family-name:var(--font-inter)] text-sm text-[#173C31]/70">
+            <li><Link href="/realisations" className="hover:text-[#173C31]">Réalisations</Link></li>
+            <li><Link href="/methodologie" className="hover:text-[#173C31]">À propos</Link></li>
+            <li><Link href="/contact" className="hover:text-[#173C31]">Contact</Link></li>
           </ul>
         </div>
 
         <div className="md:col-span-4">
-          <h2 className="font-manrope text-[10px] font-bold uppercase tracking-[0.2em] text-[#18845B]">Démarrer un projet</h2>
-          <p className="mt-6 font-manrope text-sm leading-relaxed text-[#111A2E]/65">
-            Présentez-nous votre besoin. Nous vous répondrons avec une première orientation et les prochaines étapes possibles.
+          <h2 className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.2em] text-[#173C31]/45">Restons en contact</h2>
+          <p className="mt-5 font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/65">
+            Un besoin, une idée ou un projet à structurer ? Écrivez-nous ou planifiez directement un échange.
           </p>
-          <Link href="/contact?objet=devis" className="button-elegant mt-7 inline-flex items-center justify-center bg-[#111A2E] px-6 font-manrope text-[10px] font-bold uppercase text-white hover:bg-[#18845B]">
-            Parler d’un projet
-          </Link>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/contact?objet=devis" className="inline-flex min-h-10 items-center rounded-md bg-[#173C31] px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-white">
+              Nous écrire
+            </Link>
+            <a href="https://www.linkedin.com/company/ilocap" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center rounded-md border border-[#173C31]/20 px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-[#111A2E]/10">
-        <div className="section-shell flex flex-col gap-4 px-gutter py-7 text-center md:flex-row md:items-center md:justify-between md:text-left">
-          <p className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55">© {new Date().getFullYear()} ILOCAP. Tous droits réservés.</p>
-          <div className="flex justify-center gap-6">
-            <Link href="/contact" className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55 hover:text-[#111A2E]">Contact</Link>
-            <Link href="/contact" className="font-manrope text-[10px] uppercase tracking-[0.16em] text-[#111A2E]/55 hover:text-[#111A2E]">Confidentialité</Link>
+      <div className="border-t border-[#173C31]/10">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-4 px-5 py-6 font-[family-name:var(--font-inter)] text-[11px] text-[#173C31]/48 md:flex-row md:items-center md:justify-between md:px-8 lg:px-12">
+          <p>© {new Date().getFullYear()} ILOCAP. Tous droits réservés.</p>
+          <div className="flex flex-wrap gap-5">
+            <Link href="/contact" className="hover:text-[#173C31]">Mentions légales</Link>
+            <Link href="/contact" className="hover:text-[#173C31]">Politique de confidentialité</Link>
+            <button type="button" className="hover:text-[#173C31]">Cookies</button>
           </div>
         </div>
       </div>
