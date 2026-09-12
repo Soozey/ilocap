@@ -17,6 +17,7 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-source-serif",
   weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -99,7 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           });
         `}
       </Script>
-      <body className={`${inter.variable} ${sourceSerif.variable} antialiased bg-[#F5F2EA] text-[#173C31]`}>
+      <body className={`${inter.variable} ${sourceSerif.variable} antialiased bg-[#F5F2EA] text-[#171A18]`}>
         <Suspense fallback={null}>
           <AnalyticsTracker />
         </Suspense>
