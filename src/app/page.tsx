@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 
-const expertiseCards = [
+const serviceCards = [
   {
     title: "Plateformes & automatisation",
     text: "Des solutions sur mesure pour fluidifier vos processus, connecter vos outils et gagner en efficacité.",
@@ -21,6 +21,7 @@ const expertiseCards = [
     text: "Cadrage, accompagnement et organisation pour faire avancer des projets clairs, utiles et durables.",
     image: "/realisations/symposium-cybersecurite-scene.webp",
     href: "/methodologie",
+    monochrome: true,
   },
 ];
 
@@ -59,64 +60,70 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="bg-[#F5F2EA] text-[#173C31]">
+      <main className="bg-[#F5F2EA] text-[#171A18]">
         <section className="relative flex min-h-[640px] items-center overflow-hidden pt-[74px] md:min-h-[700px]">
           <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <div className="absolute inset-0 opacity-[0.13]">
+          <div className="absolute inset-0 opacity-[0.1]">
             <Image src="/abstract-wave.png" alt="" fill priority className="object-cover object-center" />
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,.72),rgba(245,242,234,.24)_42%,rgba(245,242,234,.84)_78%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,.76),rgba(245,242,234,.28)_44%,rgba(245,242,234,.9)_82%)]" />
           <div className="relative z-10 mx-auto w-full max-w-5xl px-5 py-20 text-center md:px-8">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#173C31]/60">
-              ILOCAP · Transformation digitale
+            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.25em] text-[#2F6B56]">
+              ILOCAP — STUDIO DIGITAL
             </p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-[family-name:var(--font-source-serif)] text-[3.15rem] font-semibold leading-[0.98] tracking-[-0.035em] text-[#173C31] sm:text-6xl lg:text-[5.25rem]">
+            <h1 className="mx-auto mt-6 max-w-4xl font-[family-name:var(--font-source-serif)] text-[3.15rem] font-semibold leading-[0.98] tracking-[-0.035em] text-[#171A18] sm:text-6xl lg:text-[5.25rem]">
               Nous donnons vie à vos ambitions digitales.
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-[family-name:var(--font-inter)] text-base leading-7 text-[#173C31]/68 md:text-lg">
-              Conseil, automatisation, présence digitale et solutions métier pour structurer vos projets et accélérer leur mise en œuvre.
+            <p className="mx-auto mt-7 max-w-2xl font-[family-name:var(--font-inter)] text-[17px] leading-7 text-[#343A36] md:text-[19px] md:leading-8">
+              Nous concevons, déployons et faisons évoluer des solutions digitales utiles à votre activité.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/contact?objet=devis" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#173C31] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-white transition hover:bg-[#245445]">
-                Parler de votre projet&nbsp; →
+              <Link href="/contact?objet=devis" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#173C31] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-white transition hover:bg-[#2F6B56]">
+                Parler de votre projet
               </Link>
-              <Link href="#expertises" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#173C31]/35 bg-[#F5F2EA]/75 px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31] transition hover:bg-white">
-                Découvrir nos expertises
+              <Link href="/services" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#171A18]/25 bg-[#F5F2EA]/80 px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] transition hover:border-[#2F6B56] hover:text-[#2F6B56]">
+                Découvrir nos services
               </Link>
             </div>
           </div>
         </section>
 
-        <section id="expertises" className="bg-[#FBF9F4] py-20 md:py-28">
+        <section className="bg-[#FBF9F4] py-20 md:py-28">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
               <div>
-                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#173C31]/55">Nos expertises</p>
-                <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] md:text-6xl">
+                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2F6B56]">Services</p>
+                <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-[#171A18] md:text-6xl">
                   Des expertises complémentaires pour des résultats concrets.
                 </h2>
               </div>
               <div className="lg:pb-2">
-                <p className="font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/65 md:text-base">
+                <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
                   De la stratégie à l’exécution, nous réunissons les compétences utiles pour faire avancer vos projets sans multiplier les interlocuteurs.
                 </p>
-                <Link href="/services" className="mt-4 inline-flex font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31] underline decoration-[#B89A5A] underline-offset-4">
-                  Découvrir l’ensemble de nos services →
+                <Link href="/services" className="mt-4 inline-flex font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] underline decoration-[#B89A5A] underline-offset-4 transition-colors hover:text-[#2F6B56]">
+                  Découvrir l’ensemble de nos services
                 </Link>
               </div>
             </div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {expertiseCards.map((card) => (
-                <article key={card.title} className="overflow-hidden rounded-[18px] border border-[#173C31]/10 bg-white">
+              {serviceCards.map((card) => (
+                <article key={card.title} className="group overflow-hidden rounded-[18px] border border-[#171A18]/10 bg-white transition duration-300 hover:-translate-y-0.5 hover:border-[#2F6B56]/45 hover:shadow-[0_18px_50px_rgba(23,60,49,.08)]">
                   <div className="relative aspect-[16/9] overflow-hidden bg-[#E8E3D8]">
-                    <Image src={card.image} alt={card.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={`object-cover transition duration-700 ${card.monochrome ? "grayscale saturate-0 contrast-[1.04] group-hover:grayscale-0 group-hover:saturate-100" : ""}`}
+                    />
                   </div>
                   <div className="p-6">
-                    <h3 className="font-[family-name:var(--font-source-serif)] text-2xl font-semibold leading-tight">{card.title}</h3>
-                    <p className="mt-3 font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/68">{card.text}</p>
-                    <Link href={card.href} className="mt-5 inline-flex font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
-                      En savoir plus →
+                    <h3 className="font-[family-name:var(--font-source-serif)] text-2xl font-semibold leading-tight text-[#171A18] transition-colors group-hover:text-[#2F6B56]">{card.title}</h3>
+                    <p className="mt-3 font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C]">{card.text}</p>
+                    <Link href={card.href} className="mt-5 inline-flex font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition-colors hover:text-[#2F6B56]">
+                      En savoir plus
                     </Link>
                   </div>
                 </article>
@@ -125,24 +132,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="bg-[#EDE7DA] py-20 md:py-24">
+        <section className="bg-[#EDE7DA] py-20 md:py-24">
           <div className="mx-auto grid max-w-[1320px] gap-10 px-5 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:px-12">
             <div className="flex flex-col justify-center">
-              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#173C31]/55">Au plus près de vos équipes</p>
-              <h2 className="mt-4 max-w-xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] md:text-6xl">
-                Votre équipe digitale, au quotidien.
+              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2F6B56]">Au plus près de vos équipes</p>
+              <h2 className="mt-4 max-w-xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-[#171A18] md:text-6xl">
+                Votre équipe digitale, <em className="font-normal">au quotidien.</em>
               </h2>
-              <p className="mt-6 max-w-xl font-[family-name:var(--font-inter)] text-base leading-7 text-[#173C31]/68">
+              <p className="mt-6 max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C] md:text-[17px]">
                 Nous travaillons à vos côtés comme un partenaire opérationnel : cadrage, création, automatisation, amélioration continue et accompagnement des équipes.
               </p>
-              <Link href="/services" className="mt-7 inline-flex w-fit min-h-12 items-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-white">
-                Voir nos services →
+              <Link href="/services" className="mt-7 inline-flex w-fit min-h-12 items-center rounded-md bg-[#173C31] px-6 font-[family-name:var(--font-inter)] text-sm font-semibold text-white transition hover:bg-[#2F6B56]">
+                Voir nos services
               </Link>
             </div>
 
             <div className="grid gap-5 md:grid-cols-[1.1fr_.9fr] md:items-stretch">
-              <div className="relative min-h-[360px] overflow-hidden rounded-[18px] bg-[#D8D0C1] md:min-h-[440px]">
-                <Image src="/services/community-management.webp" alt="ILOCAP au plus près des équipes et des projets" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover" />
+              <div className="group relative min-h-[360px] overflow-hidden rounded-[18px] bg-[#D8D0C1] md:min-h-[440px]">
+                <Image src="/services/community-management.webp" alt="ILOCAP au plus près des équipes et des projets" fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover grayscale saturate-0 contrast-[1.04] transition duration-700 group-hover:grayscale-0 group-hover:saturate-100" />
               </div>
               <div className="flex flex-col justify-center rounded-[18px] bg-[#F7F3E9] p-7 md:p-8">
                 {[
@@ -150,9 +157,9 @@ export default function Home() {
                   ["Processus & workflows", "Simplifier les circuits, automatiser les tâches répétitives et améliorer la traçabilité."],
                   ["Outils connectés & évolutifs", "Construire des solutions capables de s’intégrer à votre environnement et d’évoluer avec vous."],
                 ].map(([title, text], index) => (
-                  <div key={title} className={index === 0 ? "pb-6" : "border-t border-[#173C31]/12 py-6 last:pb-0"}>
-                    <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold">{title}</h3>
-                    <p className="mt-2 font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/65">{text}</p>
+                  <div key={title} className={index === 0 ? "pb-6" : "border-t border-[#171A18]/12 py-6 last:pb-0"}>
+                    <h3 className="font-[family-name:var(--font-source-serif)] text-xl font-semibold text-[#171A18]">{title}</h3>
+                    <p className="mt-2 font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C]">{text}</p>
                   </div>
                 ))}
               </div>
@@ -160,31 +167,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="solutions" className="bg-[#EEF2E7] py-20 md:py-28">
+        <section className="bg-[#EEF2E7] py-20 md:py-28">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
               <div>
-                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#173C31]/55">Solutions & accélérateurs</p>
-                <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] md:text-6xl">
+                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2F6B56]">Solutions & accélérateurs</p>
+                <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-[1.02] tracking-[-0.025em] text-[#171A18] md:text-6xl">
                   Des solutions concrètes pour aller plus loin.
                 </h2>
               </div>
-              <p className="font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/65 md:text-base">
+              <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
                 Des outils déjà structurés autour de besoins métier réels, pour accélérer les projets sans sacrifier l’adaptation à votre contexte.
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {solutionCards.map((card) => (
-                <article key={card.title} className="overflow-hidden rounded-[18px] border border-[#173C31]/10 bg-[#FBFCF8]">
+                <article key={card.title} className="group overflow-hidden rounded-[18px] border border-[#171A18]/10 bg-[#FBFCF8] transition duration-300 hover:-translate-y-0.5 hover:border-[#2F6B56]/45 hover:shadow-[0_18px_50px_rgba(23,60,49,.08)]">
                   <div className="relative aspect-[16/9] overflow-hidden bg-white">
-                    <Image src={card.image} alt={card.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
+                    <Image src={card.image} alt={card.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.015]" />
                   </div>
                   <div className="p-6">
-                    <h3 className="font-[family-name:var(--font-source-serif)] text-2xl font-semibold">{card.title}</h3>
-                    <p className="mt-3 min-h-[72px] font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/68">{card.text}</p>
-                    <Link href={card.href} className="mt-5 inline-flex min-h-10 items-center rounded-md border border-[#173C31]/25 px-4 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
-                      Découvrir la solution →
+                    <h3 className="font-[family-name:var(--font-source-serif)] text-2xl font-semibold text-[#171A18] transition-colors group-hover:text-[#2F6B56]">{card.title}</h3>
+                    <p className="mt-3 min-h-[72px] font-[family-name:var(--font-inter)] text-[15px] leading-6 text-[#3A403C]">{card.text}</p>
+                    <Link href={card.href} className="mt-5 inline-flex min-h-10 items-center rounded-md border border-[#171A18]/20 px-4 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#2F6B56] hover:bg-[#2F6B56] hover:text-white">
+                      Découvrir la solution
                     </Link>
                   </div>
                 </article>
@@ -192,8 +199,8 @@ export default function Home() {
             </div>
 
             <div className="mt-7 flex justify-end">
-              <Link href="/services#accelerateurs" className="font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31] underline decoration-[#B89A5A] underline-offset-4">
-                Voir toutes nos solutions →
+              <Link href="/solutions" className="font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] underline decoration-[#B89A5A] underline-offset-4 transition-colors hover:text-[#2F6B56]">
+                Voir toutes nos solutions
               </Link>
             </div>
           </div>
@@ -203,16 +210,16 @@ export default function Home() {
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-7 lg:grid-cols-[1fr_.8fr] lg:items-end">
               <div>
-                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#173C31]/55">Des organisations qui nous ont fait confiance</p>
-                <h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-4xl font-semibold tracking-[-0.025em] md:text-5xl">Ils avancent avec nous.</h2>
+                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2F6B56]">Des organisations qui nous ont fait confiance</p>
+                <h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-4xl font-semibold tracking-[-0.025em] text-[#171A18] md:text-5xl">Ils avancent avec nous.</h2>
               </div>
-              <p className="font-[family-name:var(--font-inter)] text-sm leading-6 text-[#173C31]/65 md:text-base">
+              <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
                 Entreprises, institutions et porteurs de projets nous confient des sujets où l’exécution, la clarté et la capacité à faire évoluer les solutions comptent réellement.
               </p>
             </div>
             <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
               {references.map((logo) => (
-                <div key={logo.alt} className="flex h-28 items-center justify-center rounded-[14px] border border-[#173C31]/8 bg-white px-4 py-3">
+                <div key={logo.alt} className="flex h-28 items-center justify-center rounded-[14px] border border-[#171A18]/8 bg-white px-4 py-3 transition duration-300 hover:border-[#2F6B56]/45 hover:bg-[#F0F5F1]">
                   <Image src={logo.src} alt={logo.alt} width={180} height={90} className="max-h-16 w-auto max-w-full object-contain" />
                 </div>
               ))}
@@ -222,13 +229,13 @@ export default function Home() {
 
         <section className="relative overflow-hidden bg-[#173C31] py-20 text-white md:py-24">
           <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">Un projet ?</p>
+            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-white/58">Un projet ?</p>
             <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-4xl font-semibold leading-none tracking-[-0.025em] md:text-6xl">Parlons de votre projet.</h2>
-            <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-base leading-7 text-white/70">
+            <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
               Nous concevons des dispositifs utiles, sobres et évolutifs pour vos activités.
             </p>
-            <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#F5F2EA] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#173C31]">
-              Planifier un rendez-vous →
+            <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#F5F2EA] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] transition hover:bg-white hover:text-[#2F6B56]">
+              Planifier un rendez-vous
             </Link>
             <div className="mx-auto mt-7 flex max-w-md items-center justify-center gap-3 text-[#D9C27B]">
               <span className="text-3xl leading-none">↖</span>
