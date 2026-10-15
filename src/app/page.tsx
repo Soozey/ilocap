@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DigitalFibres from "@/components/shared/DigitalFibres";
+import ApprovedHero from "@/components/landing/ApprovedHero";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
@@ -70,30 +70,7 @@ export default function Home() {
     <>
       <Header />
       <main className="bg-[#F5F2EA] text-[#171A18]">
-        <section className="relative flex min-h-[440px] items-center overflow-hidden pt-[74px] md:min-h-[480px]">
-          <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <DigitalFibres />
-          <div className="relative z-10 mx-auto w-full max-w-4xl px-5 py-14 text-center md:px-8 md:py-16">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.25em] text-[#171A18]/70">
-              ILOCAP · LE DIGITAL AVEC DU SENS
-            </p>
-            <h1 className="mx-auto mt-5 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.45rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.4rem] lg:text-[4rem]">
-              Attirez des clients. Simplifiez votre travail. Faites avancer votre activité.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
-              Externalisez vos tâches chronophages et faites avancer vos projets digitaux. Nous accompagnons les entreprises à l’international comme à Madagascar : assistance opérationnelle, contenus, sites web, applications métier et automatisation.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/contact?objet=devis" className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#173C31] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
-                Parler de votre projet
-              </Link>
-              <Link href="/realisations" className="inline-flex min-h-[52px] items-center justify-center rounded-md border border-[#171A18]/25 bg-[#F5F2EA]/90 px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/55 hover:bg-white">
-                Voir nos réalisations
-              </Link>
-            </div>
-            <p className="mt-5 text-sm leading-6 text-[#343A36]">Une équipe basée à Madagascar, à vos côtés à distance. Premier échange sans engagement.</p>
-          </div>
-        </section>
+        <ApprovedHero />
 
         <section className="bg-[#FBF9F4] py-14 md:py-16">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
