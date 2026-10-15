@@ -37,7 +37,6 @@ export default function ApprovedHero() {
         <div className={styles.content}>
           <p className={styles.eyebrow}>ILOCAP · Le digital avec du sens</p>
           <h1 id="hero-title" className={styles.title}>Nous donnons vie<br className={styles.desktopBreak} /> à vos ambitions <span>digitales.</span></h1>
-          <p className={styles.subtitle}>Création digitale, automatisation<br className={styles.desktopBreak} /> et externalisation.</p>
           <Link href="/contact?objet=devis" className={styles.cta}>Parlons de votre projet</Link>
           <p className={styles.location}>À Madagascar et à l’international.</p>
           <nav className={styles.shortcuts} aria-label="Choisir votre besoin">
