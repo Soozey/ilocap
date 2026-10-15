@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     return Response.json({ success: false, error: "Requête invalide." }, { status: 400 });
   }
 
-  if (!body.nom || !body.email || !body.profil || !body.typeProjet || !body.message || !body.optIn) {
+  if (!body.nom || !body.email || !body.message || !body.optIn) {
     return Response.json({ success: false, error: "Veuillez renseigner tous les champs obligatoires." }, { status: 400 });
   }
   if (!isEmail(body.email)) {
@@ -71,8 +71,8 @@ export async function POST(request: Request) {
         organisation: escapeHtml(body.organisation || "Non précisée"),
         email: escapeHtml(body.email),
         telephone: escapeHtml(body.telephone || "Non précisé"),
-        profil: escapeHtml(body.profil),
-        typeProjet: escapeHtml(body.typeProjet),
+        profil: escapeHtml(body.profil || "Non précisé"),
+        typeProjet: escapeHtml(body.typeProjet || "À définir ensemble"),
         echeance: escapeHtml(body.echeance || "À préciser"),
         budget: escapeHtml(body.budget || "À conseiller"),
         message: escapeHtml(body.message).replaceAll("\n", "<br />"),
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
         from,
         to,
         replyTo: body.email,
-        subject: `[ILOCAP] Nouvelle demande de devis — ${body.typeProjet}`,
+        subject: `[ILOCAP] Nouvelle demande de devis — ${body.typeProjet || "Prise de contact"}`,
         html: `
           <div style="background:#F3F1EC;padding:32px;font-family:Arial,sans-serif;color:#073642">
             <div style="max-width:680px;margin:auto;background:#fff;border:1px solid #ddd;padding:32px">

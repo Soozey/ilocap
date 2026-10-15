@@ -59,7 +59,7 @@ export default function ContactPage() {
   };
 
   const fieldClass = "mt-2 w-full rounded-[8px] border border-[#171A18]/12 bg-[#F5F2EA] p-4 font-[family-name:var(--font-inter)] text-sm text-[#171A18] outline-none transition placeholder:text-[#171A18]/35 focus:border-[#B89A5A] focus:ring-2 focus:ring-[#B89A5A]/15";
-  const labelClass = "font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.16em] text-[#171A18]/62";
+  const labelClass = "font-[family-name:var(--font-inter)] text-sm font-semibold text-[#343A36]";
 
   return (
     <>
@@ -101,20 +101,26 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} onFocusCapture={handleFormStart} className="space-y-6">
-                <div><p className="font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.2em] text-[#B89A5A]">Votre demande</p><h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl">Quelques informations suffisent pour commencer.</h2></div>
+                <div><p className="font-[family-name:var(--font-inter)] text-sm font-semibold tracking-[0.2em] text-[#B89A5A]">Votre demande</p><h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-2xl md:text-3xl">Parlons de ce qui vous serait utile.</h2></div>
+                <p className="text-sm leading-6 text-[#343A36]">Seuls votre nom, votre email et votre besoin sont obligatoires, avec votre accord pour être recontacté.</p>
                 <div className="grid gap-5 md:grid-cols-2">
                   <label className={labelClass}>Nom et prénom *<input name="name" autoComplete="name" required value={form.nom} onChange={(e) => setForm({ ...form, nom: e.target.value })} className={fieldClass} /></label>
                   <label className={labelClass}>Organisation<input name="organization" autoComplete="organization" value={form.organisation} onChange={(e) => setForm({ ...form, organisation: e.target.value })} className={fieldClass} /></label>
-                  <label className={labelClass}>Email professionnel *<input type="email" name="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={fieldClass} /></label>
+                  <label className={labelClass}>Email *<input type="email" name="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={fieldClass} /></label>
                   <label className={labelClass}>Téléphone / WhatsApp<input type="tel" name="tel" autoComplete="tel" value={form.telephone} onChange={(e) => setForm({ ...form, telephone: e.target.value })} className={fieldClass} /></label>
-                  <label className={labelClass}>Votre profil *<select name="profil" required value={form.profil} onChange={(e) => setForm({ ...form, profil: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Entreprise ou institution</option><option>PME ou entrepreneur</option><option>Partenaire ou intégrateur</option></select></label>
-                  <label className={labelClass}>Type de projet *<select name="project-type" required value={form.typeProjet} onChange={(e) => setForm({ ...form, typeProjet: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Plateforme ou application métier</option><option>IA ou automatisation</option><option>Fintech ou paiement</option><option>Site, e-commerce ou marketplace</option><option>Marketing et acquisition</option><option>Conseil ou cadrage</option><option>Autre besoin</option></select></label>
-                  <label className={labelClass}>Échéance souhaitée<select name="timeline" value={form.echeance} onChange={(e) => setForm({ ...form, echeance: e.target.value })} className={fieldClass}><option value="">À préciser</option><option>Moins de 3 mois</option><option>3 à 6 mois</option><option>6 à 12 mois</option><option>Plus de 12 mois</option></select></label>
-                  <label className={labelClass}>Budget indicatif<select name="budget" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className={fieldClass}><option value="">Je souhaite être conseillé</option><option>Moins de 10 000 €</option><option>10 000 à 30 000 €</option><option>30 000 à 100 000 €</option><option>Plus de 100 000 €</option></select></label>
                 </div>
-                <label className={labelClass}>Quel problème souhaitez-vous résoudre ? *<textarea name="message" required rows={6} placeholder="Décrivez brièvement le contexte, les utilisateurs concernés et le résultat attendu." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${fieldClass} resize-y`} /></label>
+                <details className="rounded-lg border border-[#171A18]/15 p-4">
+                  <summary className="cursor-pointer text-sm font-semibold text-[#173C31]">Préciser mon projet (facultatif)</summary>
+                  <div className="mt-5 grid gap-5 md:grid-cols-2">
+                  <label className={labelClass}>Votre profil<select name="profil" value={form.profil} onChange={(e) => setForm({ ...form, profil: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Entreprise ou institution</option><option>PME ou entrepreneur</option><option>Partenaire ou intégrateur</option></select></label>
+                  <label className={labelClass}>Type de projet<select name="project-type" value={form.typeProjet} onChange={(e) => setForm({ ...form, typeProjet: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Plateforme ou application métier</option><option>IA ou automatisation</option><option>Fintech ou paiement</option><option>Site, e-commerce ou marketplace</option><option>Marketing et acquisition</option><option>Conseil ou cadrage</option><option>Autre besoin</option></select></label>
+                  <label className={labelClass}>Échéance souhaitée<select name="timeline" value={form.echeance} onChange={(e) => setForm({ ...form, echeance: e.target.value })} className={fieldClass}><option value="">À préciser</option><option>Moins de 3 mois</option><option>3 à 6 mois</option><option>6 à 12 mois</option><option>Plus de 12 mois</option></select></label>
+                  <label className={labelClass}>Budget indicatif<input name="budget" placeholder="Montant et devise, ou à définir" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className={fieldClass} /></label>
+                </div>
+                </details>
+                <label className={labelClass}>Quel problème souhaitez-vous résoudre ? *<textarea name="message" required rows={4} placeholder="Décrivez brièvement le contexte, les utilisateurs concernés et le résultat attendu." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${fieldClass} resize-y`} /></label>
                 <label className="flex items-start gap-3 font-[family-name:var(--font-inter)] text-xs leading-relaxed text-[#343A36]"><input type="checkbox" required checked={form.optIn} onChange={(e) => setForm({ ...form, optIn: e.target.checked })} className="mt-0.5 h-4 w-4 accent-[#B89A5A]" /><span>J’accepte que mes informations soient utilisées pour répondre à cette demande.</span></label>
-                {status === "error" && <p role="alert" className="rounded-[8px] border border-red-200 bg-red-50 p-4 font-[family-name:var(--font-inter)] text-sm text-red-700">{error}</p>}
+                {status === "error" && <p role="alert" className="rounded-[8px] border border-red-200 bg-red-50 p-4 font-[family-name:var(--font-inter)] text-sm text-red-700">{error} <a className="underline" href="mailto:management@ilocap.com">Nous écrire par email</a> ou <a className="underline" href="https://wa.me/261343807857" target="_blank" rel="noopener noreferrer">sur WhatsApp</a>.</p>}
                 <button type="submit" disabled={status === "sending"} className="button-elegant w-full bg-[#B89A5A] px-7 font-[family-name:var(--font-inter)] text-sm font-semibold text-[#171A18] hover:bg-[#173C31] hover:text-white disabled:cursor-wait disabled:opacity-60">{status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}</button>
               </form>
             )}
