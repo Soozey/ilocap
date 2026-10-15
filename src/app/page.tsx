@@ -24,8 +24,8 @@ const serviceCards = [
     "href": "/services#service-03"
   },
   {
-    "title": "Accompagner vos équipes",
-    "text": "Support, BPO et formation pour faire fonctionner et évoluer vos outils.",
+    "title": "Externaliser vos tâches",
+    "text": "Assistance virtuelle, saisie, gestion de contenus et support pour libérer du temps à vos équipes.",
     "image": "/services/community-management.webp",
     "href": "/services#service-04"
   }
@@ -81,7 +81,7 @@ export default function Home() {
               Attirez des clients. Simplifiez votre travail. Faites avancer votre activité.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
-              Sites web, applications métier, automatisation et contenus : nous aidons les entreprises à Madagascar à transformer leurs besoins en outils concrets, du cadrage à la mise en ligne.
+              Externalisez vos tâches chronophages et faites avancer vos projets digitaux. Nous accompagnons les entreprises à l’international comme à Madagascar : assistance opérationnelle, contenus, sites web, applications métier et automatisation.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href="/contact?objet=devis" className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#173C31] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
@@ -91,7 +91,7 @@ export default function Home() {
                 Voir nos réalisations
               </Link>
             </div>
-            <p className="mt-5 text-sm leading-6 text-[#343A36]">Un premier échange pour clarifier votre besoin, sans engagement. Basés à Antananarivo.</p>
+            <p className="mt-5 text-sm leading-6 text-[#343A36]">Une équipe basée à Madagascar, à vos côtés à distance. Premier échange sans engagement.</p>
           </div>
         </section>
 
@@ -127,7 +127,7 @@ export default function Home() {
               </div>
               <div className="lg:pb-1">
                 <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
-                  Un partenaire pour concevoir, automatiser, créer vos contenus et accompagner vos équipes. En mission ponctuelle ou dans la durée.
+                  Un partenaire à distance pour prendre en charge vos tâches récurrentes, créer vos contenus et développer vos outils digitaux. En mission ponctuelle ou dans la durée.
                 </p>
                 <Link href="/services" className="mt-4 inline-flex font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] underline decoration-[#B89A5A] underline-offset-4 transition-opacity hover:opacity-65">
                   Choisir votre service
