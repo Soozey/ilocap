@@ -24,7 +24,7 @@ export default function ApprovedHero() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.stage}>
         <div className={styles.visual}>
-          <Image src="/hero/ilocap-expertises.webp" alt="Nos expertises illustrées sur ordinateur : design et création, automatisation, externalisation. Un smartphone présente le suivi des projets." fill priority sizes="100vw" className={styles.image} />
+          <Image src="/hero/ilocap-noria-boutique.webp" alt="Illustration d’une plateforme de gestion Noria sur ordinateur et d’une boutique de mode sur smartphone." fill priority sizes="100vw" className={styles.image} />
           <nav className={styles.iconLinks} aria-label="Accès direct à nos services">
             {expertises.map((item) => (
               <Link key={item.key} href={item.href} className={styles.iconLink} aria-label={item.name}>
@@ -38,7 +38,6 @@ export default function ApprovedHero() {
           <p className={styles.eyebrow}>ILOCAP · Le digital avec du sens</p>
           <h1 id="hero-title" className={styles.title}>Nous donnons vie<br className={styles.desktopBreak} /> à vos ambitions <span>digitales.</span></h1>
           <Link href="/contact?objet=devis" className={styles.cta}>Parlons de votre projet</Link>
-          <p className={styles.location}>À Madagascar et à l’international.</p>
           <nav className={styles.shortcuts} aria-label="Choisir votre besoin">
             {expertises.map((item) => (
               <Link key={item.key} href={item.href} className={styles.shortcut} aria-label={`${item.label} — ${item.name}`}>
