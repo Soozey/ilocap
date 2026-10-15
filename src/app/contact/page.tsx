@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
@@ -25,6 +25,17 @@ export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const hasStartedForm = useRef(false);
+
+  useEffect(() => {
+    const categories: Record<string, string> = {
+      "01": "Sites & applications",
+      "02": "IA ou automatisation",
+      "03": "Design & marketing",
+      "04": "Externalisation & assistance",
+    };
+    const selected = categories[new URLSearchParams(window.location.search).get("service") || ""];
+    if (selected) setForm(current => ({ ...current, typeProjet: selected }));
+  }, []);
 
   const handleFormStart = () => {
     if (hasStartedForm.current) return;
@@ -109,11 +120,12 @@ export default function ContactPage() {
                   <label className={labelClass}>Email *<input type="email" name="email" autoComplete="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={fieldClass} /></label>
                   <label className={labelClass}>Téléphone / WhatsApp<input type="tel" name="tel" autoComplete="tel" value={form.telephone} onChange={(e) => setForm({ ...form, telephone: e.target.value })} className={fieldClass} /></label>
                 </div>
+                {form.typeProjet && <p className="text-sm text-[#343A36]">Service sélectionné : <strong>{form.typeProjet}</strong>. Vous pouvez le modifier ci-dessous.</p>}
                 <details className="rounded-lg border border-[#171A18]/15 p-4">
                   <summary className="cursor-pointer text-sm font-semibold text-[#173C31]">Préciser mon projet (facultatif)</summary>
                   <div className="mt-5 grid gap-5 md:grid-cols-2">
                   <label className={labelClass}>Votre profil<select name="profil" value={form.profil} onChange={(e) => setForm({ ...form, profil: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Entreprise ou institution</option><option>PME ou entrepreneur</option><option>Partenaire ou intégrateur</option></select></label>
-                  <label className={labelClass}>Type de projet<select name="project-type" value={form.typeProjet} onChange={(e) => setForm({ ...form, typeProjet: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Plateforme ou application métier</option><option>IA ou automatisation</option><option>Fintech ou paiement</option><option>Site, e-commerce ou marketplace</option><option>Marketing et acquisition</option><option>Conseil ou cadrage</option><option>Autre besoin</option></select></label>
+                  <label className={labelClass}>Type de projet<select name="project-type" value={form.typeProjet} onChange={(e) => setForm({ ...form, typeProjet: e.target.value })} className={fieldClass}><option value="">Sélectionner</option><option>Sites &amp; applications</option><option>Design &amp; marketing</option><option>Externalisation &amp; assistance</option><option>Plateforme ou application métier</option><option>IA ou automatisation</option><option>Fintech ou paiement</option><option>Site, e-commerce ou marketplace</option><option>Marketing et acquisition</option><option>Conseil ou cadrage</option><option>Autre besoin</option></select></label>
                   <label className={labelClass}>Échéance souhaitée<select name="timeline" value={form.echeance} onChange={(e) => setForm({ ...form, echeance: e.target.value })} className={fieldClass}><option value="">À préciser</option><option>Moins de 3 mois</option><option>3 à 6 mois</option><option>6 à 12 mois</option><option>Plus de 12 mois</option></select></label>
                   <label className={labelClass}>Budget indicatif<input name="budget" placeholder="Montant et devise, ou à définir" value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })} className={fieldClass} /></label>
                 </div>

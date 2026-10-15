@@ -1,176 +1,72 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import ServiceSheet from "@/components/shared/ServiceSheet";
-import DigitalFibres from "@/components/shared/DigitalFibres";
 import Link from "next/link";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
-import FloatingCTA from "@/components/shared/FloatingCTA";
+import styles from "./services.module.css";
 
 export const metadata: Metadata = {
-  title: "Services digitaux | ILOCAP",
-  description:
-    "Conception de plateformes, automatisation, présence digitale, contenus et accompagnement opérationnel pour entreprises et institutions.",
+  title: "Sites, IA, marketing et externalisation | ILOCAP",
+  description: "Sites web et applications, IA et automatisation, design et marketing, externalisation et assistance : découvrez les services ILOCAP adaptés à votre activité.",
   alternates: { canonical: "/services" },
 };
-
-const serviceFamilies = [
-  {
-    "number": "01",
-    "eyebrow": "Concevoir vos plateformes",
-    "description": "Du besoin métier à une plateforme prête à développer.",
-    "image": "/services/conception-cadrage.svg",
-    "imageAlt": "Concevoir vos plateformes",
-    "items": [
-      {
-        "title": "Sites web & applications",
-        "text": "Des interfaces utiles, adaptées à vos utilisateurs."
-      },
-      {
-        "title": "Portails & plateformes métier",
-        "text": "Des outils sur mesure pour vos activités."
-      },
-      {
-        "title": "Cadrage & parcours utilisateurs",
-        "text": "Des besoins et priorités clairs avant le développement."
-      }
-    ]
-  },
-  {
-    "number": "02",
-    "eyebrow": "Automatiser vos opérations",
-    "description": "Moins de tâches répétitives, des outils mieux connectés.",
-    "image": "/services/automation-trackfuel.webp",
-    "imageAlt": "Automatiser vos opérations",
-    "items": [
-      {
-        "title": "Workflows & validations",
-        "text": "Automatiser les relances et les circuits de validation."
-      },
-      {
-        "title": "Données & intégrations",
-        "text": "Faire circuler les informations entre vos outils."
-      },
-      {
-        "title": "Tableaux de bord & reporting",
-        "text": "Suivre vos opérations avec des indicateurs utiles."
-      }
-    ]
-  },
-  {
-    "number": "03",
-    "eyebrow": "Développer votre visibilité",
-    "description": "Des images et des contenus qui mettent votre activité en valeur.",
-    "image": "/services/creation-visuelle-greenvillage.png",
-    "imageAlt": "Développer votre visibilité",
-    "items": [
-      {
-        "title": "Traitement d’images & création",
-        "text": "Retouches, visuels produits et supports de marque."
-      },
-      {
-        "title": "Community management",
-        "text": "Planifier, publier et animer vos réseaux sociaux."
-      },
-      {
-        "title": "Contenus & acquisition",
-        "text": "Des pages et des contenus pensés pour générer des contacts."
-      }
-    ]
-  },
-  {
-    "number": "04",
-    "eyebrow": "Accompagner vos équipes",
-    "description": "Un appui régulier pour exploiter vos outils et soutenir votre activité.",
-    "image": "/services/community-management.webp",
-    "imageAlt": "Accompagner vos équipes",
-    "items": [
-      {
-        "title": "Support & amélioration continue",
-        "text": "Maintenir vos outils et les faire évoluer."
-      },
-      {
-        "title": "BPO & back-office",
-        "text": "Prendre en charge vos tâches administratives et commerciales."
-      },
-      {
-        "title": "Formation & adoption",
-        "text": "Former les équipes et faciliter les nouveaux usages."
-      }
-    ]
-  }
+const families = [
+  { number: "01", title: "Sites & applications", promise: "Votre activité, bien outillée.", cta: "Discuter de mon projet", alt: "Illustration d’un site d’architecture sur tablette et d’une application de gestion.", items: [
+    ["Sites web", "Présentez votre offre et facilitez les contacts.", "screen"],
+    ["E-commerce & marketplaces", "Vendez et gérez vos commandes.", "cart"],
+    ["Applications métier", "Des outils adaptés à votre activité.", "grid"],
+  ] },
+  { number: "02", title: "IA & automatisation", promise: "Moins de tâches. Plus de temps.", cta: "Étudier mon besoin", alt: "Illustration d’un processus de traitement de documents, de la réception à la mise à jour des outils.", items: [
+    ["Automatisation des processus", "Relances, documents et validations.", "gear"],
+    ["Assistants IA", "Facilitez le traitement des demandes.", "spark"],
+    ["Données & intégrations", "Connectez vos outils et vos indicateurs.", "data"],
+  ] },
+  { number: "03", title: "Design & marketing", promise: "Attirez l’attention. Donnez envie.", cta: "Préparer ma communication", alt: "Concept de campagne Lumière : photographie de parfum, affiche et publication sur mobile.", items: [
+    ["Identité & création visuelle", "Des visuels qui affirment votre marque.", "pen"],
+    ["Contenus & réseaux sociaux", "Une présence utile et régulière.", "picture"],
+    ["Campagnes & acquisition", "Des campagnes orientées vers l’action.", "chart"],
+  ] },
+  { number: "04", title: "Externalisation & assistance", promise: "Déléguez. Gardez le contrôle.", cta: "Définir les tâches à déléguer", alt: "Deux scènes illustratives : une professionnelle malgache en assistance client et un professionnel malgache en vérification de dossiers, dans des bureaux distincts.", items: [
+    ["Assistance administrative", "Agendas, documents et suivi quotidien.", "person"],
+    ["Back-office & données", "Saisie, fichiers et catalogues.", "file"],
+    ["Relation client & suivi commercial", "Demandes clients et relances.", "chat"],
+  ] },
 ];
-
+const paths: Record<string, string> = {
+  screen: "M3 4h26v18H3z M16 22v6 M10 28h12",
+  cart: "M2 4h4l4 17h15l4-12H7 M12 27h.01 M24 27h.01",
+  grid: "M3 3h10v10H3z M19 3h10v10H19z M3 19h10v10H3z M19 19h10v10H19z",
+  gear: "M13 3h6l1 4 4 2 4-1 3 5-3 3v3l3 3-3 5-4-1-4 2-1 4h-6l-1-4-4-2-4 1-3-5 3-3v-3l-3-3 3-5 4 1 4-2z M21 17a5 5 0 1 1-10 0 5 5 0 0 1 10 0",
+  spark: "M16 2c0 9 5 14 14 14-9 0-14 5-14 14 0-9-5-14-14-14C11 16 16 11 16 2z",
+  data: "M3 7c0-6 26-6 26 0s-26 6-26 0v18c0 6 26 6 26 0V7 M3 16c0 6 26 6 26 0",
+  pen: "M4 23 22 5a4 4 0 0 1 6 6L10 29l-8 1z M19 8l6 6",
+  picture: "M3 3h26v26H3z M3 24l9-10 6 7 5-5 6 7 M10 9h.01",
+  chart: "M4 27V17h5v10z M14 27V10h5v17z M24 27V3h5v24z",
+  person: "M22 9a6 6 0 1 1-12 0 6 6 0 0 1 12 0 M5 29v-5c0-11 22-11 22 0v5z",
+  file: "M6 2h13l7 7v21H6z M19 2v8h7 M11 16h10 M11 22h10",
+  chat: "M3 3h26v21H14l-8 6v-6H3z M9 10h14 M9 16h10",
+};
+function ServiceIcon({ name }: { name: string }) {
+  return <svg viewBox="0 0 32 34" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>;
+}
 export default function ServicesPage() {
-  return (
-    <>
-      <Header />
-      <main className="bg-[#F5F2EA] text-[#171A18]">
-        <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-8 md:pb-16 md:pt-36 lg:px-12">
-          <div className="absolute inset-0 bg-[#F5F2EA]" />
-          <DigitalFibres />
-          <div className="relative mx-auto max-w-[1320px]">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-[#171A18]/68">Services</p>
-            <div className="mt-4 grid gap-7 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
-              <h1 className="max-w-4xl font-[family-name:var(--font-source-serif)] text-[2.65rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.5rem] lg:text-[4.25rem]">
-                Ce que nous pouvons faire avec vous.
-              </h1>
-              <div className="lg:pb-1">
-                <p className="max-w-xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
-                  De l’idée au fonctionnement quotidien, ILOCAP réunit conseil, technologie, contenus et accompagnement autour d’un même objectif : faire avancer votre activité.
-                </p>
-                <Link href="/contact?objet=devis" className="mt-5 inline-flex min-h-[52px] items-center rounded-md bg-[#173C31] px-7 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
-                  Parler de votre projet
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section aria-label="Nos quatre familles de services" className="mx-auto grid max-w-[1320px] gap-5 px-5 pb-16 md:grid-cols-2 md:px-8 lg:px-12">
-          {serviceFamilies.map(family => (
-            <ServiceSheet key={family.number} id={`service-${family.number}`} number={family.number} title={family.eyebrow} description={family.description}>
-              <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-white"><Image src={family.image} alt={family.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-2" /></div>
-              <ul className="space-y-4">{family.items.map(item => <li key={item.title}><h3 className="font-semibold">{item.title}</h3><p className="mt-1 text-[15px] leading-6 text-[#343A36]">{item.text}</p></li>)}</ul>
-              <Link href={`/contact?objet=devis&service=${family.number}`} className="mt-6 inline-flex min-h-11 items-center rounded-md bg-[#173C31] px-5 text-sm font-semibold text-white hover:bg-[#102F27]">Parlons de votre besoin</Link>
-            </ServiceSheet>
-          ))}
-        </section>
-
-        <section className="bg-[#FBF9F4] py-14 md:py-16">
-          <div className="mx-auto grid max-w-[1320px] gap-8 px-5 md:px-8 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-12">
-            <div>
-              <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Vous cherchez plutôt un produit déjà structuré ?</p>
-              <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.2rem] font-semibold leading-[1.04] tracking-[-0.025em] text-[#171A18] md:text-[3rem]">
-                Nos solutions partent d’un socle existant, puis s’adaptent à votre contexte.
-              </h2>
-            </div>
-            <div className="lg:justify-self-end">
-              <p className="max-w-md font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
-                AroZo, LAMINA, PATRIMONIA, TrackFuel 360, SIIRH et nos autres accélérateurs sont présentés séparément pour rendre le choix plus simple.
-              </p>
-              <Link href="/solutions" className="mt-6 inline-flex min-h-11 items-center rounded-md border border-[#171A18]/20 px-5 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/45 hover:bg-white">
-                Découvrir nos solutions
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#173C31] px-5 py-16 text-white md:px-8 md:py-20 lg:px-12">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.24em] text-white/58">Un projet ?</p>
-            <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-[2.4rem] font-semibold leading-none tracking-[-0.025em] md:text-[3.5rem]">Parlons de votre projet.</h2>
-            <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
-              Nous pouvons partir d’un besoin précis, d’un processus à améliorer ou simplement d’un objectif métier à clarifier.
-            </p>
-            <a href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-[52px] items-center rounded-md bg-[#F5F2EA] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:bg-white">
-              Planifier un rendez-vous
-            </a>
-          </div>
-        </section>
-      </main>
-      <Footer />
-      <FloatingCTA />
-    </>
-  );
+  return <><Header /><main className={styles.page}>
+    <div className={styles.shell}>
+      <nav className={styles.categories} aria-label="Catégories de services">
+        {families.map(f => <a key={f.number} href={`#service-${f.number}`}>{f.title}</a>)}
+      </nav>
+      <h1 className={styles.heading}>Des expertises pour avancer.</h1>
+      {families.map((f, index) => <section id={`service-${f.number}`} key={f.number} className={styles.family} aria-labelledby={`title-${f.number}`}>
+        <div className={styles.copy}>
+          <p className={styles.number}>{f.number}<span /></p>
+          <h2 id={`title-${f.number}`}>{f.title}</h2>
+          <p className={styles.promise}>{f.promise}</p>
+          <ul className={styles.services}>{f.items.map(([title, text, icon]) => <li key={title}><ServiceIcon name={icon} /><div><h3>{title}</h3><p>{text}</p></div></li>)}</ul>
+          <Link href={`/contact?objet=devis&service=${f.number}`} className={styles.button}>{f.cta}</Link>
+        </div>
+        <div className={styles.visual}><Image src={`/services/category-${f.number}.webp`} alt={f.alt} width={1440} height={720} priority={index === 0} sizes="(max-width: 900px) 100vw, 55vw" /></div>
+      </section>)}
+    </div>
+    <section className={styles.contact}><div><h2>Parlons de votre besoin.</h2><p>Des solutions concrètes, adaptées à votre activité.</p></div><Link href="/contact?objet=devis" className={styles.lightButton}>Nous contacter</Link></section>
+  </main><Footer /></>;
 }
