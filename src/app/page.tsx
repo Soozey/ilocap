@@ -75,21 +75,43 @@ export default function Home() {
           <DigitalFibres />
           <div className="relative z-10 mx-auto w-full max-w-4xl px-5 py-14 text-center md:px-8 md:py-16">
             <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.25em] text-[#171A18]/70">
-              ILOCAP · STUDIO DIGITAL
+              ILOCAP · LE DIGITAL AVEC DU SENS
             </p>
-            <h1 className="mx-auto mt-5 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.75rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.7rem] lg:text-[4.55rem]">
-              Nous donnons vie à vos ambitions digitales.
+            <h1 className="mx-auto mt-5 max-w-3xl font-[family-name:var(--font-source-serif)] text-[2.45rem] font-semibold leading-[1] tracking-[-0.035em] text-[#171A18] sm:text-[3.4rem] lg:text-[4rem]">
+              Attirez des clients. Simplifiez votre travail. Faites avancer votre activité.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#343A36] md:text-[18px] md:leading-8">
-              Des solutions pensées pour vos métiers, utiles aujourd’hui et conçues pour évoluer avec vous.
+              Sites web, applications métier, automatisation et contenus : nous aidons les entreprises à Madagascar à transformer leurs besoins en outils concrets, du cadrage à la mise en ligne.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link href="/contact?objet=devis" className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#173C31] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-white transition hover:bg-[#102F27]">
                 Parler de votre projet
               </Link>
-              <Link href="/services" className="inline-flex min-h-[52px] items-center justify-center rounded-md border border-[#171A18]/25 bg-[#F5F2EA]/90 px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/55 hover:bg-white">
-                Découvrir nos services
+              <Link href="/realisations" className="inline-flex min-h-[52px] items-center justify-center rounded-md border border-[#171A18]/25 bg-[#F5F2EA]/90 px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:border-[#171A18]/55 hover:bg-white">
+                Voir nos réalisations
               </Link>
+            </div>
+            <p className="mt-5 text-sm leading-6 text-[#343A36]">Un premier échange pour clarifier votre besoin, sans engagement. Basés à Antananarivo.</p>
+          </div>
+        </section>
+
+        <section className="bg-[#FBF9F4] py-14 md:py-16">
+          <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
+            <div className="grid gap-7 lg:grid-cols-[1fr_.8fr] lg:items-end">
+              <div>
+                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Des organisations qui nous ont fait confiance</p>
+                <h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-[2.25rem] font-semibold tracking-[-0.025em] text-[#171A18] md:text-[3rem]">Ils avancent avec nous.</h2>
+              </div>
+              <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
+                Entreprises, institutions et porteurs de projets nous confient des sujets où l’exécution, la clarté et la capacité à faire évoluer les solutions comptent réellement.
+              </p>
+            </div>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+              {references.map((logo) => (
+                <Link href="/realisations" key={logo.alt} aria-label={`${logo.alt} — voir nos réalisations`} className="flex h-24 items-center justify-center rounded-[14px] border border-[#171A18]/8 bg-white px-4 py-3 transition duration-300 hover:border-[#173C31]/35">
+                  <Image src={logo.src} alt={logo.alt} width={180} height={90} className="max-h-14 w-auto max-w-full object-contain" />
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -138,6 +160,27 @@ export default function Home() {
           </div>
         </section>
 
+        <section aria-labelledby="parcours-title" className="bg-[#173C31] py-14 text-white md:py-20">
+          <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E2C56D]">Comment démarrer</p>
+            <h2 id="parcours-title" className="mt-4 max-w-3xl font-[family-name:var(--font-source-serif)] text-3xl leading-tight md:text-5xl">Un besoin, un plan clair, une mise en œuvre accompagnée.</h2>
+            <ol className="mt-10 grid gap-6 md:grid-cols-3">
+              {[
+                ["01", "Nous partons de votre problème", "Expliquez votre contexte et ce qui vous freine. Vous n’avez pas besoin d’un cahier des charges pour nous contacter."],
+                ["02", "Vous choisissez en connaissance de cause", "Nous cadrons avec vous les priorités, les livrables, le budget et le calendrier avant le lancement."],
+                ["03", "Nous construisons avec vos équipes", "Conception, retours, mise en ligne et prise en main : vous suivez les étapes et préparez l’usage au quotidien."],
+              ].map(([number, title, text]) => (
+                <li key={number} className="border-t border-white/25 pt-5">
+                  <span className="text-sm font-semibold text-[#E2C56D]">{number}</span>
+                  <h3 className="mt-3 text-xl font-semibold">{title}</h3>
+                  <p className="mt-3 text-base leading-7 text-white/80">{text}</p>
+                </li>
+              ))}
+            </ol>
+            <Link href="/contact?objet=devis" className="mt-9 inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#F5F2EA] px-7 font-semibold text-[#173C31] hover:bg-white">Parler de votre projet</Link>
+          </div>
+        </section>
+
         <section className="bg-[#EEF2E7] py-12 md:py-16">
           <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
@@ -177,38 +220,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#FBF9F4] py-14 md:py-16">
-          <div className="mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
-            <div className="grid gap-7 lg:grid-cols-[1fr_.8fr] lg:items-end">
-              <div>
-                <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[#171A18]/68">Des organisations qui nous ont fait confiance</p>
-                <h2 className="mt-3 font-[family-name:var(--font-source-serif)] text-[2.25rem] font-semibold tracking-[-0.025em] text-[#171A18] md:text-[3rem]">Ils avancent avec nous.</h2>
-              </div>
-              <p className="font-[family-name:var(--font-inter)] text-[16px] leading-7 text-[#3A403C]">
-                Entreprises, institutions et porteurs de projets nous confient des sujets où l’exécution, la clarté et la capacité à faire évoluer les solutions comptent réellement.
-              </p>
-            </div>
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-              {references.map((logo) => (
-                <Link href="/realisations" key={logo.alt} aria-label={`${logo.alt} — voir nos réalisations`} className="flex h-24 items-center justify-center rounded-[14px] border border-[#171A18]/8 bg-white px-4 py-3 transition duration-300 hover:border-[#173C31]/35">
-                  <Image src={logo.src} alt={logo.alt} width={180} height={90} className="max-h-14 w-auto max-w-full object-contain" />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="relative overflow-hidden bg-[#173C31] py-16 text-white md:py-20">
           <div className="relative mx-auto max-w-[1320px] px-5 md:px-8 lg:px-12">
             <div className="mx-auto max-w-[760px] text-center xl:mr-[320px]">
               <p className="font-[family-name:var(--font-inter)] text-[11px] font-semibold uppercase tracking-[0.22em] text-white/58">Un projet ?</p>
               <h2 className="mt-4 font-[family-name:var(--font-source-serif)] text-[2.4rem] font-semibold leading-none tracking-[-0.025em] md:text-[3.5rem]">Parlons de votre projet.</h2>
               <p className="mx-auto mt-5 max-w-2xl font-[family-name:var(--font-inter)] text-[16px] leading-7 text-white/78 md:text-[17px]">
-                Nous concevons des dispositifs utiles, sobres et évolutifs pour vos activités.
+                Dites-nous ce que vous souhaitez améliorer. Nous vous aiderons à identifier la prochaine étape et les informations utiles pour la préparer.
               </p>
-              <Link href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#F5F2EA] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:bg-white">
-                Planifier un rendez-vous
+              <Link href="/contact?objet=devis" className="mt-7 inline-flex min-h-[52px] items-center justify-center rounded-md bg-[#F5F2EA] px-8 font-[family-name:var(--font-inter)] text-[15px] font-semibold text-[#171A18] transition hover:bg-white">
+                Parler de votre projet
               </Link>
+              <a href="https://wa.me/261343807857" target="_blank" rel="noopener noreferrer" className="mt-5 block text-sm text-white underline underline-offset-4">Ou échanger sur WhatsApp</a>
             </div>
 
             <div className="pointer-events-none absolute right-10 top-1/2 hidden w-[250px] -translate-y-1/2 text-[#E2C56D] xl:block">

@@ -51,7 +51,8 @@ export default function Header() {
           </Link>
           <button
             type="button"
-            aria-label="Ouvrir le menu"
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
             className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-md border border-[#171A18]/20 text-[#171A18] lg:hidden"
@@ -66,6 +67,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}

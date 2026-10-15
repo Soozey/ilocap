@@ -365,3 +365,10 @@ main .section-pad { padding-block: clamp(3rem, 6vw, 5rem); }
     font-size: 1.1rem !important;
   }
 }
+
+/* Keyboard navigation and anchor targets below the fixed header. */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #863A9A;
+  outline-offset: 4px;
+}
+[id] { scroll-margin-top: 90px; }
