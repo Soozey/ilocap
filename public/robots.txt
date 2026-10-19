@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /suivi
+Disallow: /api/
+Disallow: /demo-crm
+
+Sitemap: https://ilocap.com/sitemap.xml

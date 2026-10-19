@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const html=fs.readFileSync('public/index.html','utf8'),services=JSON.parse(fs.readFileSync('content/services.json','utf8'));
+assert.equal((html.match(/class="expertise-row"/g)||[]).length,4);assert(!html.includes('data-expertise-book'));assert(!html.includes('src="expertise-book.js"'));assert(!html.includes('src="card-carousel.js"'));
+for(const service of services){assert(html.includes('href="'+service.route+'"'));assert(html.includes('assets/'+service.image));assert(fs.existsSync('public/assets/'+service.image));for(const f of service.features){assert(html.includes(f.title.replace(/&/g,'&amp;')));assert(html.includes('href="'+service.route+'#'+f.id+'"'));const landing=fs.readFileSync('public/'+service.route,'utf8');assert(landing.includes('id="'+f.id+'"'));}}
+for(const id of ['sites-applications','ia-automatisation','design-marketing','externalisation-assistance']){assert(html.includes('href="#'+id+'"'));assert(html.includes('id="'+id+'"'));}
+const css=fs.readFileSync('public/services-showcase.css','utf8');assert(css.includes('overflow-y:auto'));assert(css.includes('@media(max-width:700px)'));assert(css.includes('grid-template-columns:minmax(0,1fr)'));assert(css.includes('@media print'));
+const screens=[...html.matchAll(/<section class="expertise-section[^"]*"[^>]*data-expertise-screen.*?<\/section>/gs)];assert.equal(screens.length,4);for(const screen of screens)assert.equal((screen[0].match(/class="expertise-row"/g)||[]).length,1,'Each screen contains exactly one expertise');
+assert(html.includes('href="#sites-applications" aria-label="Créer'));assert(html.includes('href="#ia-automatisation" aria-label="Automatiser'));assert(html.includes('href="#externalisation-assistance" aria-label="Déléguer'));
+assert.equal(services[0].image,'expertise-sites-meritent.webp');assert.equal(services[1].image,'expertise-automation-reference.webp');assert.equal(services[2].image,'expertise-design-reference.webp');
+console.log('PASS: four independent horizontal expertise screens, reference imagery, direct hero entry points, feature and landing links, mobile flow and print layout.');

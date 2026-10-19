@@ -1,0 +1,402 @@
+[
+  {
+    "slug": "sites-applications",
+    "route": "sites-applications.html",
+    "name": "Sites & applications",
+    "need": "web",
+    "image": "expertise-sites-meritent.webp",
+    "title": "Sites web et applications métier à Madagascar | ILOCAP",
+    "description": "ILOCAP conçoit vos sites web, boutiques en ligne et applications métier. Un périmètre clair, des parcours utiles et une mise en œuvre accompagnée.",
+    "headline": "Sites web et applications",
+    "emphasis": "pensés pour votre activité.",
+    "lead": "Présenter votre offre, vendre en ligne ou outiller vos équipes : nous concevons la plateforme autour de vos usages et de vos priorités.",
+    "alt": "Scène illustrative : création d’un site d’architecture sur ordinateur et smartphone, avec le titre Des lieux qui vous méritent.",
+    "cta": "Cadrer mon projet",
+    "outcome": "Un périmètre fonctionnel clair, des parcours définis et des livrables convenus avant la réalisation.",
+    "features": [
+      {
+        "id": "sites-web",
+        "title": "Sites web",
+        "need": "web",
+        "text": "Une présence claire pour expliquer votre activité et faciliter la prise de contact.",
+        "items": [
+          "Structure des pages et parcours de conversion",
+          "Design adapté au mobile et à votre identité",
+          "Contenus, formulaires et préparation SEO"
+        ]
+      },
+      {
+        "id": "e-commerce",
+        "title": "E-commerce & marketplaces",
+        "need": "commerce",
+        "text": "Un catalogue et un parcours d’achat construits autour de vos produits, de vos vendeurs et de votre organisation.",
+        "items": [
+          "Organisation des produits et des boutiques",
+          "Parcours de commande et administration",
+          "Paiement et livraison à cadrer selon le projet"
+        ]
+      },
+      {
+        "id": "applications-metier",
+        "title": "Applications métier",
+        "need": "app",
+        "text": "Des outils qui rapprochent vos équipes, vos données et vos opérations quotidiennes.",
+        "items": [
+          "Formulaires, dossiers et circuits de validation",
+          "Espaces clients et extranets collaboratifs",
+          "Intégrations et tableaux de bord selon le besoin"
+        ]
+      }
+    ],
+    "audience": "Entreprises de services, commerces, cabinets, acteurs du tourisme ou organisations souhaitant remplacer des fichiers dispersés : le point de départ reste un usage concret.",
+    "usecases": [
+      "Présenter une nouvelle offre et recueillir les demandes",
+      "Structurer la vente et l’administration d’un catalogue",
+      "Centraliser un dossier et son suivi entre plusieurs équipes"
+    ],
+    "steps": [
+      [
+        "Comprendre",
+        "Identifier les utilisateurs, leurs tâches et les contraintes du projet."
+      ],
+      [
+        "Concevoir",
+        "Définir les parcours, les écrans et le périmètre d’une première version."
+      ],
+      [
+        "Réaliser & tester",
+        "Construire, vérifier les fonctions et recueillir les retours."
+      ],
+      [
+        "Mettre en usage",
+        "Préparer la mise en ligne, les accès et la prise en main."
+      ]
+    ],
+    "prepare": [
+      "Votre offre et les publics à servir",
+      "Vos contenus, votre identité visuelle et vos outils actuels",
+      "Les fonctions indispensables et les personnes qui valideront"
+    ],
+    "faq": [
+      [
+        "Faut-il déjà avoir un cahier des charges ?",
+        "Non. Un exemple de parcours, les difficultés actuelles et les utilisateurs concernés suffisent pour commencer le cadrage."
+      ],
+      [
+        "Peut-on faire évoluer un site ou un outil existant ?",
+        "Oui. Un état des lieux permet de décider ce qui peut être conservé, adapté ou remplacé, selon sa qualité et les accès disponibles."
+      ],
+      [
+        "Comment sont choisis les paiements et les intégrations ?",
+        "Nous les précisons selon vos outils, les prestataires disponibles, les contraintes techniques et le fonctionnement attendu. Ils font partie du périmètre à valider."
+      ],
+      [
+        "Quels sont le budget et le délai ?",
+        "Ils dépendent des fonctions, des contenus, des intégrations et du niveau d’accompagnement. Une proposition précise les livrables et le calendrier après cadrage."
+      ]
+    ],
+    "cta_alt": "Préparer mon premier périmètre",
+    "team_context": "Nous pouvons intervenir sur un périmètre identifié avec vos équipes ou votre prestataire. Les responsabilités, les accès, les livrables et les critères de validation sont définis ensemble."
+  },
+  {
+    "slug": "ia-automatisation",
+    "route": "ia-automatisation.html",
+    "name": "IA & automatisation",
+    "need": "auto",
+    "image": "expertise-automation-reference.webp",
+    "title": "Agents IA, automatisation et intégration de données | ILOCAP",
+    "description": "ILOCAP accompagne vos projets d’agents IA, d’automatisation et d’intégration. Des scénarios adaptés aux entreprises, centres d’appels et équipes métier.",
+    "headline": "Agents IA et automatisation.",
+    "emphasis": "Au service de vos opérations.",
+    "lead": "Relation client, appui aux équipes et circulation de l’information : nous construisons le projet autour de vos scénarios, de vos outils et de vos exigences.",
+    "alt": "Illustration d’un processus de traitement de documents, de la réception à la mise à jour des outils.",
+    "cta": "Identifier ce que je peux automatiser",
+    "outcome": "Un processus prioritaire documenté, un premier test et des critères de validation partagés.",
+    "features": [
+      {
+        "id": "processus",
+        "title": "Automatisation des processus",
+        "need": "auto",
+        "text": "Réduisez les passages manuels entre les étapes d’une même opération.",
+        "items": [
+          "Relances et notifications selon des règles définies",
+          "Traitement de formulaires et de documents",
+          "Circuits de validation et synchronisation d’outils"
+        ]
+      },
+      {
+        "id": "assistants-ia",
+        "title": "Agents IA & assistants",
+        "need": "auto",
+        "text": "Définissez les scénarios qu’un agent IA peut prendre en charge et la façon dont il travaille avec vos équipes.",
+        "items": [
+          "Orientation et qualification des demandes selon le scénario retenu",
+          "Appui aux conseillers à partir d’informations autorisées",
+          "Canaux, intégrations, supervision et passage de relais à définir"
+        ]
+      },
+      {
+        "id": "donnees",
+        "title": "Données & intégrations",
+        "need": "data",
+        "text": "Rapprochez vos sources pour rendre l’information plus fiable et plus exploitable.",
+        "items": [
+          "Inventaire et structuration des données",
+          "Connexions entre applications et API",
+          "Reporting et tableaux de bord ciblés"
+        ]
+      }
+    ],
+    "audience": "Entreprises, centres d’appels et prestataires de services : nous partons de vos objectifs, de votre organisation et des outils déjà en place. Un premier scénario peut être cadré seul ou dans un projet plus large.",
+    "usecases": [
+      "Cadrer un agent IA pour un parcours de relation client",
+      "Automatiser les échanges entre un formulaire, un dossier et un outil métier",
+      "Préparer le traitement d’un document avec les validations nécessaires"
+    ],
+    "steps": [
+      [
+        "Observer",
+        "Décrire la tâche actuelle, son volume et les erreurs rencontrées."
+      ],
+      [
+        "Définir les règles",
+        "Repérer les données, les accès et les exceptions."
+      ],
+      [
+        "Tester un pilote",
+        "Exécuter un premier processus sur un échantillon représentatif."
+      ],
+      [
+        "Déployer & contrôler",
+        "Documenter les usages, les validations et les modalités de suivi."
+      ]
+    ],
+    "prepare": [
+      "Un exemple de tâche ou de document traité",
+      "Les outils utilisés, les données et les accès possibles",
+      "Les exceptions et les points qui demandent une validation humaine"
+    ],
+    "faq": [
+      [
+        "Que faut-il automatiser en premier ?",
+        "Une tâche fréquente, répétitive et fondée sur des règles explicites constitue un bon point de départ. Le volume, les données et les exceptions doivent être connus."
+      ],
+      [
+        "L’IA est-elle nécessaire pour chaque automatisation ?",
+        "Non. Un workflow fondé sur des règles peut suffire. Le recours à l’IA se décide selon le besoin, la qualité attendue et les contrôles nécessaires."
+      ],
+      [
+        "Peut-on connecter mes outils actuels ?",
+        "La faisabilité dépend de leurs API, de leurs possibilités d’import et d’export et des droits d’accès. Nous vérifions ces points avant de retenir une solution."
+      ],
+      [
+        "Comment garder le contrôle ?",
+        "Le cadrage précise les validations humaines, les exceptions, les accès et le suivi. Un test pilote permet de vérifier le fonctionnement avant une extension."
+      ],
+      [
+        "Pouvez-vous intervenir pour un centre d’appels ou une équipe spécialisée ?",
+        "Oui, une mission peut porter sur un scénario d’agent IA, une intégration ou un appui à vos opérations. Le cadrage précise les canaux, les outils existants, les données autorisées, les responsabilités et les critères de validation."
+      ]
+    ],
+    "cta_alt": "Repérer une première automatisation",
+    "team_context": "Nous pouvons intervenir sur un périmètre identifié avec vos équipes ou votre prestataire. Les responsabilités, les accès, les livrables et les critères de validation sont définis ensemble."
+  },
+  {
+    "slug": "design-marketing",
+    "route": "design-marketing.html",
+    "name": "Design & marketing",
+    "need": "brand",
+    "image": "expertise-design-reference.webp",
+    "title": "Design, contenus et marketing digital | ILOCAP",
+    "description": "Valorisez votre marque avec ILOCAP : identité visuelle, contenus, réseaux sociaux et campagnes digitales. Une communication claire, pensée pour vos publics.",
+    "headline": "Une marque plus lisible.",
+    "emphasis": "Des contenus qui donnent envie.",
+    "lead": "Nous mettons votre offre en forme et en mots, puis l’adaptons aux canaux où vos publics vous découvrent et vous contactent.",
+    "alt": "Concept de campagne Lumière : photographie de parfum, affiche et publication sur mobile.",
+    "cta": "Préparer ma communication",
+    "outcome": "Un message prioritaire, des supports cohérents et un plan de diffusion adapté à votre objectif.",
+    "features": [
+      {
+        "id": "identite",
+        "title": "Identité & création visuelle",
+        "need": "brand",
+        "text": "Construisez une présentation cohérente de votre activité, de vos offres et de votre univers.",
+        "items": [
+          "Identité visuelle et supports de communication",
+          "Illustrations, bannières et visuels de campagne",
+          "Design d’interfaces et traitement d’images"
+        ]
+      },
+      {
+        "id": "contenus",
+        "title": "Contenus & réseaux sociaux",
+        "need": "brand",
+        "text": "Organisez une présence utile et régulière, avec des contenus adaptés à chaque canal.",
+        "items": [
+          "Rédaction et contenus multimédias",
+          "Calendrier de publication et déclinaisons",
+          "Animation et community management"
+        ]
+      },
+      {
+        "id": "campagnes",
+        "title": "Campagnes & acquisition",
+        "need": "visibility",
+        "text": "Reliez votre message à une cible, un canal et une action attendue.",
+        "items": [
+          "Campagnes Google et réseaux sociaux",
+          "Pages d’atterrissage et parcours de contact",
+          "Indicateurs et ajustements selon les résultats observés"
+        ]
+      }
+    ],
+    "audience": "Une offre à lancer, une identité à clarifier ou une présence digitale à organiser : nous partons de votre public, de votre message et des supports dont vous avez réellement besoin.",
+    "usecases": [
+      "Présenter une nouvelle offre avec des supports cohérents",
+      "Préparer un calendrier de contenus pour vos réseaux",
+      "Relier une campagne à une page et à une demande de contact"
+    ],
+    "steps": [
+      [
+        "Clarifier",
+        "Préciser la cible, l’offre prioritaire et l’action attendue."
+      ],
+      [
+        "Concevoir",
+        "Définir la direction visuelle, le message et les formats."
+      ],
+      [
+        "Produire & valider",
+        "Créer les contenus et organiser leurs validations."
+      ],
+      [
+        "Diffuser & ajuster",
+        "Planifier la diffusion et analyser les indicateurs convenus."
+      ]
+    ],
+    "prepare": [
+      "Votre logo, vos supports et vos contenus existants",
+      "Vos publics, votre offre et vos canaux actuels",
+      "Les validations attendues et le budget de diffusion envisagé"
+    ],
+    "faq": [
+      [
+        "Peut-on partir de mon identité existante ?",
+        "Oui. Nous examinons votre logo, vos couleurs et vos supports pour conserver une cohérence et déterminer les adaptations utiles."
+      ],
+      [
+        "Pouvez-vous gérer les contenus dans la durée ?",
+        "Une mission récurrente peut être cadrée avec des canaux, une fréquence, des formats et un circuit de validation précis."
+      ],
+      [
+        "Le budget publicitaire est-il inclus ?",
+        "Les modalités de production, de gestion et d’achat média sont distinguées dans la proposition. Le budget de diffusion est validé avec vous."
+      ],
+      [
+        "Quels résultats peut-on attendre d’une campagne ?",
+        "Les résultats dépendent notamment de l’offre, de la cible, du canal, du budget et du parcours de conversion. Nous définissons les indicateurs à suivre sans promettre un volume de ventes garanti."
+      ]
+    ],
+    "cta_alt": "Clarifier mon offre et mes supports",
+    "team_context": "Nous pouvons intervenir sur un périmètre identifié avec vos équipes ou votre prestataire. Les responsabilités, les accès, les livrables et les critères de validation sont définis ensemble."
+  },
+  {
+    "slug": "externalisation-bpo",
+    "route": "externalisation-bpo.html",
+    "name": "Externalisation & assistance",
+    "need": "delegate",
+    "image": "expertise-bpo-mineral.webp",
+    "title": "Externalisation BPO et assistance virtuelle | ILOCAP",
+    "description": "Déléguez vos tâches avec ILOCAP : assistance administrative, saisie, gestion de fichiers et suivi client. Des consignes claires et une qualité suivie.",
+    "headline": "Votre équipe peut",
+    "emphasis": "respirer.",
+    "lead": "Confiez les tâches qui prennent du temps à une équipe qui les structure. Gardez la main sur les priorités, les validations et la qualité.",
+    "alt": "Scène illustrative : deux professionnels malgaches assurent le support client et le traitement de documents.",
+    "cta": "Définir ma mission BPO",
+    "outcome": "Une mission pilote, des livrables précis et des critères de qualité convenus avant la montée en charge.",
+    "features": [
+      {
+        "id": "assistance",
+        "title": "Assistance administrative",
+        "need": "delegate",
+        "text": "Organisez les tâches de support qui accompagnent votre activité quotidienne.",
+        "items": [
+          "Gestion d’agenda et organisation",
+          "Préparation et classement de documents",
+          "Suivi administratif selon vos consignes"
+        ]
+      },
+      {
+        "id": "back-office",
+        "title": "Back-office & données",
+        "need": "delegate",
+        "text": "Confiez la préparation et la mise à jour de vos informations à une organisation structurée.",
+        "items": [
+          "Saisie et transcription",
+          "Qualification et enrichissement de fichiers",
+          "Gestion de catalogues et de contenus"
+        ]
+      },
+      {
+        "id": "relation-client",
+        "title": "Relation client & suivi commercial",
+        "need": "delegate",
+        "text": "Structurez la prise en charge des demandes et la continuité du suivi.",
+        "items": [
+          "Qualification des demandes entrantes",
+          "Relances et mise à jour des dossiers",
+          "Support et reporting selon le périmètre convenu"
+        ]
+      }
+    ],
+    "audience": "Entreprises, cabinets, commerces et organisations souhaitant dégager du temps pour leur métier : une mission peut commencer sur une tâche précise, ponctuelle ou récurrente.",
+    "usecases": [
+      "Mettre à jour une base de contacts ou un catalogue",
+      "Organiser le suivi administratif d’une activité",
+      "Prendre en charge des demandes et des relances selon un scénario défini"
+    ],
+    "steps": [
+      [
+        "Définir la mission",
+        "Lister les tâches, les volumes et les livrables attendus."
+      ],
+      [
+        "Partager les consignes",
+        "Organiser les accès, les exemples et les validations."
+      ],
+      [
+        "Valider un pilote",
+        "Tester un échantillon et ajuster les instructions."
+      ],
+      [
+        "Suivre la qualité",
+        "Convenir du reporting, des corrections et de la suite de la mission."
+      ]
+    ],
+    "prepare": [
+      "Les tâches à déléguer, leur volume et leur fréquence",
+      "Un exemple de résultat conforme à vos attentes",
+      "Les accès nécessaires, les règles de confidentialité et le validateur"
+    ],
+    "faq": [
+      [
+        "Peut-on commencer par une mission courte ?",
+        "Oui. Une tâche ciblée ou un échantillon pilote permet de valider la méthode et la qualité avant d’élargir le périmètre."
+      ],
+      [
+        "Comment la qualité est-elle contrôlée ?",
+        "Les consignes, les critères de conformité, les validations et les modalités de correction sont convenus au cadrage. Le rythme du reporting est adapté à la mission."
+      ],
+      [
+        "Quels accès faut-il prévoir ?",
+        "Seulement ceux qui sont nécessaires aux tâches convenues. Les règles de confidentialité, de conservation et de restitution des données doivent être précisées avant le démarrage."
+      ],
+      [
+        "Comment sont définis les prix ?",
+        "Ils dépendent notamment de la nature des tâches, des volumes, de la fréquence, des outils et du niveau de contrôle attendu. La proposition précise ces conditions."
+      ]
+    ],
+    "cta_alt": "Préparer une mission pilote",
+    "team_context": "Nous pouvons intervenir sur un périmètre identifié avec vos équipes ou votre prestataire. Les responsabilités, les accès, les livrables et les critères de validation sont définis ensemble."
+  }
+]
