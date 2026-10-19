@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ilocap.com"),
-  title: "ILOCAP — Le digital avec du sens",
+  title: "ILOCAP | Sites web, IA & externalisation à Madagascar",
+  icons: { icon: [{ url: "/ilocap-icon.png?v=20261019", type: "image/png", sizes: "64x64" }], apple: [{ url: "/apple-touch-icon.png?v=20261019", sizes: "180x180" }] },
   description: "Sites, applications métier, agents IA et assistance opérationnelle avec ILOCAP.",
   alternates: { canonical: "/" },
 };
