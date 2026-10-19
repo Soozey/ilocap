@@ -60,6 +60,10 @@
     color:#d6e2df;
   }
   #accueil .hero-copy>.actions {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
     align-self:center;
     justify-content:center;
     width:100%;
@@ -69,6 +73,7 @@
   }
   #accueil .actions>.button {
     flex:none;
+    margin-inline:auto;
     width:auto;
     max-width:100%;
     min-height:48px;
