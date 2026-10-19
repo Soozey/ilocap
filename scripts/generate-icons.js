@@ -1,40 +1,42 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs/promises');
+const path = require('node:path');
 
-const inputFile = path.join(__dirname, '../public/Logo_ilocap_icon_rm.png');
-const outputDir = path.join(__dirname, '../public');
-
-const sizes = [192, 512];
+const root = path.resolve(__dirname, '..');
+const input = path.join(root, 'public/assets/icone-ilocap.png');
 
 async function generateIcons() {
-  // Vérifier que le fichier source existe
-  if (!fs.existsSync(inputFile)) {
-    console.error('❌ Fichier source non trouvé:', inputFile);
-    console.log('📁 Fichiers disponibles dans /public:');
-    const files = fs.readdirSync(outputDir);
-    files.forEach(f => console.log('  -', f));
-    process.exit(1);
+  // Remove transparent source margins so the mark remains legible in a tab.
+  const trimmed = await sharp(input).trim({ background: '#00000000', threshold: 0 }).png().toBuffer();
+  async function png(size) {
+    const margin = Math.max(1, Math.round(size * 0.045));
+    return sharp(trimmed).resize(size - margin * 2, size - margin * 2, {
+      fit: 'contain', background: '#00000000',
+    }).extend({ top: margin, bottom: margin, left: margin, right: margin, background: '#00000000' }).png().toBuffer();
   }
-
-  console.log('✅ Fichier source trouvé:', inputFile);
-
-  for (const size of sizes) {
-    const outputFile = path.join(outputDir, `icon-${size}x${size}.png`);
-    
-    await sharp(inputFile)
-      .resize(size, size, {
-        fit: 'contain',
-        background: { r: 243, g: 241, b: 236, alpha: 1 } // #F3F1EC
-      })
-      .png()
-      .toFile(outputFile);
-    
-    console.log(`✅ Généré: icon-${size}x${size}.png`);
+  for (const [name, size] of [['ilocap-icon.png', 64], ['apple-touch-icon.png', 180], ['icon-192x192.png', 192], ['icon-512x512.png', 512]]) {
+    await fs.writeFile(path.join(root, 'public', name), await png(size));
   }
-
-  console.log('\n🎉 Icônes PWA générées avec succès!');
+  await fs.copyFile(path.join(root, 'public/icon-512x512.png'), path.join(root, 'src/app/icon.png'));
+  // Multi-resolution ICO fallback: browsers choose the closest native size.
+  const sizes = [16, 32, 48, 64];
+  const images = await Promise.all(sizes.map(png));
+  const directory = Buffer.alloc(6 + sizes.length * 16);
+  directory.writeUInt16LE(1, 2);
+  directory.writeUInt16LE(sizes.length, 4);
+  let offset = directory.length;
+  images.forEach((data, i) => {
+    const entry = 6 + i * 16;
+    directory[entry] = sizes[i]; directory[entry + 1] = sizes[i];
+    directory.writeUInt16LE(1, entry + 4);
+    directory.writeUInt16LE(32, entry + 6);
+    directory.writeUInt32LE(data.length, entry + 8);
+    directory.writeUInt32LE(offset, entry + 12);
+    offset += data.length;
+  });
+  await fs.writeFile(path.join(root, 'src/app/favicon.ico'), Buffer.concat([directory, ...images]));
+  console.log('Generated ILOCAP tab, mobile and application icons from the supplied brand mark.');
 }
 
-generateIcons().catch(console.error);
+generateIcons().catch(error => { console.error(error); process.exitCode = 1; });

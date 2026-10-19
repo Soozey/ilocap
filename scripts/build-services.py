@@ -99,7 +99,7 @@ def page(s):
         hero=f'''<div class="bpo-section bpo-landing-intro" id="bpo"><div class="bpo-copy"><p class="eyebrow">EXTERNALISATION &amp; ASSISTANCE VIRTUELLE</p><h1 id="landing-title" data-campaign-title>{esc(s['headline'])}<br><em>{esc(s['emphasis'])}</em></h1><p class="landing-lead" data-campaign-lead>{esc(s['lead'])}</p><div class="actions"><a class="button light" href="#projet" data-cta-label>{esc(s['cta'])}</a><a class="text-link" href="https://calendly.com/candriatiana/30min" target="_blank" rel="noopener noreferrer">Planifier un échange</a></div></div>{workspace}</div>'''
     hero_assets = '<link rel="stylesheet" href="services-showcase.css">' if s['slug']=='externalisation-bpo' else f'<link rel="preload" as="image" href="assets/{s["image"]}">'
     return f'''<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123e3e"><link rel="icon" href="assets/logo.png" type="image/png"><link rel="stylesheet" href="styles.css">{hero_assets}<script src="/release.js" defer></script><script src="navigation.js" defer></script><script src="conversion.js" type="module"></script>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123e3e"><link rel="icon" href="/ilocap-icon.png?v=20261019" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261019" sizes="180x180"><link rel="stylesheet" href="styles.css">{hero_assets}<script src="/release.js" defer></script><script src="navigation.js" defer></script><script src="conversion.js" type="module"></script>
 {metadata(s['route'],s['title'],s['description'],s['image'],s['name'],s)}
 </head><body data-service="{s['slug']}" data-cta-alt="{esc(s['cta_alt'],quote=True)}"><a class="skip" href="#contenu">Aller au contenu</a>{navigation('#projet')}
 <main id="contenu" class="landing-page">
@@ -129,7 +129,7 @@ def replace_metadata(path, block):
 for service in SERVICES:
     (DIST/service['route']).write_text(page(service))
 
-replace_metadata(DIST/'index.html',metadata('index.html','ILOCAP — Sites, applications, IA et BPO',
+replace_metadata(DIST/'index.html',metadata('index.html','ILOCAP | Sites web, IA & externalisation à Madagascar',
     'ILOCAP conçoit vos plateformes, vos projets d’agents IA et vos automatisations, et accompagne vos opérations BPO. Des solutions adaptées à votre organisation.','hero-fashion-bust.webp','ILOCAP — Le digital avec du sens'))
 replace_metadata(DIST/'accompagnement.html',metadata('accompagnement.html','Créer, automatiser, déléguer : votre accompagnement | ILOCAP',
     'Choisissez votre point de départ avec ILOCAP : concevoir une plateforme, simplifier vos opérations ou déléguer des tâches. Un accompagnement adapté.','hero-fashion-bust.webp','Votre accompagnement'))
