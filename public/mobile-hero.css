@@ -1,0 +1,121 @@
+/* Approved phone layout. All rules are confined to the homepage below 561px. */
+@media screen and (max-width:560px) {
+  #accueil {
+    height:auto;
+    min-height:100%;
+    font-family:Arial,"Segoe UI",sans-serif;
+  }
+  #accueil:before {
+    background:linear-gradient(180deg,#061f23f7 0%,#092a2deb 47%,#092a2da0 72%,#092a2d60 100%);
+  }
+  #accueil .hero-content {
+    display:flex;
+    align-items:stretch;
+    width:100%;
+    height:auto;
+    min-height:calc(100svh - 118px);
+    padding:32px 24px 24px;
+  }
+  #accueil .hero-copy {
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    width:100%;
+    max-width:none;
+    min-height:0;
+  }
+  #accueil .hero-copy>* { flex-shrink:0; }
+  #accueil .eyebrow {
+    gap:9px;
+    margin:0 0 44px;
+    font-size:8px;
+    font-weight:600;
+    line-height:1.6;
+    letter-spacing:1.35px;
+  }
+  #accueil h1 {
+    margin:0 0 22px;
+    font-size:clamp(37px,11.3vw,44px);
+    font-weight:700;
+    line-height:1.08;
+    letter-spacing:-1.8px;
+    text-shadow:none;
+  }
+  #accueil h1 em {
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:400;
+    letter-spacing:-1.8px;
+  }
+  #accueil .hero-description {
+    max-width:none;
+    margin:0;
+    color:#f2f7f5;
+    font-size:14px;
+    font-weight:400;
+    line-height:1.6;
+  }
+  #accueil .hero-support {
+    display:block;
+    margin-top:7px;
+    color:#d6e2df;
+  }
+  #accueil .hero-copy>.actions {
+    align-self:center;
+    justify-content:center;
+    width:100%;
+    margin-top:auto;
+    margin-bottom:24px;
+    padding-top:36px;
+  }
+  #accueil .actions>.button {
+    flex:none;
+    width:auto;
+    max-width:100%;
+    min-height:48px;
+    padding:12px 22px;
+    border-radius:5px;
+    font-size:14px;
+    font-weight:600;
+    line-height:1.4;
+    text-align:center;
+  }
+  #accueil .hero-paths {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:12px 0 10px;
+    border-radius:7px;
+    background:#08272bdb;
+  }
+  #accueil .hero-paths a {
+    align-items:center;
+    min-width:0;
+    min-height:57px;
+    gap:9px;
+    padding:1px 2px 9px;
+  }
+  #accueil .hero-paths svg { width:24px;height:24px; }
+  #accueil .hero-paths span { font-size:11px;line-height:1.4; }
+  #accueil .hero-paths a:after { width:18px; }
+}
+
+@media screen and (max-width:340px) {
+  #accueil .hero-content { padding:26px 20px 20px; }
+  #accueil .eyebrow { margin-bottom:38px;letter-spacing:1px; }
+  #accueil h1 { margin-bottom:18px; }
+  #accueil .hero-copy>.actions { padding-top:24px; }
+}
+
+/* Keep the contact and all three entry points accessible on shorter phones. */
+@media screen and (max-width:560px) and (max-height:620px) {
+  #accueil .hero-content { padding-block:18px; }
+  #accueil .eyebrow { margin-bottom:24px; }
+  #accueil h1 { font-size:37px;margin-bottom:16px; }
+  #accueil .hero-description { line-height:1.5; }
+  #accueil .hero-support { margin-top:6px; }
+  #accueil .hero-copy>.actions { padding-top:16px; }
+  #accueil .hero-paths { padding-block:9px; }
+  #accueil .hero-paths a { min-height:52px;gap:7px; }
+}
