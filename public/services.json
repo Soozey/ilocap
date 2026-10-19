@@ -1,0 +1,81 @@
+{
+  "organization": "ILOCAP",
+  "services": [
+    {
+      "name": "Sites & applications",
+      "url": "https://ilocap.com/sites-applications.html",
+      "description": "Présenter votre offre, vendre en ligne ou outiller vos équipes : nous concevons la plateforme autour de vos usages et de vos priorités.",
+      "topics": [
+        {
+          "name": "Sites web",
+          "url": "https://ilocap.com/sites-applications.html#sites-web"
+        },
+        {
+          "name": "E-commerce & marketplaces",
+          "url": "https://ilocap.com/sites-applications.html#e-commerce"
+        },
+        {
+          "name": "Applications métier",
+          "url": "https://ilocap.com/sites-applications.html#applications-metier"
+        }
+      ]
+    },
+    {
+      "name": "IA & automatisation",
+      "url": "https://ilocap.com/ia-automatisation.html",
+      "description": "Relation client, appui aux équipes et circulation de l’information : nous construisons le projet autour de vos scénarios, de vos outils et de vos exigences.",
+      "topics": [
+        {
+          "name": "Automatisation des processus",
+          "url": "https://ilocap.com/ia-automatisation.html#processus"
+        },
+        {
+          "name": "Agents IA & assistants",
+          "url": "https://ilocap.com/ia-automatisation.html#assistants-ia"
+        },
+        {
+          "name": "Données & intégrations",
+          "url": "https://ilocap.com/ia-automatisation.html#donnees"
+        }
+      ]
+    },
+    {
+      "name": "Design & marketing",
+      "url": "https://ilocap.com/design-marketing.html",
+      "description": "Nous mettons votre offre en forme et en mots, puis l’adaptons aux canaux où vos publics vous découvrent et vous contactent.",
+      "topics": [
+        {
+          "name": "Identité & création visuelle",
+          "url": "https://ilocap.com/design-marketing.html#identite"
+        },
+        {
+          "name": "Contenus & réseaux sociaux",
+          "url": "https://ilocap.com/design-marketing.html#contenus"
+        },
+        {
+          "name": "Campagnes & acquisition",
+          "url": "https://ilocap.com/design-marketing.html#campagnes"
+        }
+      ]
+    },
+    {
+      "name": "Externalisation & assistance",
+      "url": "https://ilocap.com/externalisation-bpo.html",
+      "description": "Confiez les tâches qui prennent du temps à une équipe qui les structure. Gardez la main sur les priorités, les validations et la qualité.",
+      "topics": [
+        {
+          "name": "Assistance administrative",
+          "url": "https://ilocap.com/externalisation-bpo.html#assistance"
+        },
+        {
+          "name": "Back-office & données",
+          "url": "https://ilocap.com/externalisation-bpo.html#back-office"
+        },
+        {
+          "name": "Relation client & suivi commercial",
+          "url": "https://ilocap.com/externalisation-bpo.html#relation-client"
+        }
+      ]
+    }
+  ]
+}

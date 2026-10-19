@@ -1,0 +1,537 @@
+[
+  {
+    "id": "siirh",
+    "name": "SIIRH",
+    "category": "rh",
+    "label": "RESSOURCES HUMAINES",
+    "title": "Organiser vos RH et les parcours de vos équipes.",
+    "desc": "Rassemblez les informations des salariés et structurez le suivi RH dans un même environnement.",
+    "audience": "Directions RH, gestionnaires et équipes administratives.",
+    "tags": [
+      "Dossiers salariés",
+      "Paie",
+      "Carrières & mobilités"
+    ],
+    "scene": [
+      [
+        "people",
+        "Équipes"
+      ],
+      [
+        "file",
+        "Dossiers"
+      ],
+      [
+        "path",
+        "Parcours"
+      ]
+    ],
+    "service": "app",
+    "details": [
+      "Centraliser les dossiers et les informations des salariés.",
+      "Structurer les processus RH et la paie.",
+      "Suivre les carrières, les compétences et les mobilités."
+    ],
+    "scope": "Règles de gestion, données existantes, accès et circuits de validation à définir avec votre équipe.",
+    "subtitle": "Dossiers salariés, paie, carrières et mobilités.",
+    "visual": "solution-siirh-interface.webp",
+    "visualAlt": "Maquette de démonstration de SIIRH : Dossiers salariés, paie, carrières et mobilités.",
+    "overview": "Du dossier salarié à la mobilité interne.",
+    "modules": [
+      {
+        "title": "Dossiers et organisation",
+        "text": "Retrouver les informations des salariés et les rattacher aux équipes et responsabilités."
+      },
+      {
+        "title": "Gestion RH et paie",
+        "text": "Structurer les étapes de préparation et de validation selon les règles de votre organisation."
+      },
+      {
+        "title": "Carrières et mobilités",
+        "text": "Mettre en relation compétences, parcours et mouvements internes."
+      }
+    ],
+    "example": "Une équipe RH consulte un dossier, prépare une évolution de poste, fait valider le changement puis retrouve le parcours du salarié.",
+    "questions": [
+      "Quels effectifs et quelles entités faut-il gérer ?",
+      "Quelles règles de paie et quels outils doivent être conservés ?",
+      "Qui consulte, modifie et valide chaque information ?"
+    ]
+  },
+  {
+    "id": "trackfuel",
+    "name": "TrackFuel 360",
+    "category": "operations",
+    "label": "FLOTTE & EXPLOITATION",
+    "title": "Suivre votre flotte et son exploitation.",
+    "desc": "Reliez le suivi des actifs, du carburant et de la maintenance pour mieux préparer vos décisions opérationnelles.",
+    "audience": "Exploitants, responsables de flotte et gestionnaires d’équipements.",
+    "tags": [
+      "Véhicules, engins & équipements",
+      "Carburant",
+      "Maintenance"
+    ],
+    "scene": [
+      [
+        "fleet",
+        "Actifs"
+      ],
+      [
+        "fuel",
+        "Carburant"
+      ],
+      [
+        "gear",
+        "Maintenance"
+      ]
+    ],
+    "service": "app",
+    "details": [
+      "Suivre les actifs de la flotte : véhicules, engins et équipements.",
+      "Rapprocher les usages et les consommations de carburant.",
+      "Préparer le suivi des interventions et des missions."
+    ],
+    "scope": "Types d’actifs, sources de données, fréquence de mise à jour et responsabilités à préciser.",
+    "subtitle": "Votre flotte, son carburant et sa maintenance.",
+    "visual": "solution-trackfuel-interface.webp",
+    "visualAlt": "Maquette de démonstration de TrackFuel 360 : Votre flotte, son carburant et sa maintenance.",
+    "overview": "Une lecture commune de la flotte et de ses usages.",
+    "modules": [
+      {
+        "title": "Parc et équipements",
+        "text": "Identifier véhicules, engins et équipements ; organiser leur suivi par type d’actif."
+      },
+      {
+        "title": "Carburant et exploitation",
+        "text": "Rapprocher usages, missions et consommations à partir des données disponibles."
+      },
+      {
+        "title": "Maintenance",
+        "text": "Relier les interventions aux actifs et suivre les responsabilités opérationnelles."
+      }
+    ],
+    "example": "Un gestionnaire retrouve un engin, examine sa consommation dans le contexte de ses missions et prépare une intervention avec le responsable concerné.",
+    "questions": [
+      "Quelles données sont saisies et quelles sources sont connectables ?",
+      "Quels équipements, sites et missions faut-il suivre ?",
+      "Les besoins de géolocalisation et de suivi temps réel nécessitent-ils du matériel ou des intégrations ?"
+    ]
+  },
+  {
+    "id": "patrimonia",
+    "name": "Patrimonia",
+    "category": "operations",
+    "label": "GESTION DU PATRIMOINE",
+    "title": "Connaître vos biens, leurs équipements et leur état.",
+    "desc": "Reliez chaque bien à ses composants, ses responsables et ses documents. Suivez son état, ses affectations, ses locations, ses cessions et son entretien.",
+    "audience": "Organisations et équipes chargées de l’inventaire et du patrimoine.",
+    "tags": [
+      "Inventaire",
+      "Affectations",
+      "Documents",
+      "État & statut",
+      "Maintenance & réparations",
+      "Location & cession",
+      "Composants & équipements"
+    ],
+    "scene": [
+      [
+        "building",
+        "Biens"
+      ],
+      [
+        "people",
+        "Affectations"
+      ],
+      [
+        "file",
+        "Documents"
+      ]
+    ],
+    "service": "app",
+    "details": [
+      "Répertorier les biens et leurs composants : une maison, ses téléviseurs, son mobilier et ses autres équipements.",
+      "Consulter le statut, l’état et l’historique de chaque bien ou équipement.",
+      "Suivre les affectations, les mises en location et les cessions.",
+      "Planifier les maintenances et conserver le suivi des réparations.",
+      "Relier les documents aux biens et identifier leurs responsables."
+    ],
+    "scope": "Hiérarchie bien / composants, catégories, statuts, états, locations, cessions, règles de maintenance, documents et droits d’accès à définir selon votre organisation.",
+    "subtitle": "Vos biens, leur état, leurs usages et leur entretien.",
+    "visual": "solution-patrimonia-equipements.webp",
+    "visualAlt": "Maquette Patrimonia : une maison et ses équipements, leurs états, les locations, les cessions et les maintenances ou réparations.",
+    "overview": "Du bien principal au détail de ses équipements.",
+    "modules": [
+      {
+        "title": "Inventaire hiérarchisé",
+        "text": "Relier un bien à ses composants : maison, pièces, téléviseurs, mobilier ou autres équipements."
+      },
+      {
+        "title": "État et statut",
+        "text": "Distinguer l’état physique, la disponibilité, le responsable et les mouvements dans le temps."
+      },
+      {
+        "title": "Usages et affectations",
+        "text": "Suivre les affectations internes, les mises en location et les cessions avec les documents associés."
+      },
+      {
+        "title": "Entretien et réparations",
+        "text": "Préparer les maintenances, retrouver les réparations et identifier les équipements concernés."
+      }
+    ],
+    "example": "Le gestionnaire ouvre la fiche d’une maison, consulte les équipements associés, identifie un téléviseur à réparer et retrouve l’affectation ou la location du bien.",
+    "questions": [
+      "Quelle nomenclature relie les biens et leurs composants ?",
+      "Quels états et statuts doivent être distingués ?",
+      "Quels documents, échéances et circuits de validation sont nécessaires ?"
+    ]
+  },
+  {
+    "id": "reservation",
+    "name": "Réservation & billetterie",
+    "category": "operations",
+    "label": "RÉSERVATIONS & ACCÈS",
+    "title": "Relier réservation, paiement et contrôle des entrées.",
+    "desc": "Organisez les étapes d’une réservation et gardez une vue commune sur le suivi des opérations.",
+    "audience": "Événements, activités touristiques et structures accueillant du public.",
+    "tags": [
+      "Réservations",
+      "Paiements",
+      "Contrôle",
+      "Tableau de bord",
+      "Suivi"
+    ],
+    "scene": [
+      [
+        "calendar",
+        "Réserver"
+      ],
+      [
+        "payment",
+        "Payer"
+      ],
+      [
+        "ticket",
+        "Contrôler"
+      ]
+    ],
+    "service": "app",
+    "details": [
+      "Organiser les capacités et les réservations.",
+      "Structurer les paiements et la distribution des titres.",
+      "Relier contrôle, tableau de bord et suivi des opérations."
+    ],
+    "scope": "Capacités, prestataires de paiement, modalités de contrôle et conditions de connectivité à préciser.",
+    "subtitle": "Réserver, payer et contrôler les entrées.",
+    "visual": "solution-reservation-interface.webp",
+    "visualAlt": "Maquette de démonstration de Réservation & billetterie : Réserver, payer et contrôler les entrées.",
+    "overview": "Un parcours cohérent, de la place disponible au contrôle.",
+    "modules": [
+      {
+        "title": "Capacités et réservations",
+        "text": "Définir les créneaux, places ou capacités et les informations nécessaires à la réservation."
+      },
+      {
+        "title": "Paiements et titres",
+        "text": "Organiser les étapes de paiement et de distribution des billets selon les prestataires retenus."
+      },
+      {
+        "title": "Contrôle et suivi",
+        "text": "Relier les entrées contrôlées au tableau de bord et aux équipes d’exploitation."
+      }
+    ],
+    "example": "Un voyageur ou participant choisit un départ ou une séance, transmet sa réservation et reçoit un titre après validation des conditions prévues ; l’équipe en contrôle l’accès.",
+    "questions": [
+      "S’agit-il de transport, d’événements ou d’activités à créneaux ?",
+      "Quels moyens de paiement sont réellement intégrables ?",
+      "Comment gérer annulations, remboursements et contrôle en connexion limitée ?"
+    ]
+  },
+  {
+    "id": "primimport",
+    "name": "Primimport.store",
+    "category": "commerce",
+    "label": "COMMERCE & MARKETPLACE",
+    "title": "Présenter vos produits et organiser la vente en ligne.",
+    "desc": "Réunissez vendeurs, boutiques et catalogues dans un parcours de commerce lisible.",
+    "audience": "Vendeurs, artisans, PME et distributeurs.",
+    "tags": [
+      "Boutiques",
+      "Catalogues",
+      "Commandes"
+    ],
+    "scene": [
+      [
+        "store",
+        "Vendeurs"
+      ],
+      [
+        "grid",
+        "Catalogues"
+      ],
+      [
+        "payment",
+        "Commandes"
+      ]
+    ],
+    "service": "commerce",
+    "details": [
+      "Présenter les vendeurs et leurs catalogues dans un espace commun.",
+      "Structurer les informations produit et les parcours d’achat.",
+      "Préciser les modalités de paiement et de livraison selon le projet."
+    ],
+    "scope": "Organisation des vendeurs, contenu des fiches, paiement et livraison à valider selon le périmètre.",
+    "subtitle": "Des boutiques et des produits à portée de clic.",
+    "visual": "solution-primimport-interface.webp",
+    "visualAlt": "Maquette de démonstration de Primimport.store : Des boutiques et des produits à portée de clic.",
+    "overview": "Un espace de vente pour plusieurs vendeurs.",
+    "modules": [
+      {
+        "title": "Vendeurs et boutiques",
+        "text": "Organiser les boutiques, leur présentation et leurs catalogues dans une marketplace."
+      },
+      {
+        "title": "Fiches et achat",
+        "text": "Structurer les informations produit pour faciliter la consultation et les demandes ou commandes."
+      },
+      {
+        "title": "Organisation commerciale",
+        "text": "Définir les rôles des vendeurs et les modalités de paiement, livraison et suivi."
+      }
+    ],
+    "example": "Un vendeur prépare son catalogue ; un acheteur consulte les produits et engage une commande selon le parcours choisi ; les intervenants suivent ensuite son traitement.",
+    "questions": [
+      "Qui encaisse et qui assure la livraison ?",
+      "Quels contrôles sont nécessaires sur les vendeurs et les produits ?",
+      "Quel périmètre commun et quelles fonctions propres à chaque boutique ?"
+    ]
+  },
+  {
+    "id": "lawmate",
+    "name": "LAWmate Cabinet",
+    "category": "droit",
+    "label": "GESTION DE CABINET JURIDIQUE",
+    "title": "Votre cabinet, organisé dossier par dossier.",
+    "desc": "Centralisez les affaires, les pièces et l’activité du cabinet dans un même espace de travail.",
+    "audience": "Avocats exerçant seuls, cabinets et équipes de collaborateurs.",
+    "tags": [
+      "Affaires",
+      "GED & OCR",
+      "Agenda",
+      "Facturation",
+      "Suivi du temps"
+    ],
+    "scene": [
+      [
+        "file",
+        "Affaires"
+      ],
+      [
+        "calendar",
+        "Agenda"
+      ],
+      [
+        "file",
+        "Facturation"
+      ]
+    ],
+    "service": "app",
+    "subtitle": "Affaires, documents, agenda et facturation réunis.",
+    "visual": "solution-lawmate-cabinet.webp",
+    "visualAlt": "Maquette de LAWmate Cabinet : suivi des affaires, documents, agenda et temps à facturer.",
+    "visualCaption": "Maquette de présentation de LAWmate Cabinet. Dossiers et données fictifs.",
+    "overview": "Retrouver le bon dossier, préparer les échéances et suivre le travail du cabinet.",
+    "modules": [
+      {
+        "title": "Affaires et dossiers",
+        "text": "Rassembler les informations d’une affaire, ses pièces et les actions à mener. Organiser le suivi entre l’avocat et ses collaborateurs."
+      },
+      {
+        "title": "Documents et GED",
+        "text": "Classer et retrouver les pièces du cabinet. Le périmètre précise les droits d’accès, le chiffrement, la conservation et les fonctions OCR de recherche ou de numérisation."
+      },
+      {
+        "title": "Agenda et échéances",
+        "text": "Regrouper les rendez-vous, les audiences et les tâches associées aux affaires. Les rappels et notifications se définissent selon les usages du cabinet."
+      },
+      {
+        "title": "Temps, facturation et honoraires",
+        "text": "Consigner le temps consacré aux dossiers, préparer la facturation et suivre son traitement dans un même environnement."
+      },
+      {
+        "title": "Options de numérisation",
+        "text": "Prévoir, selon le besoin, des volumes de stockage, des notifications SMS et des fonctions OCR ou d’appui IA sur les pièces autorisées."
+      }
+    ],
+    "details": [
+      "Centraliser les affaires et leurs documents.",
+      "Préparer les échéances et coordonner les collaborateurs.",
+      "Suivre le temps, les éléments à facturer et les honoraires.",
+      "Choisir les options utiles à la taille du cabinet."
+    ],
+    "example": "Un collaborateur rattache une pièce à une affaire, prépare la prochaine échéance et consigne le temps passé. L’avocat retrouve le dossier et les éléments nécessaires à la facturation.",
+    "questions": [
+      "Combien d’avocats et de collaborateurs utiliseront l’outil ?",
+      "Quels dossiers et documents faut-il reprendre ?",
+      "Quels droits d’accès et quelles conditions d’hébergement sont attendus ?",
+      "Quelles règles de temps, de facturation et de notifications souhaitez-vous appliquer ?"
+    ],
+    "scope": "Le périmètre porte sur l’ERP interne du cabinet. Les accès, la confidentialité, l’hébergement, le chiffrement, la reprise des documents et les options OCR ou IA sont précisés au cadrage. Le mode de licence et l’accompagnement font l’objet d’une proposition dédiée."
+  },
+  {
+    "id": "gestion-sante",
+    "name": "Gestion Santé",
+    "category": "sante",
+    "label": "CENTRES DE SANTÉ & HÔPITAUX",
+    "title": "Relier l’accueil, les équipes et la pharmacie interne.",
+    "desc": "Un système de gestion pour organiser les patients, les rendez-vous, la facturation et les stocks de votre établissement.",
+    "audience": "Centres de santé, structures de soins et hôpitaux publics ou privés.",
+    "tags": [
+      "Patients",
+      "Rendez-vous",
+      "Facturation",
+      "Pharmacie interne",
+      "Équipes"
+    ],
+    "scene": [
+      [
+        "people",
+        "Patients"
+      ],
+      [
+        "calendar",
+        "Rendez-vous"
+      ],
+      [
+        "file",
+        "Stocks"
+      ]
+    ],
+    "service": "app",
+    "subtitle": "Patients, rendez-vous, facturation et pharmacie intégrée.",
+    "visual": "solution-gestion-sante.webp",
+    "visualAlt": "Maquette de Gestion Santé : accueil des patients, rendez-vous, facturation et pharmacie interne dans une même interface.",
+    "visualCaption": "Maquette de présentation d’un système de gestion de santé. Patients et données fictifs.",
+    "overview": "Un environnement commun pour suivre l’activité de l’établissement et ses ressources.",
+    "stage": {
+      "label": "Projet à cadrer avec votre établissement",
+      "text": "Le périmètre est construit avec les équipes, puis testé sur un pilote avant une extension. Les écrans présentés illustrent les usages à définir."
+    },
+    "modules": [
+      {
+        "title": "Accueil et rendez-vous",
+        "text": "Enregistrer les patients, organiser les rendez-vous et retrouver le suivi de leur passage dans l’établissement."
+      },
+      {
+        "title": "Dossier patient",
+        "text": "Centraliser les informations et l’historique utiles au suivi. L’accès est organisé selon les rôles et les responsabilités des équipes."
+      },
+      {
+        "title": "Facturation",
+        "text": "Rapprocher les prestations et leur facturation. Les tarifs, les justificatifs et les modalités de règlement sont précisés avec l’établissement."
+      },
+      {
+        "title": "Pharmacie intégrée et stocks",
+        "text": "Suivre les médicaments et les équipements médicaux dans l’organisation interne. Les réceptions, les sorties, les alertes de stock et leur articulation avec les services font partie du périmètre à définir."
+      },
+      {
+        "title": "Équipes et déploiement",
+        "text": "Organiser les utilisateurs, les responsabilités et la prise en main. La mise en place tient compte des équipements, de la connexion, de l’hébergement et de la formation."
+      }
+    ],
+    "details": [
+      "Retrouver les dossiers et organiser les rendez-vous.",
+      "Relier l’activité des services à la facturation.",
+      "Intégrer la pharmacie de l’établissement et le suivi des stocks.",
+      "Définir les accès et accompagner les équipes dans l’utilisation."
+    ],
+    "example": "L’accueil enregistre un patient et son rendez-vous. L’équipe autorisée retrouve son dossier. Les prestations et les mouvements de la pharmacie interne sont suivis selon les règles définies par l’établissement.",
+    "questions": [
+      "Quels services et quels sites doivent être couverts en premier ?",
+      "Quelles informations et quels dossiers faut-il reprendre ?",
+      "Comment sont gérés la pharmacie, les équipements et les mouvements de stock ?",
+      "Quels accès, équipements, connexions et besoins de formation sont à prévoir ?"
+    ],
+    "scope": "La mise en place se prépare avec un périmètre pilote, des droits d’accès et des règles de confidentialité. L’infrastructure, la reprise des dossiers, les connexions et les échanges entre établissements sont définis avant mise en service."
+  },
+  {
+    "id": "pharm-express",
+    "name": "Pharm’Express",
+    "category": "sante",
+    "label": "PHARMACIES & GRAND PUBLIC",
+    "title": "Votre pharmacie, plus proche de ses clients.",
+    "desc": "Un parcours mobile en français et en malagasy pour rechercher des produits, préparer une demande et entrer en contact avec la pharmacie.",
+    "audience": "Pharmacies et leurs clients : grand public, familles et personnes recherchant des produits de pharmacie ou de parapharmacie.",
+    "tags": [
+      "Catalogue",
+      "Commandes",
+      "Français / Malagasy",
+      "Mobile Money",
+      "Contact de garde"
+    ],
+    "scene": [
+      [
+        "cart",
+        "Catalogue"
+      ],
+      [
+        "file",
+        "Commande"
+      ],
+      [
+        "people",
+        "Pharmacie"
+      ]
+    ],
+    "service": "app",
+    "subtitle": "Catalogue, commandes et contact avec votre pharmacie.",
+    "visual": "solution-pharm-express.webp",
+    "visualAlt": "Maquette Pharm’Express : application mobile avec catalogue, panier et bouton MAIKA / VONJEO, accompagnée d’un espace de confirmation des demandes pour la pharmacie.",
+    "visualCaption": "Maquette de présentation : parcours public et espace pharmacie illustrés. Produits, commandes et montants fictifs.",
+    "overview": "Une expérience simple pour le client, un parcours de confirmation à organiser avec le pharmacien.",
+    "stage": {
+      "label": "MVP mobile · connexions à préparer",
+      "text": "Le cahier des charges prévoit un premier parcours mobile Android en français et en malagasy. Les stocks, le traitement des commandes, les paiements et l’espace pharmacie nécessitent une connexion à une base de données ou à des services adaptés."
+    },
+    "modules": [
+      {
+        "title": "Recherche et catalogue",
+        "text": "Accéder rapidement à la recherche et aux catégories santé, premiers soins, matériel, hygiène et bien-être. Présenter les produits avec une photo, une description courte et un prix en Ariary."
+      },
+      {
+        "title": "Panier et demande de commande",
+        "text": "Ajouter les produits, consulter le total et renseigner une adresse ou un quartier. Le parcours prévoit une confirmation par la pharmacie, avec les contrôles et les éventuels justificatifs à cadrer."
+      },
+      {
+        "title": "Organisation côté pharmacie",
+        "text": "Préparer la gestion du catalogue, la confirmation des disponibilités et le suivi des demandes. Cet espace et la gestion dynamique des stocks font partie des connexions et évolutions à prévoir."
+      },
+      {
+        "title": "Paiement et remise",
+        "text": "Prévoir le paiement à la livraison et les options MVola, Orange Money ou Airtel Money. Les comptes marchands, les connexions, les confirmations de paiement et les modalités de livraison sont à mettre en place."
+      },
+      {
+        "title": "MAIKA / VONJEO",
+        "text": "Ouvrir un appel vers un contact de garde configuré ou préparer un message SMS ou WhatsApp, avec partage volontaire de la position. La disponibilité et la prise en charge dépendent du contact et de l’organisation retenus."
+      },
+      {
+        "title": "Français et malagasy",
+        "text": "Prévoir les deux langues dans un accueil compact, avec une recherche visible et un accès rapide au catalogue et au panier."
+      }
+    ],
+    "details": [
+      "Rechercher des produits et préparer un panier sur mobile.",
+      "Transmettre une demande à confirmer par la pharmacie.",
+      "Prévoir le paiement à la livraison et les connexions Mobile Money.",
+      "Faciliter l’appel ou le message à un contact de garde configuré."
+    ],
+    "example": "Un client recherche un produit, prépare son panier et indique son quartier. La pharmacie doit confirmer la disponibilité et les modalités de remise. Le règlement suit le moyen configuré et connecté dans le périmètre retenu.",
+    "questions": [
+      "Quelle pharmacie confirme les disponibilités et les demandes ?",
+      "Quels produits, justificatifs et contrôles sont prévus ?",
+      "Quels outils gèrent déjà le stock, les commandes et les paiements ?",
+      "Qui assure la livraison et quel contact de garde sera configuré ?"
+    ],
+    "scope": "Le MVP mobile constitue le point de départ. Les stocks et commandes dynamiques, les comptes de paiement, la validation par la pharmacie, les justificatifs éventuels, la livraison et le partage volontaire de position sont à cadrer et à connecter. Le contact de garde et les modalités de réponse sont configurés avec l’organisation retenue avant activation."
+  }
+]

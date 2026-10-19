@@ -1,0 +1,34 @@
+{
+  "positioning": "ILOCAP conçoit des plateformes digitales, des agents IA et des solutions opérationnelles adaptés à l’activité, aux équipes et aux exigences de chaque organisation.",
+  "motto": "Le digital avec du sens.",
+  "audiences": [
+    "Dirigeants et professionnels peu familiers des outils numériques",
+    "Équipes métier, centres d’appels, prestataires et entreprises spécialisées"
+  ],
+  "tone": [
+    "Parler au lecteur comme à un décideur compétent dans son activité",
+    "Commencer par un usage métier et un bénéfice compréhensible",
+    "Définir un terme technique lorsqu’il aide à prendre une décision",
+    "Rendre les précisions accessibles dans un second niveau de lecture",
+    "Décrire les conditions de mise en œuvre et les validations nécessaires"
+  ],
+  "avoid": [
+    "Étiqueter le lecteur novice ou amateur",
+    "Infantiliser avec des formulations sur son manque de compétence",
+    "Promettre des gains, une disponibilité ou des intégrations non vérifiés",
+    "Réduire toute l’offre ILOCAP à un commerce en ligne ou à un centre d’appels",
+    "Représenter l’IA par des robots, des cerveaux brillants ou de la magie"
+  ],
+  "visuals": {
+    "palette": [
+      "#123e3e",
+      "#faf9f5",
+      "#b99a4d",
+      "#596577"
+    ],
+    "principle": "Montrer un usage lisible, un parcours ou une interaction entre outils et personnes. Les illustrations ne sont pas présentées comme des captures de produits existants."
+  },
+  "agent_offer": "Agents IA pour la relation client. Scénarios, canaux, outils, consignes et passage de relais définis avec le client.",
+  "channels": "Les canaux vocaux, écrits et les connecteurs ne sont pas présentés comme acquis sans validation.",
+  "facebook_page": "https://www.facebook.com/profile.php?id=61595372916213"
+}
