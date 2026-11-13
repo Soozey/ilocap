@@ -1,5 +1,6 @@
 import {services,offers,campaignKeys,campaign,serviceFrom,validPage,validOffer,attribution,clean} from './conversion-core.mjs';
 import {setAnalyticsConsent,trackAnalyticsLead} from './google-analytics.mjs';
+import './crisp-chat.mjs';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const q=new URLSearchParams(location.search),variant=q.get('variante')==='b'?'b':'a';
 let service=serviceFrom(location.pathname,location.search),offer=validOffer(q.get('offre'),service);
