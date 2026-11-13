@@ -1,76 +1,102 @@
 .ilocap-chat-launcher {
-  --chat-gold: #f5d779;
-  --chat-ink: #143638;
-  --chat-shadow: 0 5px 16px #091e2566, 0 1px 3px #091e2540;
+  --chat-ink: #123e3e;
+  --chat-shadow: 0 0 0 2px #39bdc64d, 0 5px 16px #09252959;
   position: fixed;
   z-index: 25;
   right: max(24px, env(safe-area-inset-right));
   bottom: calc(76px + env(safe-area-inset-bottom));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 54px;
-  padding: 6px 17px 6px 7px;
-  border: 1px solid #76591d;
-  border-radius: 999px;
-  background: var(--chat-gold);
-  color: var(--chat-ink);
+  display: grid;
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid #64d1d5;
+  border-radius: 16px;
+  background: var(--chat-ink);
+  color: #f4fbf9;
   box-shadow: var(--chat-shadow);
-  font: 650 14px/1.2 var(--font, system-ui, sans-serif);
-  white-space: nowrap;
   cursor: pointer;
-  transition: background-color 160ms ease;
 }
 
-.has-floating-reader .ilocap-chat-launcher {
+.has-floating-reader body > .ilocap-chat-launcher {
   bottom: calc(94px + env(safe-area-inset-bottom));
 }
 
-.ilocap-chat-icon {
-  display: grid;
-  flex: 0 0 38px;
-  height: 38px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--chat-ink);
-  color: #fff0c0;
+.nav-wrap:has(> .ilocap-chat-launcher) {
+  column-gap: 10px;
 }
 
-.ilocap-chat-bubble {
+.nav-wrap > .ilocap-chat-launcher {
+  position: relative;
+  z-index: auto;
+  inset: auto;
+  width: 44px;
+  height: 44px;
+  margin-inline-start: auto;
+  border-radius: 12px;
+}
+
+.ilocap-chat-icon {
   position: relative;
   display: grid;
-  width: 21px;
-  height: 16px;
+  width: 26px;
+  height: 19px;
   margin-bottom: 3px;
   place-items: center;
-  border-radius: 6px;
+  border-radius: 7px;
   background: currentColor;
 }
 
-.ilocap-chat-bubble::before {
+.ilocap-chat-icon::before {
   content: '';
   position: absolute;
-  left: 4px;
-  bottom: -3px;
-  width: 7px;
-  height: 6px;
+  left: 5px;
+  bottom: -4px;
+  width: 8px;
+  height: 7px;
   background: currentColor;
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-.ilocap-chat-bubble::after {
+.ilocap-chat-icon::after {
   content: '';
-  width: 2.5px;
-  height: 2.5px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   background: var(--chat-ink);
-  box-shadow: -5px 0 var(--chat-ink), 5px 0 var(--chat-ink);
+  box-shadow: -6px 0 var(--chat-ink), 6px 0 var(--chat-ink);
+}
+
+.ilocap-chat-launcher[data-chat-retry] .ilocap-chat-icon::after {
+  content: '!';
+  width: auto;
+  height: auto;
+  background: transparent;
+  color: var(--chat-ink);
+  box-shadow: none;
+  font: 700 13px/1 system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ilocap-chat-launcher::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    animation: ilocap-chat-halo 1.15s ease-out 500ms 2;
+  }
+
+  @keyframes ilocap-chat-halo {
+    from { box-shadow: 0 0 0 1px #24b6bfab; }
+    to { box-shadow: 0 0 0 7px #24b6bf00; }
+  }
 }
 
 @media (hover: hover) {
   .ilocap-chat-launcher:hover:not(:disabled) {
-    background-color: #ffe496;
+    background-color: #205658;
   }
 }
 
@@ -84,48 +110,16 @@
   display: none;
 }
 
-body:has(.measure-choice:not([hidden])) .ilocap-chat-launcher {
+body:has(.measure-choice:not([hidden])) > .ilocap-chat-launcher {
   left: max(24px, env(safe-area-inset-left));
   right: auto;
 }
 
-@media (max-width: 850px) {
-  .ilocap-chat-launcher {
-    right: max(16px, env(safe-area-inset-right));
-  }
-
-  .ilocap-chat-launcher:not([data-chat-retry]) {
-    width: 54px;
-    padding: 0;
-  }
-
-  .ilocap-chat-launcher:not([data-chat-retry]) .ilocap-chat-label {
-    display: none;
-  }
-
-  .has-floating-reader .ilocap-chat-launcher {
-    bottom: calc(86px + env(safe-area-inset-bottom));
-  }
-
-  body:has(.measure-choice:not([hidden])) .ilocap-chat-launcher {
-    top: calc(100px + env(safe-area-inset-top));
-    right: max(16px, env(safe-area-inset-right));
-    bottom: auto;
-    left: auto;
-  }
-}
-
-@media (max-width: 800px) {
-  body:has(.measure-choice:not([hidden])) .ilocap-chat-launcher {
-    top: calc(82px + env(safe-area-inset-top));
-  }
-}
-
 @media (forced-colors: active) {
   .ilocap-chat-icon {
-    --chat-ink: ButtonText;
+    --chat-ink: ButtonFace;
     forced-color-adjust: none;
-    color: ButtonFace;
+    color: ButtonText;
   }
 }
 

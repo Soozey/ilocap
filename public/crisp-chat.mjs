@@ -1,4 +1,5 @@
 const websiteId = '104e1a86-e960-4edc-a486-5c5471c370bd';
+const openLabel = 'Ouvrir le chat ILOCAP';
 
 const stylesheet = document.createElement('link');
 stylesheet.rel = 'stylesheet';
@@ -8,17 +9,36 @@ document.head.append(stylesheet);
 const launcher = document.createElement('button');
 launcher.type = 'button';
 launcher.className = 'ilocap-chat-launcher';
-launcher.innerHTML = `
-  <span class="ilocap-chat-icon" aria-hidden="true"><span class="ilocap-chat-bubble"></span></span>
-  <span class="ilocap-chat-label">Discuter</span>
-`;
-const label = launcher.querySelector('.ilocap-chat-label');
-launcher.setAttribute('aria-label', 'Discuter avec ILOCAP');
-document.body.append(launcher);
+const icon = document.createElement('span');
+icon.className = 'ilocap-chat-icon';
+icon.setAttribute('aria-hidden', 'true');
+launcher.append(icon);
+
+function labelLauncher(label) {
+  launcher.setAttribute('aria-label', label);
+  launcher.title = label;
+}
+
+labelLauncher(openLabel);
+
+const menuToggle = document.querySelector('.header .nav-wrap > .menu-toggle');
+const compactLayout = window.matchMedia('(max-width: 800px), (max-width: 1024px) and (pointer: coarse)');
+
+function placeLauncher() {
+  const restoreFocus = document.activeElement === launcher;
+  if (compactLayout.matches && menuToggle) {
+    menuToggle.before(launcher);
+  } else {
+    document.body.append(launcher);
+  }
+  if (restoreFocus) launcher.focus({ preventScroll: true });
+}
+
+placeLauncher();
+compactLayout.addEventListener('change', placeLauncher);
 
 launcher.addEventListener('click', () => {
-  label.textContent = 'Discuter';
-  launcher.setAttribute('aria-label', 'Discuter avec ILOCAP');
+  labelLauncher(openLabel);
   delete launcher.dataset.chatRetry;
 
   if (window.CRISP_WEBSITE_ID) {
@@ -49,8 +69,7 @@ launcher.addEventListener('click', () => {
     delete window.CRISP_WEBSITE_ID;
     delete window.$crisp;
     launcher.disabled = false;
-    label.textContent = 'Réessayer le chat';
-    launcher.setAttribute('aria-label', 'Réessayer le chat ILOCAP');
+    labelLauncher('Réessayer d’ouvrir le chat ILOCAP');
     launcher.dataset.chatRetry = '';
   }, { once: true });
   document.head.append(script);
