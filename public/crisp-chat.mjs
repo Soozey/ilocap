@@ -8,13 +8,18 @@ document.head.append(stylesheet);
 const launcher = document.createElement('button');
 launcher.type = 'button';
 launcher.className = 'ilocap-chat-launcher';
-launcher.textContent = 'Discuter';
+launcher.innerHTML = `
+  <span class="ilocap-chat-icon" aria-hidden="true"><span class="ilocap-chat-bubble"></span></span>
+  <span class="ilocap-chat-label">Discuter</span>
+`;
+const label = launcher.querySelector('.ilocap-chat-label');
 launcher.setAttribute('aria-label', 'Discuter avec ILOCAP');
 document.body.append(launcher);
 
 launcher.addEventListener('click', () => {
-  launcher.textContent = 'Discuter';
+  label.textContent = 'Discuter';
   launcher.setAttribute('aria-label', 'Discuter avec ILOCAP');
+  delete launcher.dataset.chatRetry;
 
   if (window.CRISP_WEBSITE_ID) {
     window.$crisp.push(['do', 'chat:show']);
@@ -44,8 +49,9 @@ launcher.addEventListener('click', () => {
     delete window.CRISP_WEBSITE_ID;
     delete window.$crisp;
     launcher.disabled = false;
-    launcher.textContent = 'Réessayer le chat';
-    launcher.setAttribute('aria-label', 'Réessayer d’ouvrir le chat ILOCAP');
+    label.textContent = 'Réessayer le chat';
+    launcher.setAttribute('aria-label', 'Réessayer le chat ILOCAP');
+    launcher.dataset.chatRetry = '';
   }, { once: true });
   document.head.append(script);
 });
