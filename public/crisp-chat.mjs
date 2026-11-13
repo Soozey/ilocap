@@ -130,6 +130,12 @@ function finishDrag(event) {
   drag = undefined;
   delete launcher.dataset.chatDragging;
   placeLauncher();
+
+  // Touch browsers may omit the compatibility click after a drag.
+  if (event.type === 'pointerup' && event.pointerType === 'touch' && !ignorePointerClick) {
+    ignorePointerClick = true;
+    openChat();
+  }
 }
 
 launcher.addEventListener('pointerup', finishDrag);
@@ -162,6 +168,10 @@ launcher.addEventListener('click', event => {
     ignorePointerClick = false;
     return;
   }
+  openChat();
+});
+
+function openChat() {
   labelLauncher(openLabel);
   delete launcher.dataset.chatRetry;
 
@@ -198,4 +208,4 @@ launcher.addEventListener('click', event => {
     launcher.dataset.chatRetry = '';
   }, { once: true });
   document.head.append(script);
-});
+}
