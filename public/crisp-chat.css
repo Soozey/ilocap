@@ -16,10 +16,12 @@
   background: var(--chat-ink);
   color: #f4fbf9;
   box-shadow: var(--chat-shadow);
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
 }
 
-.has-floating-reader body > .ilocap-chat-launcher {
+.has-floating-reader body > .ilocap-chat-launcher:not([data-chat-positioned]) {
   bottom: calc(94px + env(safe-area-inset-bottom));
 }
 
@@ -28,13 +30,24 @@
 }
 
 .nav-wrap > .ilocap-chat-launcher {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.nav-wrap > .ilocap-chat-launcher:not([data-chat-positioned]) {
   position: relative;
   z-index: auto;
   inset: auto;
-  width: 44px;
-  height: 44px;
   margin-inline-start: auto;
-  border-radius: 12px;
+}
+
+.ilocap-chat-launcher[data-chat-positioned] {
+  inset: var(--chat-top) auto auto var(--chat-left);
+}
+
+.ilocap-chat-launcher[data-chat-dragging] {
+  cursor: grabbing;
 }
 
 .ilocap-chat-icon {
@@ -110,7 +123,7 @@
   display: none;
 }
 
-body:has(.measure-choice:not([hidden])) > .ilocap-chat-launcher {
+body:has(.measure-choice:not([hidden])) > .ilocap-chat-launcher:not([data-chat-positioned]) {
   left: max(24px, env(safe-area-inset-left));
   right: auto;
 }
