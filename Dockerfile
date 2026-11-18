@@ -1,14 +1,14 @@
 # ─── Stage 1 : dépendances ───────────────────────────────────────────────────
-FROM node:20-alpine AS deps
+FROM node:24-alpine AS deps
 WORKDIR /app
 
 # Copier uniquement les fichiers de lock pour profiter du cache Docker
 COPY package.json package-lock.json ./
 
-RUN npm install
+RUN npm ci
 
 # ─── Stage 2 : build ─────────────────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
@@ -27,13 +27,14 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # ─── Stage 3 : runner (image finale, légère) ─────────────────────────────────
-FROM node:20-alpine AS runner
+FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 # Port exposé par le conteneur
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
 # Créer un utilisateur non-root pour la sécurité
 RUN addgroup --system --gid 1001 nodejs \

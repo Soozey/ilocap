@@ -1,7 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { createFormRateLimit, emailSubject, escapeHtml, formError, isEmail, isOptionalText, isText, readPublicForm } from "@/lib/public-form";
 
 export const dynamic = "force-dynamic";
+const limitRequests = createFormRateLimit(20, 60_000);
 
 type ContactBody = {
   nom?: string;
@@ -16,29 +18,23 @@ type ContactBody = {
   optIn?: boolean;
 };
 
-const escapeHtml = (value = "") => value
-  .replaceAll("&", "&amp;")
-  .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;")
-  .replaceAll('"', "&quot;")
-  .replaceAll("'", "&#039;");
-
-const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
 export async function POST(request: Request) {
-  let body: ContactBody;
-  try {
-    body = await request.json();
-  } catch {
-    return Response.json({ success: false, error: "Requête invalide." }, { status: 400 });
-  }
+  const parsed = await readPublicForm(request);
+  if (parsed instanceof Response) return parsed;
+  const body = parsed as ContactBody;
 
-  if (!body.nom || !body.email || !body.message || !body.optIn) {
-    return Response.json({ success: false, error: "Veuillez renseigner tous les champs obligatoires." }, { status: 400 });
+  if (!isText(body.nom, 200) || !isText(body.message, 8_000) || body.optIn !== true) {
+    return formError("Veuillez renseigner correctement les champs obligatoires.", 400);
   }
   if (!isEmail(body.email)) {
-    return Response.json({ success: false, error: "Veuillez saisir une adresse email valide." }, { status: 400 });
+    return formError("Veuillez saisir une adresse email valide.", 400);
   }
+  const optionalFields = [body.organisation, body.telephone, body.profil, body.typeProjet, body.echeance, body.budget];
+  if (!optionalFields.every((value) => isOptionalText(value, 200))) {
+    return formError("Un champ de la demande est invalide.", 400);
+  }
+  const retry = limitRequests();
+  if (retry) return retry;
 
   const resendKey = process.env.RESEND_API_KEY || "";
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -82,7 +78,7 @@ export async function POST(request: Request) {
         from,
         to,
         replyTo: body.email,
-        subject: `[ILOCAP] Nouvelle demande de devis — ${body.typeProjet || "Prise de contact"}`,
+        subject: emailSubject(`[ILOCAP] Nouvelle demande de devis — ${body.typeProjet || "Prise de contact"}`),
         html: `
           <div style="background:#F3F1EC;padding:32px;font-family:Arial,sans-serif;color:#073642">
             <div style="max-width:680px;margin:auto;background:#fff;border:1px solid #ddd;padding:32px">

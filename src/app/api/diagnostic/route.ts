@@ -1,11 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { createFormRateLimit, emailSubject, escapeHtml, formError, isEmail, isOptionalText, isText, readPublicForm } from "@/lib/public-form";
 
 // Les clients sont instanciés dans le handler pour éviter
 // les erreurs au build quand les variables d'env sont absentes
 
 // Force le rendu dynamique : cette route ne doit pas être exécutée au build
 export const dynamic = "force-dynamic";
+const limitRequests = createFormRateLimit(20, 60_000);
 
 type DiagnosticBody = {
   nom?: string;
@@ -22,51 +24,44 @@ type DiagnosticBody = {
   smsRappel?: boolean;
 };
 
-function jsonError(message: string, status: number, details?: string) {
-  return Response.json(
-    { success: false, error: message, details },
-    { status }
-  );
-}
-
-function isHttpUrl(value: string) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
+function isOptionalScore(value: unknown) {
+  return value == null || (typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 100);
 }
 
 export async function POST(req: Request) {
-  let body: DiagnosticBody;
-  try {
-    body = await req.json();
-  } catch {
-    return jsonError("Requete invalide. Veuillez reessayer.", 400);
-  }
+  const parsed = await readPublicForm(req);
+  if (parsed instanceof Response) return parsed;
+  const body = parsed as DiagnosticBody;
 
-  if (!body.nom || !body.email || !body.profil) {
-    return jsonError("Nom, email et profil sont requis.", 400);
+  if (!isText(body.nom, 200) || !isEmail(body.email) || !isText(body.profil, 200) || body.optIn !== true) {
+    return formError("Nom, email, profil et consentement sont requis.", 400);
   }
+  const scores = [body.score_diagnostic, body.temps_perdu, body.opportunites_manquees];
+  const reponses = body.reponses ?? [];
+  if (!scores.every(isOptionalScore) || !Array.isArray(reponses) || reponses.length > 100 ||
+    !reponses.every((value) => typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 4) ||
+    ![body.telephone, body.niveau, body.priorite].every((value) => isOptionalText(value, 200)) ||
+    (body.smsRappel != null && typeof body.smsRappel !== "boolean")) {
+    return formError("Un champ du diagnostic est invalide.", 400);
+  }
+  const retry = limitRequests();
+  if (retry) return retry;
 
   // Instanciation ici : les variables sont lues au runtime, pas au build
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
   const resendKey = process.env.RESEND_API_KEY || "";
 
-  if (!supabaseUrl || !serviceRoleKey || !isHttpUrl(supabaseUrl)) {
-    return jsonError(
+  if (!supabaseUrl || !serviceRoleKey) {
+    return formError(
       "Le service de diagnostic est momentanement indisponible. Contactez-nous directement pour recevoir votre feuille de route.",
-      503,
-      !isHttpUrl(supabaseUrl) ? "URL Supabase invalide" : "Configuration Supabase manquante"
+      503
     );
   }
 
-  const supabase = createClient(supabaseUrl, serviceRoleKey);
-  const resend = resendKey ? new Resend(resendKey) : null;
-  
   try {
+    const supabase = createClient(supabaseUrl, serviceRoleKey);
+    const resend = resendKey ? new Resend(resendKey) : null;
     const { data: diagnostic, error: dbError } = await supabase
       .from("diagnostics")
       .insert({
@@ -80,18 +75,17 @@ export async function POST(req: Request) {
         temps_perdu: body.temps_perdu,
         opportunites_manquees: body.opportunites_manquees,
         priorite: body.priorite,
-        reponses: body.reponses || [],
-        opt_in: body.optIn || false,
-        sms_rappel: body.smsRappel || false,
+        reponses,
+        opt_in: true,
+        sms_rappel: body.smsRappel === true,
       })
-      .select()
+      .select("id")
       .single();
 
     if (dbError) {
-      return jsonError(
+      return formError(
         "Impossible d'enregistrer votre diagnostic pour le moment. Veuillez reessayer dans quelques instants.",
-        502,
-        dbError.message
+        502
       );
     }
 
@@ -123,7 +117,7 @@ export async function POST(req: Request) {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;padding:40px 20px;">
                 <tr>
                   <td>
-                    <p style="font-size:16px;line-height:1.6;">Bonjour <strong>${body.nom}</strong>,</p>
+                    <p style="font-size:16px;line-height:1.6;">Bonjour <strong>${escapeHtml(body.nom)}</strong>,</p>
                     <p style="font-size:16px;line-height:1.6;">Merci d'avoir realise votre diagnostic digital avec ILOCAP. Voici vos resultats :</p>
                   </td>
                 </tr>
@@ -133,9 +127,9 @@ export async function POST(req: Request) {
                 <tr>
                   <td style="background-color:#0B0C0A;color:#F3F1EC;padding:30px;text-align:center;">
                     <p style="font-size:14px;text-transform:uppercase;letter-spacing:0.1em;color:#B89A5A;margin:0 0 20px 0;">Votre diagnostic</p>
-                    <p style="font-size:36px;font-weight:bold;color:#B89A5A;margin:0;">${body.temps_perdu}h perdues /semaine</p>
-                    <p style="font-size:18px;color:#F3F1EC;margin:10px 0 0 0;">${body.opportunites_manquees} opportunites manquees /mois</p>
-                    <p style="font-size:14px;color:#F3F1EC;margin:20px 0 0 0;opacity:0.8;">Niveau : <strong>${body.niveau}</strong> (${body.score_diagnostic}/100)</p>
+                    <p style="font-size:36px;font-weight:bold;color:#B89A5A;margin:0;">${escapeHtml(body.temps_perdu)}h perdues /semaine</p>
+                    <p style="font-size:18px;color:#F3F1EC;margin:10px 0 0 0;">${escapeHtml(body.opportunites_manquees)} opportunites manquees /mois</p>
+                    <p style="font-size:14px;color:#F3F1EC;margin:20px 0 0 0;opacity:0.8;">Niveau : <strong>${escapeHtml(body.niveau)}</strong> (${escapeHtml(body.score_diagnostic)}/100)</p>
                   </td>
                 </tr>
               </table>
@@ -144,7 +138,7 @@ export async function POST(req: Request) {
                 <tr>
                   <td style="background-color:#B89A5A;padding:20px;text-align:center;">
                     <p style="color:#0B0C0A;font-size:14px;font-weight:bold;margin:0 0 15px 0;text-transform:uppercase;letter-spacing:0.1em;">Votre priorite immediate</p>
-                    <p style="color:#0B0C0A;font-size:18px;margin:0;font-weight:bold;">${body.priorite}</p>
+                    <p style="color:#0B0C0A;font-size:18px;margin:0;font-weight:bold;">${escapeHtml(body.priorite)}</p>
                   </td>
                 </tr>
               </table>
@@ -195,7 +189,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from: "ILOCAP <onboarding@resend.dev>",
           to: "candriatiana@gmail.com",  // TEMPORAIRE : remplacer par management@ilocap.com apres verification domaine
-          subject: `[ILOCAP] Nouveau lead qualifie : ${body.nom} (${body.profil})`,
+          subject: emailSubject(`[ILOCAP] Nouveau lead qualifie : ${body.nom} (${body.profil})`),
           html: `
             <!DOCTYPE html>
             <html>
@@ -212,35 +206,35 @@ export async function POST(req: Request) {
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:30px;">
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;width:30%;"><strong>Nom</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.nom}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.nom)}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Email</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.email}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.email)}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Telephone</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.telephone || 'Non renseigne'}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.telephone || 'Non renseigne')}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Profil</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.profil}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.profil)}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Score</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.score_diagnostic}/100 - ${body.niveau}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.score_diagnostic)}/100 - ${escapeHtml(body.niveau)}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Temps perdu</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.temps_perdu}h/semaine</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.temps_perdu)}h/semaine</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Opportunites</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.opportunites_manquees}/mois</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.opportunites_manquees)}/mois</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>Priorite</strong></td>
-                        <td style="padding:10px;border-bottom:1px solid #eee;">${body.priorite}</td>
+                        <td style="padding:10px;border-bottom:1px solid #eee;">${escapeHtml(body.priorite)}</td>
                       </tr>
                       <tr>
                         <td style="padding:10px;border-bottom:1px solid #eee;"><strong>SMS rappel</strong></td>
@@ -265,11 +259,10 @@ export async function POST(req: Request) {
 
     return Response.json({ success: true, id: diagnostic.id });
     
-  } catch (error) {
-    return jsonError(
+  } catch {
+    return formError(
       "Une erreur inattendue est survenue. Veuillez reessayer ou nous contacter directement.",
-      500,
-      error instanceof Error ? error.message : String(error)
+      500
     );
   }
 }

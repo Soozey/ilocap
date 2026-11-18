@@ -4,25 +4,68 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
+  verify:
+    name: Verify production build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Check form validation and CRM gateway
+        run: |
+          docker run --rm --volume "$PWD:/app:ro" --workdir /app node:24-alpine \
+            sh -ec 'node checks/public-form.mjs && node checks/gateway.mjs && node checks/crm-demo.mjs'
+      - name: Build and check the production image
+        run: |
+          docker build --tag ilocap-check .
+          docker run --detach --name ilocap-check --publish 127.0.0.1:8520:3000 ilocap-check
+          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 2 http://127.0.0.1:8520/api/release
+          curl --fail --silent --show-error --dump-header /tmp/ilocap-headers --output /dev/null http://127.0.0.1:8520/
+          grep -qi '^content-security-policy-report-only:' /tmp/ilocap-headers
+          grep -qi '^x-frame-options: DENY' /tmp/ilocap-headers
+      - name: Print container logs on failure
+        if: failure()
+        run: docker logs ilocap-check || true
+
   deploy:
     name: Deploy Application
+    if: github.event_name == 'push'
+    needs: verify
     runs-on: ubuntu-latest
+    concurrency:
+      group: ilocap-production
+      cancel-in-progress: false
 
     steps:
       - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@7eaf76671a0d7eec5d98ee897acda4f968735a17 # v1.2.0
+        env:
+          ILOCAP_DEPLOY_SHA: ${{ github.sha }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           port: 22
+          envs: ILOCAP_DEPLOY_SHA
           script: |
+            set -eu
             if [ ! -d "$HOME/ilocap" ]; then
               git clone git@github.com:Soozey/ilocap.git "$HOME/ilocap"
             fi
 
-            cd ~/ilocap
-            git pull origin main
+            cd "$HOME/ilocap"
+            git fetch origin main
+            if [ "$(git rev-parse FETCH_HEAD)" != "$ILOCAP_DEPLOY_SHA" ]; then
+              echo "A newer commit is waiting for its own verification."
+              exit 0
+            fi
+            git merge --ff-only "$ILOCAP_DEPLOY_SHA"
             docker compose up -d --build
