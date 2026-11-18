@@ -27,7 +27,7 @@ jobs:
         run: |
           docker build --tag ilocap-check .
           docker run --detach --name ilocap-check --publish 127.0.0.1:8520:3000 ilocap-check
-          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 2 http://127.0.0.1:8520/api/release
+          curl --fail --silent --show-error --max-time 5 --retry 15 --retry-all-errors --retry-delay 2 http://127.0.0.1:8520/api/release
           curl --fail --silent --show-error --dump-header /tmp/ilocap-headers --output /dev/null http://127.0.0.1:8520/
           grep -qi '^content-security-policy-report-only:' /tmp/ilocap-headers
           grep -qi '^x-frame-options: DENY' /tmp/ilocap-headers
